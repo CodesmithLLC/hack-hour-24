@@ -20,19 +20,11 @@ function fizzbuzz(num) {
   const fizzbuzz = [];
   for (let i = 1; i <= num; i += 1) {
     let word = '';
-    if (i % 3 === 0) {
-      word += 'fizz';
-    }
-    
-    if (i % 5 === 0) {
-      word += 'buzz';      
-    }
-
+    if (i % 3 === 0) { word += 'fizz'; }
+    if (i % 5 === 0) { word += 'buzz'; }
     fizzbuzz.push(word.length > 0 ? word : i);
   }
   return fizzbuzz;
 }
 
 module.exports = fizzbuzz;
-
-console.log(fizzbuzz(16));
