@@ -17,7 +17,24 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+       //returns an arr containing num starting from 1 to input num
+       let arr =  [];
+       for(let i = 1;  i <= num;  i++) {
+           if(i%3===0 && i%5!==0) {
+               arr.push('fizz');
+           } else if (i%5===0 && i%3!==0) {
+               arr.push('buzz');
+           } else if(i%3===0 && i%5===0) {
+               arr.push('fizzbuzz');
+           } else {
+             arr.push(i)
+           }
+           
+       }
+       return arr;
+       //test for numbs divisible by 3 and if it passes replace it with "fizz"
+       //  numbs%5===0 return "buzz"
+       // numbs%3  && numbs%5 is "fizzbuzz"
 }
 
 module.exports = fizzbuzz;
