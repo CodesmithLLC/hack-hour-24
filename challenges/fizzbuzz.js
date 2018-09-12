@@ -25,10 +25,11 @@ function fizzbuzz(num) {
     //intitialize fresult array
     let result = [];
     let stop = num + 1
+    let start = 1;
 
     //loop up to num if num is positive
-    if (0 < stop) {
-        for (let i = 0; i < stop; i++) {
+    if (start < stop) {
+        for (let i = start; i < stop; i++) {
             //set conditionals 
             //fizzbuzz = nums divisible by both 3 & 5
             if (i % 3 === 0 && i % 5 === 0) {
@@ -50,7 +51,7 @@ function fizzbuzz(num) {
     }
     //loop down to num if number is negative
     else {
-        for (let i = 0; i > stop; i--) {
+        for (let i = start; i > stop; i--) {
             //set conditionals 
             //fizzbuzz = nums divisible by both 3 & 5
             if (i % 3 === 0 && i % 5 === 0) {
