@@ -14,8 +14,24 @@
 */
 
 function drawStairs(n) {
+  let space = " ";
+  let stairs = "*";
+  let steps = "";
+  let stepCount = n - 1;
 
+  for (let i = 0; i < n; i++) {
+    steps += space;
+  }
+
+  steps = steps.split("");
+
+  for (let i = n; i >=0; i--) {
+    if (steps[i] === " "){
+      steps[i] = "*"
+      console.log(steps.join(""));
+    }
+  }
 }
-
+drawStairs(6);
 
 module.exports = drawStairs;

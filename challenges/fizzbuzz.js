@@ -29,8 +29,8 @@ function fizzbuzz(num) {
       output.push(i);
     }
   }
-  return output;
+  console.log(output);
 }
-console.log(fizzbuzz(16));
 
+fizzbuzz(10);
 module.exports = fizzbuzz;
