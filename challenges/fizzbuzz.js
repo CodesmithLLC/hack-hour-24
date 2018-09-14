@@ -21,6 +21,9 @@ function fizzbuzz(num) {
     let newArray = [];
     let n = 1
 
+    if(Math.sign(num) === -1){
+        num *= -1;
+    }
     //divisible by 3 & 5 fizzbuzz
 
     while(n <= num){
@@ -48,4 +51,4 @@ function fizzbuzz(num) {
 
 module.exports = fizzbuzz;
 
-console.log(fizzbuzz(16))
+console.log(fizzbuzz(-16))
