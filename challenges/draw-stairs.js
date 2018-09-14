@@ -14,14 +14,12 @@
 */
 
 function drawStairs(n) {
-    let output = '';
     for (let i = 1; i <= n; i++) {
         console.log(' '.repeat(n-i) + '*'.repeat(i))
     }
-    return output
 }
 
-console.log(drawStairs(6));
+drawStairs(6);
 
 
 
