@@ -13,9 +13,20 @@
 
 */
 
-function drawStairs(n) {
-
+function drawStairs(n, count = 1, reverseCount = n-1, total = '*') {
+    if (count === n) {
+        console.log(total);
+        return;
+    }
+    let string = '';
+    for (let i=reverseCount; i>0; i--) {
+        string += ' '
+    }
+    // using repeat
+        // console.log(' '.repeat(reverseCount) + total);
+    console.log(string + total);
+    return drawStairs(n, count+=1, reverseCount-=1, total += '*');
 }
 
-
+drawStairs(7);
 module.exports = drawStairs;
