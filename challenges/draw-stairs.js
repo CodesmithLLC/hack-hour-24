@@ -14,8 +14,22 @@
 */
 
 function drawStairs(n) {
-
+    // loop to log each line
+    for (let i = n; i >= 1; i--){
+        // set each string to empty and then add to it
+        let line = "";
+        // use a loop to add the correct amount of spaces 
+        for (let j = 1; j <= n; j++){
+            if (j >= i){
+              line += "*";
+            } else {
+              line += " ";
+            }
+        }
+        console.log(line);
+    }
 }
 
+drawStairs(10);
 
 module.exports = drawStairs;
