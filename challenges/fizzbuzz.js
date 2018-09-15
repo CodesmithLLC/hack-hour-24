@@ -72,7 +72,7 @@ function fizzbuzz(num) {
         }
     }
     //print result
-    console.log(result);
+    console.log(result); 
     //return
     return result;
 }
