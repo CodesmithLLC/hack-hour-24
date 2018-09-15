@@ -13,7 +13,7 @@
 function modemean(array) {
   let mean = 0;
   const modeObj = {};
-  let mode = 0;
+  let mode = array[0];
 
   array.forEach((el) => {
     mean += el;
@@ -26,9 +26,9 @@ function modemean(array) {
 
   mean = Math.floor(mean / array.length);
 
-  for (let keys in modeObj){
-    if(modeObj[keys] > mode) {
-      mode = keys
+  for (let keys in modeObj) {
+    if(modeObj[keys] >modeObj[mode]) {
+      mode = keys;
     }
   }
   if (mode === mean) {
