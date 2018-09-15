@@ -33,9 +33,8 @@ function mode(array){
     })
   
     
-    let objValues = Object.values(obj);
-    let maxVal = objValues.reduce((a,b) => a > b ? a : b);
-  
+    let maxVal = Object.values(obj).reduce((a,b) => a > b ? a : b);;
+   
     let MaxArray = []; //Array of Max keys
     for(let prop in obj){
         if(obj[prop] === maxVal){
