@@ -13,7 +13,6 @@
 function modemean(array) {
   const modeTracker = {};
   let mode = 0;
-  let modeCount = 0;
   const sum = array.reduce((acc, elem) => {
     acc += elem;
     return acc;
@@ -29,11 +28,10 @@ function modemean(array) {
     }
   })
   Object.keys(modeTracker).forEach((elem) => {
-    if (modeTracker[elem] > modeCount) {
+    if (modeTracker[elem] >= modeTracker[mode]) {
       mode = elem;
-      modeCount = modeTracker[elem];
     }
-    if (modeTracker[elem] === modeCount && elem > mode) {
+    if (modeTracker[elem] === modeTracker[mode] && elem > mode) {
       mode = elem;
     }
   });
