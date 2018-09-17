@@ -11,40 +11,49 @@
 
 
 function modemean(array) {
+    const sorted = array.sort();
+    const modeObj = {};  
+    let frequencies = 0; 
+    let maxMode; 
     let sum = 0;
-    const modes = {};
-    let maxMode
-    // iterate through the array and put into object if not exist
-    for (let i = 0; i < array.length; i++) {
-        if (!modes.hasOwnProperty(array[i])) {
-            modes[array[i]] = 1;
-        } else {
-            modes[array[i]]++;
-        }
+ 
+    for (let i = 0; i < sorted.length; i++) { 
+      if (!modeObj.hasOwnProperty(sorted[i])) { 
+        modeObj[sorted[i]] = 1;
+      } else { 
+        modeObj[sorted[i]]++;
+      }
     }
-    console.log(modes);
-    
+  
+    console.log(modeObj);
+  
+    for (let key in modeObj) {
+      if (modeObj[key] > frequencies) { 
+        maxMode = key;
+      } 
+    }
+  
     console.log(maxMode);
-    // const sorted = Object.entries(modes).sort((a, b) => {
-    //     return b[1] - a[1];
-    // })
-    // console.log(sorted);
-    // // check for 
-    // // for (let i = 0; i < sorted.length; i++) {
-    // //     if (sorted[i][1])
-    // // }
-    // let mode = Number(sorted[0][0]);
-    
-    for (let i = 0; i < array.length; i++) {
-        sum += array[i];
-    }
-    console.log(sum);
-    let mean = Math.floor(sum / array.length);
-    console.log(mean);
+  
+    let mode = Number(maxMode);
 
-    return (mode = mean) ? true : false;
+    for (let i = 0; i < sorted.length; i++) {
+      sum += sorted[i]; 
+    }
+ 
+    let mean = sum / sorted.length;
+
+    console.log(mode);
+    console.log(mean);
+  
+  
+    if (mode ===  mean) {
+      return true;
+    } else {
+      return false;
+    }
 }
 
 module.exports = modemean;
 
-console.log(modemean([1, 2, 2, 4, 3, 4, 3, 5, 6, 7]));
+console.log(modemean([5, 3, 8, 2, 1, 6, 3, 8]));
