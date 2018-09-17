@@ -28,5 +28,8 @@ function drawStairs(n, count = 1, reverseCount = n-1, total = '*') {
     return drawStairs(n, count+=1, reverseCount-=1, total += '*');
 }
 
+
+
+
 drawStairs(7);
 module.exports = drawStairs;

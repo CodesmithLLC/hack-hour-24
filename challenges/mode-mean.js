@@ -22,10 +22,11 @@ function modemean(array) {
         countObj[ele] = (countObj[ele] || 0) + 1;
       });
     
-    // find numbers that occur the most;
+    // find numbers that occur the most
       const maximum = Math.max(...Object.values(countObj).map(ele => {
         return ele;
       }));
+      
     // find key(s) associated with max number
       let moder;
       for (let key in countObj) {
