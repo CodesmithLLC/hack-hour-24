@@ -41,10 +41,9 @@ function modemean(array) {
       }
     }
   });
-  console.log(Math.floor(sum / array.length), parseInt(max.num, 10));
+
+  // Use parseInt() because max.num is an object key.
   return parseInt(max.num, 10) === Math.floor(sum / array.length);
 }
-
-console.log(modemean([2, 2, 5]));
 
 module.exports = modemean;
