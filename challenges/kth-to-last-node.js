@@ -22,7 +22,21 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  //cache the values of the linkedlist into an array
+  let array = [];
+  //passing a variable to the head so we can use the variable to lopp through the linked list
+  let currNode = head;
 
+  //iterate through the linked list and cache every value
+  while (currNode.next != null) {
+    array.push(currNode.value);
+    currNode = currNode.next;
+  }
+  //this is a grab because the while loop ends before i can get the last value one
+  array.push(currNode.value);
+  //deliver k spaces from the end of the array
+  return array[(array.length) - k];
+  
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
