@@ -28,10 +28,11 @@ function modemean(array) {
       mode = elem;
     }
   });
+  console.log(mean, mode);
   return mean.toString() === mode;
 }
 
-const test = [2, 2, 2, 2];
+const test = [2, 2, 8, 8, 6, 6];
 console.log(modemean(test));
 
 module.exports = modemean;
