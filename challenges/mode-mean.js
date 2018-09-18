@@ -36,7 +36,7 @@ function mode(array){
     }
     return inner();
 }
-console.log(mode([1.5,2,3.5,2,2,3.5]))
+
 function mean(array){
     function sumUp(array, sum = 0,i = 0){
         if(i === array.length){return sum}
@@ -46,5 +46,5 @@ function mean(array){
 }
 
 
-console.log(mode([100,101,102,103,104.5,105.9]))
+console.log(mean([100,101,102,102,101,100]))
 module.exports = modemean;
