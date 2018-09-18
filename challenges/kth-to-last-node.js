@@ -41,8 +41,8 @@ function kthToLastNode(k, head) {
     nextNode = nextNode.next;
   }
 
-  return nodeArray.length < k || k <= 0 ? 'not possible' : nodeArray[nodeArray.length - k].value;
+  return nodeArray.length < k || k <= 0 ? 'not a valid request' : nodeArray[nodeArray.length - k].value;
 }
 
-console.log(kthToLastNode(-1, a)); 
+kthToLastNode(-1, a);
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
