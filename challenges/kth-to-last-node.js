@@ -19,10 +19,30 @@
 function Node(val) {
   this.value = val;
   this.next = null;
+  this.add = function(val) {
+    let newNode = new Node(val);
+    this.next = newNode;
+    return newNode;
+  }
 }
 
 function kthToLastNode(k, head) {
-
+  // construct the linked list
+  // let llist = new Node('A');
+  // llist.add('B').add('C').add('D').add('E');
+  // get the length
+  let cur = head;
+  let llistLen = 0;
+  
+  while (cur != null) {
+    cur = cur.next;
+    llistLen ++;
+  }
+  cur = head;
+  for (let i = 0; i < llistLen - k; i++) {
+    cur = cur.next;
+  }
+  return cur.val;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
