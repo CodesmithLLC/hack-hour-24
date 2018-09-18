@@ -22,7 +22,25 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  let currentVal = head;
+  let nodeCount = 1;
 
+  // find out how many items are in linked list:
+  while (currentVal.next) {
+    nodeCount += 1;
+    currentVal = currentVal.next;
+  }
+
+  // find item. go down list nodeCount - k times.
+  currentVal = head;
+  for (let i = 0; i < nodeCount - k; i += 1) {
+    currentVal = currentVal.next;
+  }
+
+  return currentVal.value;
 }
+
+
+
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
