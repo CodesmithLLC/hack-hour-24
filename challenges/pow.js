@@ -2,15 +2,11 @@
  * Use recursion!
  */
 
-function pow(base, power) {
-  let output = base
-  while (power > 1) {
-    output *= base;
-    power--;
-  }
-  return output;
-}
+function pow(base, power, output = base) {
 
+  if (power === 1) { return output; }
+  return pow (base, power -= 1, output * base);
+}
 
 
 module.exports = pow;
