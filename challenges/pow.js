@@ -2,8 +2,9 @@
  * Use recursion!
  */
 
-function pow(base, power) {
-
+function pow(base, power, total = 1) {
+  return (power === 0) ? total : pow(base, power -= 1, total *= base)
 }
+console.log(pow(5, 7));
 
 module.exports = pow;
