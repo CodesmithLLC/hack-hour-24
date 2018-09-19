@@ -15,20 +15,20 @@
 
 function drawStairs(n) {
 
-    for(let i = 0; i <= n; i++){
-      let newArr = new Array(n).fill(' '); 
-        for(let j = 0; j<= i; j++){
+    for (let i = 0; i <= n; i++) {
+        let newArr = new Array(n).fill(' ');
+        for (let j = 0; j <= i; j++) {
             newArr[j] = '*';
-            }
-            console.log(newArr.reverse().join(''))
+        }
+        console.log(newArr.reverse().join(''))
     }
- //create a forloop that maxes at n 
+    //create a forloop that maxes at n 
 
-//init an empty array each time 
+    //init an empty array each time 
 
-//second for loop? 
+    //second for loop? 
 
-//add an increment of an asterick at each iteration 
+    //add an increment of an asterick at each iteration 
 
 
 }
