@@ -2,8 +2,11 @@
  * Use recursion!
  */
 
-function pow(base, power) {
-
+function pow(base, power, total = 1) {
+  if (power === 0) return total;
+  return pow(base, power - 1, total * base);
 }
+const test = (pow(2, 8));
+console.log(test);
 
 module.exports = pow;
