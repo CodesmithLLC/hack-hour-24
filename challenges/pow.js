@@ -9,4 +9,14 @@ function pow(base, power) {
   return base * pow(base, power - 1);
 }
 
+function powTail(base, power, current = 1) {
+  if (power === 1) {
+    return base * current;
+  } else {
+    current *= base;
+    power -= 1;
+    return powTail(base, power, current);
+  }
+}
+
 module.exports = pow;

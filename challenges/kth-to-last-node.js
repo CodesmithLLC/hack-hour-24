@@ -16,29 +16,53 @@
  * kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
 
+// refactored solution after seeing Sam's solution (does not include consideration of edge cases):
 function Node(val) {
   this.value = val;
   this.next = null;
 }
 
 function kthToLastNode(k, head) {
-  let currentVal = head;
-  let nodeCount = 1;
+  let lead = head;
+  let current = head;
 
-  // find out how many items are in linked list:
-  while (currentVal.next) {
-    nodeCount += 1;
-    currentVal = currentVal.next;
+  for (let i = 0; i < k - 1; i++) {
+    lead = lead.next
   }
 
-  // find item. go down list nodeCount - k times.
-  currentVal = head;
-  for (let i = 0; i < nodeCount - k; i += 1) {
-    currentVal = currentVal.next;
+  while (lead.next) {
+    lead = lead.next;
+    current = current.next;
   }
 
-  return currentVal.value;
-}
+  return current.value;
+
+
+
+// // my original solution:
+//  function Node(val) {
+//   this.value = val;
+//   this.next = null;
+// }
+
+// function kthToLastNode(k, head) {
+//   let currentVal = head;
+//   let nodeCount = 1;
+
+//   // find out how many items are in linked list:
+//   while (currentVal.next) {
+//     nodeCount += 1;
+//     currentVal = currentVal.next;
+//   }
+
+//   // find item. go down list nodeCount - k times.
+//   currentVal = head;
+//   for (let i = 0; i < nodeCount - k; i += 1) {
+//     currentVal = currentVal.next;
+//   }
+
+//   return currentVal.value;
+// }
 
 
 
