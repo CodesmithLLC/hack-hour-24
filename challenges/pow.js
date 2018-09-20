@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 /** 
 * @name pow
@@ -25,5 +26,14 @@ function pow(base, power) {
 //test cases
 console.log(pow(2,-2));
 console.log(pow(2,3));
+=======
+/* Write a function that calculates x^y, where x is given as the base and y is given as the power.
+ * Use recursion!
+ */
+
+function pow(base, power) {
+
+}
+>>>>>>> 127efc6f764205731fe89dd04b74b70d2be36bf0
 
 module.exports = pow;
