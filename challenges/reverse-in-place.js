@@ -1,4 +1,5 @@
 'use strict';
+
 /**
  * Write a function to reverse an array in place
  *
@@ -14,7 +15,27 @@
  */
 
 function reverseInPlace(array) {
-
+  // Handle edge case - empty or short array
+  if (array.length < 2) {
+    return array;
+  }
+  // If array is long, remove and cache the first and last element
+  const startCache = array.shift();
+  const endCache = array.pop();
+  // Recursively call reverseInPlace on the remaining inner array
+  array = reverseInPlace(array);
+  // Unshift/Push the cached valeus on the return array in reverse order and return
+  array.push(startCache);
+  array.unshift(endCache);
+  return array;
 }
+
+// console.log('---TESTING reverseInPlace---');
+// console.log(reverseInPlace([]));
+// console.log(reverseInPlace([5]));
+// console.log(reverseInPlace([1, 2]));
+// console.log(reverseInPlace([1, 2, 3]));
+// console.log(reverseInPlace([1, 2, 3, 4]));
+// console.log(reverseInPlace([1, 2, 3, 4, 5]));
 
 module.exports = reverseInPlace;
