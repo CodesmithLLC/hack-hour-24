@@ -18,6 +18,6 @@ function pow(base, power, product = 1) {
 
   
 }
-console.log(pow(-2, -5));
-console.log(Math.pow(-2, -5))
+console.log(pow(-2, 6));
+console.log(Math.pow(-2, 6))
 module.exports = pow;
