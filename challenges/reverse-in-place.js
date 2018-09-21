@@ -14,7 +14,14 @@
  */
 
 function reverseInPlace(array) {
-
+  let temp
+  for (let i = 0; i < Math.floor(array.length / 2); i++) {
+    temp = array[i];
+    let oppInd = array.length - 1 - i;
+    array[i] = array[oppInd];
+    array[oppInd] = temp;
+  }
+  return array;
 }
 
 module.exports = reverseInPlace;
