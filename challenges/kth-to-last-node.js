@@ -27,22 +27,27 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  // construct the linked list
-  // let llist = new Node('A');
-  // llist.add('B').add('C').add('D').add('E');
-  // get the length
-  let cur = head;
-  let llistLen = 0;
+  // move k positions
+  if (k === 0)
+    return;
+
+  let follow = head;
+  let i = k;
   
-  while (cur != null) {
-    cur = cur.next;
-    llistLen ++;
+  while (i > 0 && head.next) {
+    head = head.next;
+    i--;
   }
-  cur = head;
-  for (let i = 0; i < llistLen - k; i++) {
-    cur = cur.next;
+  
+  if (i > 0)
+    return;
+
+  while (head.next) {
+    head = head.next;
+    follow = follow.next;
   }
-  return cur.val;
+
+  return follow;
 }
 
 module.exports = {Node: Node, kthToLastNode: kthToLastNode};
