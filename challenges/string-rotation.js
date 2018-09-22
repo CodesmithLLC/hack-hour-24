@@ -14,9 +14,27 @@
 function isSubstring(s1, s2) {
   return s1.indexOf(s2) >= 0;
 }
-
+function permutations(s) {
+  const ps = [];
+  const mutableArray = s.split('');
+  for (let i = 0; i < s.length; i += 1) {
+    ps.push(mutableArray.join(''));
+    mutableArray.splice(0, 0, mutableArray.pop());
+  }
+  return ps;
+}
 function stringRotation(s1, s2) {
+  const compare = s1 + s1;
+  //const poss = permutations(s1);
+  //return poss.includes(s2);
+  if (s1.length !== s2.length) return false;
+  return isSubstring(compare, s2);
 
 }
+
+const str1 = "hello";
+const str2 = "lohel";
+
+console.log(stringRotation(str1,str2));
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
