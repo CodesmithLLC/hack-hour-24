@@ -16,7 +16,14 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  s2 = s2.repeat(2);
+  return isSubstring(s2, s1);
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+
+console.log('---TESTING stringRotation---');
+console.log(`stringRotation('hello', 'hello'): expect -> true: actual -> ${stringRotation('hello', 'hello')}`);
+console.log(`stringRotation('hello', 'llohe'): expect -> true: actual -> ${stringRotation('hello', 'llohe')}`);
+console.log(`stringRotation('hello', 'he'): expect -> false: actual -> ${stringRotation('hello', 'he')}`);
+console.log(`stringRotation('hello', 'ollhe'): expect -> false: actual -> ${stringRotation('hello', 'ollhe')}`);
