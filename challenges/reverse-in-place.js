@@ -26,3 +26,26 @@ module.exports = reverseInPlace;
 const test = [5, 4, 3, 2, 1];
 
 console.log(reverseInPlace(test));
+
+
+
+
+
+
+
+/*
+function reverseInPlace(array) {
+  // define head and tail
+  let head = 0;
+  let tail = array.length - 1;
+  // loop through array until head and tail meet
+  while (head < tail) {
+    // create temp reference to head value
+    let temp = array[head];
+    // swap head with tail and increment each
+    array[head++] = array[tail];
+    array[tail--] = temp;
+  }
+  return array;
+}
+*/
