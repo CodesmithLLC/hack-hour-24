@@ -16,7 +16,27 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  // take first letter of s1 and see if it exists in s2
+  // find the indexOf this letter in s2
+  let indexOfFirstLetter = s2.indexOf(s1.charAt(0));
+  if (indexOfFirstLetter === -1) {
+    return false;
+  }
+  // start looping from the beginning of s1 and then the index of s2
+  // i is the incrementer for s1, j is the incrementer for s2
+  for (var i=0, j=indexOfFirstLetter; j<s2.length; i++, j++) {
+    if (s1.charAt[i] !== s2.charAt[j]) {
+      return false;
+    }
+  }
+  // if reach end of s2, then increment from beginning;
+    // after this happens, slice the remaining letters of s1 and the letters of s2 to the index of s2
+  if (s1.slice(i, s1.length) !== s2.slice(0, indexOfFirstLetter)) {
+    return false;
+  }
+  return true;
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+console.log(stringRotation("hhello", "ellohh"));
+
+// module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
