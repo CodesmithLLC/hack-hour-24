@@ -24,8 +24,27 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
+  const brackets = '[{()}]';
+  let charsArray = input.split('');
 
+  return (
+    charsArray
+      .filter(char => brackets.indexOf(char) > -1)
+      .reduce((bool, bracket, i) => {
+        if (
+          (bracket === '[' && charsArray[charsArray.length - 1 - i] !== ']') ||
+          (bracket === '{' && charsArray[charsArray.length - 1 - i] !== '}') ||
+          (bracket === '(' && charsArray[charsArray.length - 1 - i] !== ')')
+        ) {
+          return false;
+        }
+        return bool;
+      }, true)
+  );
 }
 
 module.exports = balancedParens;
+
+
+console.log(balancedParens('({[[]})'))
