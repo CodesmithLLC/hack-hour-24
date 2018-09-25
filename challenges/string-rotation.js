@@ -11,15 +11,16 @@ console.log(stringRotation("hello", "he")) //-> false
 console.log(stringRotation("hello", "ollhe")) //-> false (not a rotation, just an anagram)
 
 
-function isSubstring(temp, s2) {
+function isSubstring(s1, s2) {
 
 
-  return temp.indexOf(s2) >= 0;
+  return s1.indexOf(s2) >= 0;
 }
 
 function stringRotation(s1, s2) {
 
   let temp = s1 + s1;
+  
   if (s1.length !== s2.length) {
     return false;
   }
