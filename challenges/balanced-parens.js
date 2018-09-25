@@ -25,7 +25,29 @@
  */
 
 function balancedParens(input){
-
+    let stack = [];
+    
+    for (let i  = 0; i < input.length; i++) {
+        let s = input.charAt(i);
+        if (s === '[' || s === '(' || s === '{') {
+            stack.push(s);
+        }
+        else{
+            let test = stack[stack.length - 1];
+            if ((s == ']' && test != '[') || (s == ')' && test != '(') || (s == '}' && test != '{'))
+                return false;
+            stack.pop();
+        }
+    }
+    return stack.length == 0;
 }
-
+console.log(balancedParens('('));
+console.log(balancedParens('()'));
+console.log(balancedParens(')('));
+console.log(balancedParens('(())'));
+console.log(balancedParens('[](){}'));
+console.log(balancedParens('[({})]'));
+console.log(balancedParens('[](){}'));
+console.log(balancedParens('[(()){}]'));
+console.log(balancedParens('[(]{)}'));
 module.exports = balancedParens;
