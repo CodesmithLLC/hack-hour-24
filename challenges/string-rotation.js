@@ -16,7 +16,9 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
-
+  let anagram = s1.split('').reverse().join('');
+  console.log(anagram);
+  isSubstring();
 }
 
 module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
