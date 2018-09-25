@@ -29,14 +29,28 @@ function balancedParens(input){
     
     for (let i  = 0; i < input.length; i++) {
         let s = input.charAt(i);
-        if (s === '[' || s === '(' || s === '{') {
-            stack.push(s);
-        }
-        else{
-            let test = stack[stack.length - 1];
-            if ((s == ']' && test != '[') || (s == ')' && test != '(') || (s == '}' && test != '{'))
-                return false;
-            stack.pop();
+        let test = stack[stack.length - 1];
+        switch (s) {
+            case '[':
+            case '(':
+            case '{':
+                stack.push(s);
+                break;
+            case ']':
+                if (test != '[')
+                    return false;
+                stack.pop();
+                break;
+            case ')':
+                if (test != '(')
+                    return false;
+                stack.pop();
+                break;
+            case '}':
+                if (test != '{')
+                    return false;
+                stack.pop();
+                break;
         }
     }
     return stack.length == 0;
@@ -50,4 +64,6 @@ console.log(balancedParens('[({})]'));
 console.log(balancedParens('[](){}'));
 console.log(balancedParens('[(()){}]'));
 console.log(balancedParens('[(]{)}'));
+console.log(balancedParens(' var wow  = { yo: thisIsAwesome() }'));
+console.log(balancedParens(' var hubble = function() { telescopes.awesome();'));
 module.exports = balancedParens;
