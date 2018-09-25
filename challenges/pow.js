@@ -6,6 +6,7 @@ function pow(base, power, product = 1) {
   if (power === 0) return product;
   const newPower = power - 1;
   return pow(base, newPower, base * product);
+  // return base * pow(base, newPower);
 }
 
 module.exports = pow;
