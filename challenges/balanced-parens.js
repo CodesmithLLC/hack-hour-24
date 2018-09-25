@@ -25,7 +25,37 @@
  */
 
 function balancedParens(input){
-
+      var p = 0, 
+      b = 0, 
+      c = 0
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === '(') {
+      p += 1;
+    }
+    if (input[i] === ')') {
+      p -= 1;
+    }
+    if (input[i] === '[') {
+      b += 1;
+    }
+    if (input[i] === ']') {
+      b -= 1;
+    }
+    if (input[i] === '{') {
+      c += 1;
+    }
+    if (input[i] === '}') {
+      c -= 1;
+    }
+    if ( p < 0 || b < 0 || c < 0) {
+      return false;
+    }
+  }
+  if ( p === 0 && b === 0 && c === 0 ) {
+      return true;
+    } else {
+      return false;
+    }
 }
 
 module.exports = balancedParens;
