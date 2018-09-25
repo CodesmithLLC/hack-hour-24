@@ -25,7 +25,30 @@
  */
 
 function balancedParens(input){
-
+    
+    let balance = {'(':')','{':'}','[':']'}
+    let openers = '({['
+    let closers = '}])'
+    let stack = [];
+    let i = 0;
+    while(i < input.length){
+      if(openers.includes(input[i])){
+        stack.push(input[i])
+      }else if(closers.includes(input[i])) {
+        if(stack.length === 0) return false;
+        let popped = stack.pop();
+        if(input[i] !== balance[popped]){
+          return false;
+        }
+      }
+      i++; 
+    }
+    if (stack.length === 0){
+      return true;
+    } else{
+      return false;
+    }
 }
-
+const input = ')(';
+console.log(balancedParens(input));
 module.exports = balancedParens;
