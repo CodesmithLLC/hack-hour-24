@@ -24,8 +24,28 @@
  *
  */
 
-function balancedParens(input){
+function balancedParens(input) {
+  const openBrackets = ['[', '{', '('];
+  const closedBrackets = [']', '}', ')'];
 
+  const obj = {
+    '[': ']',
+    '(': ')',
+    '{': '}',
+  };
+  // If current ch is opening bracket push to array
+  // If current ch is closing bracket pop off
+  const array = [];
+  for (let i = 0; i < input.length; i += 1) {
+    const ch = input[i];
+    if (openBrackets.indexOf(ch) !== -1) {
+      array.push(ch);
+    } else if (closedBrackets.indexOf(ch) !== -1) {
+    input.pop();
+    
+  }
+  return array;
 }
 
+console.log(balancedParens('(){}0['));
 module.exports = balancedParens;
