@@ -24,10 +24,11 @@
  *
  */
 
-function balancedParens(input){
-      var p = 0, 
-      b = 0, 
-      c = 0
+function balancedParens(input) {
+      var p = 0; 
+      var b = 0; 
+      var c = 0;
+      
   for (let i = 0; i < input.length; i++) {
     if (input[i] === '(') {
       p += 1;
