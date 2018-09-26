@@ -24,76 +24,76 @@
  *
  */
 
-// function balancedParens(input) {
-//   const workArr = Array.from(input);
-//   let balance = 0;
-
-//   workArr.forEach((item) => {
-//     switch (item) {
-//       case '(':
-//         balance += 1;
-//         break;
-//       case '{':
-//         balance += 1;
-//         break;
-//       case '[':
-//         balance += 1;
-//         break;
-//       case '}':
-//         if (balance === 0) return false;
-//         balance -= 1;
-//         break;
-//       case ')':
-//         if (balance === 0) return false;
-//         balance -= 1;
-//         break;
-//       case ']':
-//         if (balance === 0) return false;
-//         balance -= 1;
-//         break;
-//       default:
-//         break;
-//     }
-//   });
-//   return (balance === 0);
-// }
-
-
 function balancedParens(input) {
-  const object = {
-    openBrackets: [],
-  };
   const workArr = Array.from(input);
+  let balance = 0;
 
   workArr.forEach((item) => {
     switch (item) {
-      case '[':
-        object.openBrackets.unshift(item);
-        break;
       case '(':
-        object.openBrackets.unshift(item);
+        balance += 1;
         break;
       case '{':
-        object.openBrackets.unshift(item);
+        balance += 1;
         break;
-      case ']':
-        if (object.openBrackets[0] !== '[') return false;
-        object.openBrackets.shift();
-        break;
-      case ')':
-        if (object.openBrackets[0] !== '(') return false;
-        object.openBrackets.shift();
+      case '[':
+        balance += 1;
         break;
       case '}':
-        if (object.openBrackets[0] !== '{') return false;
-        object.openBrackets.shift();
+        if (balance === 0) return false;
+        balance -= 1;
+        break;
+      case ')':
+        if (balance === 0) return false;
+        balance -= 1;
+        break;
+      case ']':
+        if (balance === 0) return false;
+        balance -= 1;
+        break;
       default:
         break;
     }
   });
-
-  return (object.openBrackets.length === 0);
+  return (balance === 0);
 }
+
+
+// function balancedParens(input) {
+//   const object = {
+//     openBrackets: [],
+//   };
+//   const workArr = Array.from(input);
+
+//   workArr.forEach((item) => {
+//     switch (item) {
+//       case '[':
+//         object.openBrackets.unshift(item);
+//         break;
+//       case '(':
+//         object.openBrackets.unshift(item);
+//         break;
+//       case '{':
+//         object.openBrackets.unshift(item);
+//         break;
+//       case ']':
+//         if (object.openBrackets[0] !== '[') return false;
+//         object.openBrackets.shift();
+//         break;
+//       case ')':
+//         if (object.openBrackets[0] !== '(') return false;
+//         object.openBrackets.shift();
+//         break;
+//       case '}':
+//         if (object.openBrackets[0] !== '{') return false;
+//         object.openBrackets.shift();
+//       default:
+//         break;
+//     }
+//   });
+
+//   return (object.openBrackets.length === 0);
+// }
 
 
 console.log(balancedParens(')('));
