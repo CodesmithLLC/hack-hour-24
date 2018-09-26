@@ -17,7 +17,20 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+    let ans = [];
+    for (let i = 1; i <= num; i++) {
+        if (i % 15 === 0) {
+            ans.push('fizzbuzz')
+        } else if (i % 5 === 0) {
+            ans.push('fizz')
+        } else if (i % 3 === 0) {
+            ans.push('buzz')
+        } else ans.push(i)
+    }
 
-}
+    return ans;
+};
+
+console.log(fizzbuzz(29));
 
 module.exports = fizzbuzz;
