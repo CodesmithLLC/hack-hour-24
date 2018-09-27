@@ -11,7 +11,7 @@
 
 
 function modemean(array) {
-
+  console.log('archiac bullshit');
 }
 
 module.exports = modemean;
