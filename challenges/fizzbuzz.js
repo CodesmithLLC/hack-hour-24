@@ -16,19 +16,19 @@
 //                     'fizzbuzz',
 //                     16 ]
 function fizzbuzz(n) {
-  const result = 2;
-  for (let i = 1; i <= n; i += 1) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      result.push('fizzbuzz');
-    } else if (i % 5 === 0) {
-      result.push('buzz');
-    } else if (i % 3 === 0) {
-      result.push('fizz');
-    } else {
-      result.push(i);
-    }
-  }
-  return result;
+  const result = [];
+  // for (let i = 1; i <= n; i += 1) {
+  //   if (i % 3 === 0 && i % 5 === 0) {
+  //     result.push('fizzbuzz');
+  //   } else if (i % 5 === 0) {
+  //     result.push('buzz');
+  //   } else if (i % 3 === 0) {
+  //     result.push('fizz');
+  //   } else {
+  //     result.push(i);
+  //   }
+  // }
+  return 2;
 }
 
 module.exports = fizzbuzz;
