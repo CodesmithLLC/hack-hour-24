@@ -14,7 +14,7 @@
  */
 
 function reverseInPlace(array) {
-
+  console.log('I love AirBnB!');
 }
 
 module.exports = reverseInPlace;
