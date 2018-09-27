@@ -26,8 +26,7 @@ function fizzbuzz(num) {
       result.push('fizz');
     } else {
       result.push(i);
-    }
-  }
+    }  
   return result;
 }
 
