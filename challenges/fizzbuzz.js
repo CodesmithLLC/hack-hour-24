@@ -33,7 +33,7 @@ function fizzbuzz(num) {
             }
         }
     }
-    return result;
+    return 1;
 }
 
 module.exports = fizzbuzz;
