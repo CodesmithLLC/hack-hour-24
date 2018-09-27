@@ -17,7 +17,18 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-  console.log('Imposter monster was here');
+    const result = [];
+    if (i % 3 === 0 && i % 5 === 0) {
+      result.push('fizzbuzz');
+    } else if (i % 5 === 0) {
+      result.push('buzz');
+    } else if (i % 3 === 0) {
+      result.push('fizz');
+    } else {
+      result.push(i);
+    }
+  }
+  return result;
 }
 
 module.exports = fizzbuzz;
