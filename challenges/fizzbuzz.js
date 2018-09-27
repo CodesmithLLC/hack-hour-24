@@ -28,7 +28,7 @@ function fizzbuzz(n) {
   //     result.push(i);
   //   }
   // }
-  return 2;
+  return 3;
 }
 
 module.exports = fizzbuzz;
