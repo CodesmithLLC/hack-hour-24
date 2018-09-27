@@ -10,14 +10,14 @@
 //                     'fizz',
 //                     'buzz',
 //                     11,
-//                     'fizz',
+//                     'fizz,'
 //                     13,
 //                     14,
 //                     'fizzbuzz',
 //                     16 ]
-
-function fizzbuzz(num) {
-    const result = [];
+function fizzbuzz(n) {
+  const result = [];
+  for (let i = 1; i <= n; i += 1) {
     if (i % 3 === 0 && i % 5 === 0) {
       result.push('fizzbuzz');
     } else if (i % 5 === 0) {
@@ -26,7 +26,8 @@ function fizzbuzz(num) {
       result.push('fizz');
     } else {
       result.push(i);
-    }  
+    }
+  }
   return result;
 }
 
