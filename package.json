@@ -21,7 +21,9 @@
     "mocha": "^2.2.5",
     "mocha-email-reporter": "1.0.2",
     "request": "^2.65.0",
-    "sendgrid": "^3.0.8"
+    "sendgrid": "^3.0.8",
+    "config": "^1.30.0",
+    "@sendgrid/mail": "^6.2.1"
   },
   "repository": {
     "type": "git",
