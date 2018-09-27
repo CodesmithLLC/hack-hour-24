@@ -17,7 +17,7 @@
 //                     16 ]
 
 function fizzbuzz(num) {
-
+  console.log('Imposter monster was here');
 }
 
 module.exports = fizzbuzz;
