@@ -8,26 +8,18 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function combination (arr) {
-
-    let i, j, temp
-    let result = []
-    let arrLen = arr.length
-    let power = Math.pow
-    let combinations = power(2, arrLen)
-    
-    for (i = 0; i < combinations;  i++) {
-      temp = 0;
-      
-      for (j = 0; j < arrLen; j++) {
-        if ((i & power(2, j))) {
-          temp += arr[j]
-        }
+function combination(chars) {
+    var result = [];
+    var f = function(initial, chars) {
+      for (var i = 0; i < chars.length; i++) {
+        result.push(initial + chars[i]);
+        f(initial + chars[i], chars.slice(i + 1));
       }
-      result.push(temp)
     }
-    return result
+    f(0, chars);
+    return result;
   }
+  
   
   console.log(combination([1, 2, 3]))
   function subsetSum(array, target){
