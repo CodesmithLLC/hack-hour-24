@@ -32,21 +32,25 @@ function romanNumeral(n) {
 }
 console.log(romanNumeral(8))
 
-// function test(n) {
-//   let obj = {10:'x',9:'ix',5:'v',1:'i'};
-//   let keys = Object.keys(obj);
-//   let vals = Object.values(obj);
-//   let result = '';
-//   for (let i=0;i<keys.length;i++) {
-     
-//     if(n>=i){
-//       while(n>i){
-//         result=result.concat(obj[i])
-//         }
-//     }
-//   }
-//   return result;
-// }
-// console.log(test(2))
+function test(n) {
+  let obj = {50:'xl',40:'x',10:'x',9:'ix',5:'v',4:'iv', 1:'i'};
+  let keys = Object.keys(obj);
+  console.log(keys)
+  let result = '';
+  for (let i=keys.length-1;i>=0;i--) {
+     console.log(keys[i])
+    if(n>=keys[i]){  
+      while(n>=keys[i]){
+        console.log(keys[i])
+        let mo = n%keys[i];
+        console.log((n-mo)/(keys[i]))
+        result = result.concat((obj[keys[i]]).repeat((n-mo)/(keys[i])));
+        n = mo;
+        }
+    }
+  }
+  return result;
+}
+console.log(test(44))
 
 module.exports = romanNumeral;
