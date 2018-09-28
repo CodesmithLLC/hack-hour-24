@@ -28,8 +28,14 @@ function drawStairs(n) {
   }
 }
 
-// TEST CASES
-// console.log(`drawStairs(1): expect -> '*': actual below:`);
+// console.log('---TESTING drawStairs---');
+// console.log('drawStairs(1):');
 // drawStairs(1);
+// console.log('drawStairs(3):');
+// drawStairs(3);
+// console.log('drawStairs(6):');
+// drawStairs(6);
+// console.log('drawStairs(8):');
+// drawStairs(8);
 
 module.exports = drawStairs;
