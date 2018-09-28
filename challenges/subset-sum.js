@@ -9,7 +9,15 @@
  */
 
 function subsetSum(array, target) {
-
+  if (array[0] === target) {
+    return true;
+  } 
+  if (array.length <= 1) {
+    return false;
+  }
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
 }
+
+console.log(subsetSum([8, 2, 4, 12], 13));
 
 module.exports = subsetSum;
