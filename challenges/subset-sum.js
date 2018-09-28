@@ -9,7 +9,22 @@
  */
 
 function subsetSum(array, target) {
-
+  // base case - array at index 0 is equal to target
+  if (array[0] === target) {
+    return true;
+  }
+  // base case - array has one or fewer elements left, but value at index 0 is not equal to target
+  if (array.length <= 1) {
+    return false;
+  }
+  // otherwise, return recursive call, removing first element and taking it out of target or not
+  return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
 }
 
 module.exports = subsetSum;
+
+console.log('---TESTING subsetSum---');
+console.log(`subsetSum([3, 7, 4, 2], 5): expect -> true: actual -> ${subsetSum([3, 7, 4, 2], 5)}`);
+console.log(`subsetSum([3, 34, 4, 12, 5, 12], 32): expect -> true: actual -> ${subsetSum([3, 34, 4, 12, 5, 12], 32)}`);
+console.log(`subsetSum([8, 2, 4, 12], 13): expect -> true: actual -> ${subsetSum([8, 2, 4, 12], 13)}`);
+console.log(`subsetSum([8, -2, 1, -3], 6): expect -> true: actual -> ${subsetSum([8, -2, 1, -3], 6)}`);
