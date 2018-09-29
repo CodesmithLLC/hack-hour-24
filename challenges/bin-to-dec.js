@@ -14,7 +14,11 @@
  */
 
 function binToDec(binary) {
-
+  let splitNum = binary.split('');
+  return splitNum.reduce((acc, curr, i, arr) => {
+    acc += parseInt(curr) * Math.pow(2, arr.length - 1 - i);
+    return acc;
+  }, 0)
 }
 
 module.exports = binToDec;
