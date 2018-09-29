@@ -18,6 +18,21 @@ function combination(chars) {
     }
     f(0, chars);
     return result;
+
+
+    // a better way...?
+    // let result=[];  
+    // function inner(r,l){
+    //   if(r.length === 0) {
+    //     result.push(l);
+    //   }
+    //   else{     
+    //     inner(r.slice(1),l.concat(r[0]));
+    //     inner(r.slice(1),l);
+    //   }
+    // }
+    // inner(chars, []);
+    // return result;
   }
   
   
