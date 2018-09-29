@@ -22,7 +22,7 @@ function reverseInPlace(array) {
   }    
 }
 
-let testA = ['a', 'b', 'd', 'e', 'c', 'f', 'h', 'z'];
+let testA = ['a', 'b'];
 reverseInPlace(testA);
 console.log(testA);
 module.exports = reverseInPlace;

@@ -13,8 +13,34 @@
  * Write a function that converts a decimal number to binary (then maybe hexadecimal)
  */
 
-function binToDec(binary) {
-
-}
-
+function binToDec(binary, output = 0) {
+    //Recursive Method
+    if (binary.length === 0) return output;
+    if(binary[0] === '1'){
+      let power = binary.length -1;
+      return binToDec(binary.slice(1), output += Math.pow(2,power));
+    } else{
+      return binToDec(binary.slice(1), output);
+    }
+  }
+  //LOOP METHOD
+  //     let output = 0;
+  //     let power = binary.length - 1;
+  //     for (let i = 0; i < binary.length; i += 1) {
+  //         if (binary[i] === '0'){
+  //             output += 0;
+  //         } else{
+  //             output += Math.pow(2, power);
+  //         }
+  //         power -= 1;
+  //     }
+  //     return output;
+  // }
+  //Reduce METHOD:
+  // const input = binary.split('');
+  //     return input.reduce((acc,char, index) => {
+  //       if(char === '1') acc += Math.pow(2, binary.length - 1 - index);
+  //       return acc;
+  //     }, 0);
+  console.log(binToDec('0101'));
 module.exports = binToDec;
