@@ -23,8 +23,8 @@ function subsetSum(array, target) {
 
 module.exports = subsetSum;
 
-console.log('---TESTING subsetSum---');
-console.log(`subsetSum([3, 7, 4, 2], 5): expect -> true: actual -> ${subsetSum([3, 7, 4, 2], 5)}`);
-console.log(`subsetSum([3, 34, 4, 12, 5, 12], 32): expect -> true: actual -> ${subsetSum([3, 34, 4, 12, 5, 12], 32)}`);
-console.log(`subsetSum([8, 2, 4, 12], 13): expect -> true: actual -> ${subsetSum([8, 2, 4, 12], 13)}`);
-console.log(`subsetSum([8, -2, 1, -3], 6): expect -> true: actual -> ${subsetSum([8, -2, 1, -3], 6)}`);
+// console.log('---TESTING subsetSum---');
+// console.log(`subsetSum([3, 7, 4, 2], 5): expect -> true: actual -> ${subsetSum([3, 7, 4, 2], 5)}`);
+// console.log(`subsetSum([3, 34, 4, 12, 5, 12], 32): expect -> true: actual -> ${subsetSum([3, 34, 4, 12, 5, 12], 32)}`);
+// console.log(`subsetSum([8, 2, 4, 12], 13): expect -> false: actual -> ${subsetSum([8, 2, 4, 12], 13)}`);
+// console.log(`subsetSum([8, -2, 1, -3], 6): expect -> true: actual -> ${subsetSum([8, -2, 1, -3], 6)}`);
