@@ -22,6 +22,6 @@ function subsetSum(array, target) {
   return subsetSum(array.slice(1), target - array[0]) || subsetSum(array.slice(1), target);
 }
 
-// console.log(subsetSum([8, 2, 4, 12], 13));
+// mconsole.log(subsetSum([8, 2, 4, 12], 13));
 
 module.exports = subsetSum;
