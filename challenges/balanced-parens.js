@@ -26,7 +26,7 @@
 
 function balancedParens(input) {
   const brackets = '[{()}]';
-  let charsArray = input.split('');
+  const charsArray = input.split('');
 
   return (
     charsArray
@@ -45,6 +45,3 @@ function balancedParens(input) {
 }
 
 module.exports = balancedParens;
-
-
-console.log(balancedParens('({[[]})'))
