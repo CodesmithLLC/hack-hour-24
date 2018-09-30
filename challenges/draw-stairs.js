@@ -20,8 +20,8 @@ function drawStairs(n) {
   for (let i = 1; i <= n; i += 1) {
     let buffer = (' ').repeat(n - i);
     const stars = ('*').repeat(i);
-    if (i === 1) buffer = buffer.substring(1);
-    stairCase += `${buffer}${stars}\n`;
+    // stairCase += `${buffer}${stars}\n`;
+    console.log(`${buffer}${stars}`);
   }
   return stairCase;
 }
