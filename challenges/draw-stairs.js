@@ -15,41 +15,17 @@
 
 function drawStairs(n) {
 
-  // create empty array
-  const stairs = [];
+  let stairCase = '';
 
-  // create function that creates the stars row
-  function stars(num) {
-    let counter = 0;
-    let result = '';
-
-    // add the appropriate amount of stars in row
-    while (counter !== num) {
-      result += '*';
-      counter += 1;
-    }
-
-    // buffer the row with spaces in row
-    let buffer = n - result.length;
-    while (buffer !== 0) {
-      result = ` ${result}`;
-      buffer -= 1;
-    }
-    return result;
+  for (let i = 1; i <= n; i += 1) {
+    let buffer = (' ').repeat(n - i);
+    const stars = ('*').repeat(i);
+    if (i === 1) buffer = buffer.substring(1);
+    stairCase += `${buffer}${stars}\n`;
   }
-
-  // looping through n-1, starting at n
-  for (let i = n; i > 0; i -= 1) {
-    const row = stars(i);
-    stairs.unshift(row);
-  }
-  return stairs;
-
-  // stairs.forEach((lvl) => {
-  //   console.log(lvl);
-  // });
+  return stairCase;
 }
 
 module.exports = drawStairs;
 
-// console.log(drawStairs(25));
+console.log(drawStairs(8));
