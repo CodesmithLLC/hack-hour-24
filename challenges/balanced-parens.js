@@ -25,22 +25,39 @@
  */
 
 function balancedParens(input) {
-
-  const charsArray = input
+  const parensStack = [];
+  const charsOnlyArray = input
     .split('')
-    .filter(char => '[{()}]'.includes(char))
-    .reduce((stack, bracket) => {
-      if ('[{('.includes(bracket)) stack.push(bracket);
-      else {
-        const pair = stack.pop() + bracket;
-        if ('[]{}()'.includes(pair) === false) return false;
-      }
-      return stack;
-    }, []);
+    .filter(char => '[{()}]'.includes(char));
 
-  return charsArray.length === 0;
+  for (let i = 0; i < charsOnlyArray.length; i += 1) {
+    if ('{[('.includes(charsOnlyArray[i])) parensStack.push(charsOnlyArray[i]);
+    else if (parensStack.length === 0) return false;
+    else {
+      const pair = parensStack.pop() + charsOnlyArray[i];
+      if ('[]{}()'.includes(pair) === false) return false;
+    }
+  }
+  return true;
+
+  // console.log(charsOnlyArray);
+
+  // const charsArray = input
+  //   .split('')
+  //   .filter(char => '[{()}]'.includes(char))
+  //   .reduce((stack, bracket) => {
+  //     if ('[{('.includes(bracket)) stack.push(bracket);
+  //     else {
+  //       if (stack.length === 0) return false;
+  //       const pair = stack.pop() + bracket;
+  //       if ('[]{}()'.includes(pair) === false) return false;
+  //     }
+  //     return stack;
+  //   }, []);
+
+  // return charsArray.length === 0;
 }
 
 module.exports = balancedParens;
 
-// console.log(balancedParens(' var hubble = function() { telescopes.awesome();'))
+console.log(balancedParens(''));
