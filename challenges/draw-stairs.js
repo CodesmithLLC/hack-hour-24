@@ -43,12 +43,13 @@ function drawStairs(n) {
     const row = stars(i);
     stairs.unshift(row);
   }
+  return stairs;
 
-  stairs.forEach((lvl) => {
-    console.log(lvl);
-  });
+  // stairs.forEach((lvl) => {
+  //   console.log(lvl);
+  // });
 }
 
 module.exports = drawStairs;
 
-drawStairs(25);
+// console.log(drawStairs(25));

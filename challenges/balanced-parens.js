@@ -25,23 +25,22 @@
  */
 
 function balancedParens(input) {
-  const brackets = '[{()}]';
-  const charsArray = input.split('');
 
-  return (
-    charsArray
-      .filter(char => brackets.indexOf(char) > -1)
-      .reduce((bool, bracket, i) => {
-        if (
-          (bracket === '[' && charsArray[charsArray.length - 1 - i] !== ']') ||
-          (bracket === '{' && charsArray[charsArray.length - 1 - i] !== '}') ||
-          (bracket === '(' && charsArray[charsArray.length - 1 - i] !== ')')
-        ) {
-          return false;
-        }
-        return bool;
-      }, true)
-  );
+  const charsArray = input
+    .split('')
+    .filter(char => '[{()}]'.includes(char))
+    .reduce((stack, bracket) => {
+      if ('[{('.includes(bracket)) stack.push(bracket);
+      else {
+        const pair = stack.pop() + bracket;
+        if ('[]{}()'.includes(pair) === false) return false;
+      }
+      return stack;
+    }, []);
+
+  return charsArray.length === 0;
 }
 
 module.exports = balancedParens;
+
+// console.log(balancedParens(' var hubble = function() { telescopes.awesome();'))
