@@ -11,7 +11,24 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  let test = str.toLowerCase().split(/[_\W]/);
+  test = test.filter(i => i !== '');
+  console.log(test);
+  const left = [];
+  for (let i = 0; i < test.length; i++) {
+    const testCopyR = test[i].slice().split('').reverse().join('');
+    console.log(testCopyR)
+    if (i === 0) {
+      left.push(test[i]);
+    } else if (left[left.length - 1] === testCopyR) {
+      left.pop();
+    } else if (left[left.length - 1] !== testCopyR) {
+      left.push(test[i]);
+    }
+  }
+  return left.length === 0;
 }
 
+
+console.log(matchWord(''))
 module.exports = matchWord;
