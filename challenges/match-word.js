@@ -11,7 +11,18 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  const splitz = str.split(/([^a-zA-Z])/gi);
+  const stack = [];
+  for (let i=0; i<splitz.length; i++) {
+    if (stack[0] && stack[stack.length-1].toUpperCase() === splitz[i].toUpperCase().split('').reverse().join('')) {
+      stack.pop();
+    } else if (/[a-zA-Z]/g.test(splitz[i])) {
+      stack.push(splitz[i]);
+    } 
+  }
+  return stack[0] ? false : true;
 }
+
+console.log(matchWord(''));
 
 module.exports = matchWord;
