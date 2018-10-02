@@ -11,7 +11,26 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-
+  if (str === '') return true;
+  let i = 1;
+  const workingString = str.replace(/[.,\[\]\/@#!$%\^&\*;:{}=\-_`~()]/g, ' ').toLowerCase();
+  const workingArr = workingString.split(' ').filter(word => word !== '');
+  const stack = [workingArr[0]];
+  while (i < workingArr.length) {
+    if (stack.includes(workingArr[i].split('').reverse().join(''))) {
+      if (stack.pop() === workingArr[i].split('').reverse().join('')) {
+        i += 1;
+      } else {
+        return false;
+      }
+    } else {
+      stack.push(workingArr[i]);
+      i += 1;
+    }
+  }
+  if (stack[0] === undefined) {
+    return true;
+  }
 }
 
 module.exports = matchWord;
