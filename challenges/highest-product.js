@@ -3,12 +3,10 @@
  */
 
 function highestProduct(array) {
-  // Edge case - Empty Array => return 0
-  if (!array.length) return 0;
-  // Edge case - If array length is less than 4, return product of contained integers
-  if (array.length < 4) {
-    return array.reduce((a, b) => a * b);
-  }
+  // Edge case - Not an array => return 0
+  if (!Array.isArray(array)) return 0;
+  // Edge case - If array length is less than 3 => return 0
+  if (array.length < 3) return 0;
   // Sort array from highest to lowest
   array.sort((a, b) => b - a);
   // Calculate product of first three integers
@@ -22,9 +20,10 @@ function highestProduct(array) {
 module.exports = highestProduct;
 
 // console.log('---TESTING highestProduct---');
+// console.log(`highestProduct('hi'): expect -> 0: actual -> ${highestProduct([])}`);
 // console.log(`highestProduct([]): expect -> 0: actual -> ${highestProduct([])}`);
-// console.log(`highestProduct([2]): expect -> 2: actual -> ${highestProduct([2])}`);
-// console.log(`highestProduct([2, 4]): expect -> 8: actual -> ${highestProduct([2, 4])}`);
+// console.log(`highestProduct([2]): expect -> 0: actual -> ${highestProduct([2])}`);
+// console.log(`highestProduct([2, 4]): expect -> 0: actual -> ${highestProduct([2, 4])}`);
 // console.log(`highestProduct([2, 4, 6]): expect -> 48: actual -> ${highestProduct([2, 4, 6])}`);
 // console.log(`highestProduct([2, 4, 6, 8]): expect -> 192: actual -> ${highestProduct([2, 4, 6, 8])}`);
 // console.log(`highestProduct([1, 9, 2, 8, 3, 7, 4, 6]): expect -> 504: actual -> ${highestProduct([1, 9, 2, 8, 3, 7, 4, 6])}`);
