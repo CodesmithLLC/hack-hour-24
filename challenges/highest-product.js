@@ -3,7 +3,15 @@
  */
 
 function highestProduct(array) {
-
+  array.sort((a, b) => b - a);
+  const slicedArr = array.slice(0, 3);
+  let result = slicedArr.shift();
+  for (let i = 0; i < slicedArr.length; i += 1) {
+    if (slicedArr[i] > 0) {
+      result *= slicedArr[i];
+    }
+  }
+  return result;
 }
 
 
