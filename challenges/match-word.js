@@ -13,20 +13,29 @@
 function matchWord(str) {
   if ('') return true;
 
-  const stack = [];
+  const arrayOfWords = [];
   let word = '';
 
   for (let i = 0; i < str.length; i += 1) {
     if (str[i].toLowerCase().match(/[a-z]/) !== null) {
       word += str[i];
-    } else {
-      stack.push(word);
+    } else if (word !== '') {
+      arrayOfWords.push(word);
       word = '';
     }
   }
 
-  console.log(stack);
+  const stack = [];
+  for (let i = 0; i < arrayOfWords.length; i += 1) {
+    if (stack.length !== 0 && stack[i - 1] === arrayOfWords[i].split('').reverse().join('')) {
+      stack.pop();
+    } else {
+      stack.push(arrayOfWords[i]);
+    }
+  }
+
+  return stack.length === 0;
 }
 
-console.log(matchWord('__END_DNE-----'));
+console.log(matchWord('__ENDDNE__'));
 module.exports = matchWord;
