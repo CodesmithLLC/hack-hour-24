@@ -16,7 +16,6 @@ c.next = d;
 d.next = e;
 e.next = f;
 
-
 /*
  *kthToLastNode(2, a); -> returns 'D' (the value on the second to last node)
  */
