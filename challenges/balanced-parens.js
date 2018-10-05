@@ -13,7 +13,7 @@
  *
  * Example:
  *  balancedParens('[](){}'); // true
- *  balancedParens('[({})]');   // true
+ *  
  *  balancedParens('[(]{)}'); // false
  *
  * Step 3:
@@ -24,8 +24,19 @@
  *
  */
 
-function balancedParens(input){
+balancedParens('[(]{)}'); // true
 
+function balancedParens(input) {
+
+    if (input.length % 2 !== 0) return false;
+    let stack = [];
+    let index = 0;
+
+    while(index < input.length){
+      
+    }
+ 
+ console.log(stack)
 }
 
 module.exports = balancedParens;
