@@ -10,7 +10,11 @@ function Node(val) {
   this.next = null;
 }
 
-function zip(l1, l2) {
+function zip(l1, l2) { 
+  if (l1.length === 0) return l2;
+  if (l2.length === 0) return l1;
+  let l1.head = new Node();
+  l1.head.next = l2.head;
 };
 
 module.exports = {Node: Node, zip: zip};
