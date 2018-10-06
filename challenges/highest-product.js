@@ -4,6 +4,8 @@
 
 function highestProduct(array) {
   allThree = [];
+  // received the email, tried to fix the edge cases
+  if (array.length < 3 || !Array.isArray(array)) return 0;
   function allPosible(arr, pro=[]){
     if(arr.length === 0) {
         if(pro.length===3){
@@ -23,6 +25,6 @@ function multiplyAll(ar){
   return ar.reduce((accu,curr)=>{return accu*curr},1)
 }
 
-// console.log(highestProduct([1,22,-3,-20,-5,-8,13]));
+// console.log(highestProduct(13));
 
 module.exports = highestProduct;
