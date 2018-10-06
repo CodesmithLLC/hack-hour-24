@@ -11,7 +11,16 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  const strArr = str.toLowerCase().split('');
+  const stack = [];
+  const regex = /[a-z]/g;
+  console.log(strArr)
 
+  for (let i = 0; i < strArr.length; i += 1) {
+    if (strArr[i] === regex) { stack.push(strArr[i]); }
+  }
+  console.log(stack);
 }
 
+matchWord('__END_DNE-----')
 module.exports = matchWord;
