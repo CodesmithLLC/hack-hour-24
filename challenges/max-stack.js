@@ -9,13 +9,13 @@
 function Stack() {
   this.contents = {};
   this.length = 0;
-  this.maxArray = [];
+  this.max = undefined;
 }
 
 Stack.prototype.push = function push(el) {
   this.contents[this.length] = el;
-  this.maxArray = Object.values(this.contents).sort((a, b) => (a - b));
   this.length += 1;
+  if (this.max === undefined || el > this.max) this.max = el;
   return this.length;
 };
 
@@ -24,14 +24,20 @@ Stack.prototype.pop = function pop() {
     this.length -= 1;
     const popEl = this.contents[this.length];
     delete this.contents[this.length];
-    this.maxArray = Object.values(this.contents).sort((a, b) => (a - b));
+    if (popEl === this.max) this.resetMax();
     return popEl;
   }
   return undefined;
 };
 
+Stack.prototype.resetMax = function resetMax() {
+  if (!this.length) return undefined;
+  this.max = Math.max(...Object.values(this.contents));
+  return this.max;
+};
+
 Stack.prototype.getMax = function getMax() {
-  return this.length ? this.maxArray[this.length - 1] : undefined;
+  return this.max;
 };
 
 module.exports = Stack;
