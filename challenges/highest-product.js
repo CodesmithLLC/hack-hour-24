@@ -45,15 +45,11 @@
 function highestProduct(array) {
   const copyArr = array.slice();
   copyArr.sort((a, b) => b - a);
-  console.log(copyArr);
+
   // Handle edge cases.
-  // If array contains less than 3 integers return product of elements.
-  if (copyArr.length === 0) {
+  // If array contains less than 3 integers return 0.
+  if (!Array.isArray(copyArr) || copyArr.length < 3) {
     return 0;
-  } if (copyArr.length === 1) {
-    return copyArr[0];
-  } if (copyArr.length === 2) {
-    return copyArr[0] * copyArr[1];
   }
 
   const frontProd = copyArr[0] * copyArr[1] * copyArr[2];
