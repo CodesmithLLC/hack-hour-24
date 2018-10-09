@@ -38,24 +38,7 @@ function balancedParens(input) {
       if ('[]{}()'.includes(pair) === false) return false;
     }
   }
-  return true;
-
-  // console.log(charsOnlyArray);
-
-  // const charsArray = input
-  //   .split('')
-  //   .filter(char => '[{()}]'.includes(char))
-  //   .reduce((stack, bracket) => {
-  //     if ('[{('.includes(bracket)) stack.push(bracket);
-  //     else {
-  //       if (stack.length === 0) return false;
-  //       const pair = stack.pop() + bracket;
-  //       if ('[]{}()'.includes(pair) === false) return false;
-  //     }
-  //     return stack;
-  //   }, []);
-
-  // return charsArray.length === 0;
+  return parensStack.length === 0;
 }
 
 module.exports = balancedParens;

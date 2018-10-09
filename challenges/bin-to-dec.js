@@ -23,7 +23,7 @@ function binToDec(binary) {
 
 module.exports = binToDec;
 
-console.log(binToDec('101'))
+console.log(binToDec(''));
 /* 
 * 2^0 = 1
 * 2^1 = 2
