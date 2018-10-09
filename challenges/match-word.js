@@ -11,7 +11,23 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  // if string is empty, return true
+  if (!str.length) return 0;
 
+  const wordsArray = str.match(/[a-zA-Z]+/g);
+  const stackOfWords = wordsArray.reduce((stack, nextWord) => {
+    const reversed = nextWord.split('').reverse().join('');
+    if (stack.length === 0) stack.push(nextWord);
+    else if (stack[stack.length - 1] === reversed) {
+      stack.pop();
+    } else {
+      stack.push(nextWord);
+    }
+    return stack;
+  }, []);
+  return stackOfWords.length === 0;
 }
 
 module.exports = matchWord;
+
+console.log(matchWord('for__if__rof__fi'));
