@@ -17,7 +17,7 @@ function Stack() {
       this.max = element;
     }
     this.storage.push(element);
-    return this.length++;
+    return ++this.length;
   };
 
   this.pop = function() {
@@ -40,7 +40,7 @@ newStack.push(3);
 newStack.push(5);
 newStack.push(6);
 newStack.push(2);
-newStack.push(4);
+console.log(newStack.push(7));
 newStack.push(8);
 
 console.log(newStack.storage);
