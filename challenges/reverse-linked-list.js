@@ -14,6 +14,8 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+  // Edge case, if list is null, return head
+  if (!head) return head;
   // Edge case, if list has length of one, return head
   if (!head.next) return head;
   // Set placeholder variables for the starting head and the following two nodes
