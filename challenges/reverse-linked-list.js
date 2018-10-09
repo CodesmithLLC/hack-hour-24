@@ -14,7 +14,33 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
+    // check if the linked list is only one value
+    if (head.next === null) return head;
+    let promotion = false;
+    let decapitated = false;
+    // iterate through the linked list
+    let currNode = head;
+    let tempNode;
 
+    while (promotion === false) {
+        // at head, store next, store value, change next to null
+        if (decapitated === false) {
+            // head becomes tail
+            let tempNode = currNode;
+            currNode.next = null;
+            currNode = tempNode.next;
+            decapitated = true;
+        }
+        else if (currNode.next = null) {
+            currNode.next = tempNode;
+            promotion = true;
+        }
+        else {
+            currNode.next = tempNode;
+            tempNode = currNode;
+            currNode = tempNode.next;
+        }
+    }
 }
 
 module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
