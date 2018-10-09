@@ -14,11 +14,25 @@
  *      500   ->    D
  *      900   ->    CM
  *      1000  ->    M
- * 
+ *
  */
 
 function romanNumeral(n) {
+  const numArr = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  const romNums = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+  let inputNum = n;
 
+  let romanized = '';
+
+  for (let i = 0; i < numArr.length; i += 1) {
+    while (numArr[i] <= inputNum) {
+      romanized += romNums[i];
+      inputNum -= numArr[i];
+    }
+  }
+  return romanized;
 }
+
+console.log(romanNumeral(30));
 
 module.exports = romanNumeral;

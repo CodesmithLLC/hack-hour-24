@@ -17,7 +17,64 @@
 //                     16 ]
 
 function fizzbuzz(num) {
+    //check if input is a number
+    if (typeof num != "number") {
+        console.log("Please input a number to try again...");
+        return 1;
+    }
+    //intitialize fresult array
+    let result = [];
+    let stop = num + 1
+    let start = 1;
 
+    //loop up to num if num is positive
+    if (start < stop) {
+        for (let i = start; i < stop; i++) {
+            //set conditionals 
+            //fizzbuzz = nums divisible by both 3 & 5
+            if (i % 3 === 0 && i % 5 === 0) {
+                result.push("fizzbuzz");
+            }
+            //fizz = nums divisible by 3
+            else if (i % 3 === 0) {
+                result.push("fizz")
+            }
+            //buzz = nums divisible by 5
+            else if (i % 5 === 0) {
+                result.push("buzz");
+            }
+            //just push the num is neither
+            else {
+                result.push(i);
+            }
+        }
+    }
+    //loop down to num if number is negative
+    else {
+        for (let i = start; i > stop; i--) {
+            //set conditionals 
+            //fizzbuzz = nums divisible by both 3 & 5
+            if (i % 3 === 0 && i % 5 === 0) {
+                result.push("fizzbuzz");
+            }
+            //fizz = nums divisible by 3
+            else if (i % 3 === 0) {
+                result.push("fizz")
+            }
+            //buzz = nums divisible by 5
+            else if (i % 5 === 0) {
+                result.push("buzz");
+            }
+            //just push the num is neither
+            else {
+                result.push(i);
+            }
+        }
+    }
+    //print result
+    console.log(result); 
+    //return
+    return result;
 }
 
 module.exports = fizzbuzz;

@@ -14,8 +14,17 @@
 */
 
 function drawStairs(n) {
+    //build an array filled with blank spaces
+    let log = Array(n + 1).fill(" ");
 
+    //iterate through the array, adding one star to the end and console.logging the line
+    for (let i = n - 1; i >= 0; i--) {
+        log[i] = '*';
+        console.log(log.join(''));
+      }
 }
+
+drawStairs(6);
 
 
 module.exports = drawStairs;
