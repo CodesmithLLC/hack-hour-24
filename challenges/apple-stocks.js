@@ -13,7 +13,14 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  const result = [];
+  for (let i = 0; i < stock_prices_yesterday.length; i += 1) {
+    for (let j = i + 1; j < stock_prices_yesterday.length; j += 1) {
+      result.push(stock_prices_yesterday[j] - stock_prices_yesterday[i]);
+    }
+  }
+  return Math.max(...result) >= 0 ? Math.max(...result) : 0;
 }
-
+let arr1 = [10, 7, 5, 3, 12, 8, 14];
+console.log(bestProfit(arr1))
 module.exports = bestProfit;
