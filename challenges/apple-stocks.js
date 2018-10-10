@@ -13,7 +13,20 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+    if (!Array.isArray(stock_prices_yesterday) || stock_prices_yesterday.length === 0)
+        return 0;
 
+    let maxmin = stock_prices_yesterday.reduce((res, price) => {
+        if (price > res.max)
+            res.max = price;
+        if (price < res.min)
+            res.min = price;
+        return res;
+    }, { max: Number.NEGATIVE_INFINITY, min: Number.POSITIVE_INFINITY });
+    return (maxmin.max > maxmin.min) ? maxmin.max - maxmin.min : 0;
 }
+
+let stock_prices_yesterday = [10, 20, 30, 5];
+console.log(bestProfit(stock_prices_yesterday));
 
 module.exports = bestProfit;
