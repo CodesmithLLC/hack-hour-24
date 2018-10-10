@@ -13,7 +13,30 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  // declare maxProfit = 0;
+  let maxProfit = 0;
+  // set opening value to lowVal
+  let lowVal = stock_prices_yesterday[0];
+  // iterate thru array
+  for (let i = 0; i < stock_prices_yesterday.length; i += 1) {
+    // if value decreases below lowVal reset lowVal
+    if (stock_prices_yesterday[i] < lowVal) {
+      lowVal = stock_prices_yesterday[i];
+    }
+    // if value increases calculate profit from lowVal, if greater than maxProfit set as new maxProfit
+    if (stock_prices_yesterday[i] > lowVal) {
+      const currProfit = stock_prices_yesterday[i] - lowVal;
+      if (currProfit > maxProfit) {
+        maxProfit = currProfit;
+      }
+    }
+  }
+  // return maxProfit
+  return maxProfit;
 }
 
+// //test:
+// stock_prices_yesterday1 = [100, 80, 150, 50, 140]
+// let result = bestProfit(stock_prices_yesterday1);
+// console.log('result: ', result);
 module.exports = bestProfit;
