@@ -18,7 +18,7 @@ function matchWord(str) {
 
   for (let i = 0; i < str.length; i += 1) {
     if (str[i].toLowerCase().match(/[a-z]/) !== null) {
-      word += str[i];
+      word += str[i].toLowerCase();
     } else if (word !== '') {
       arrayOfWords.push(word);
       word = '';

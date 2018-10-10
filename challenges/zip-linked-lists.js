@@ -11,6 +11,49 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-};
+  let head;
 
-module.exports = {Node: Node, zip: zip};
+  if (l1 === null) {
+    head = new Node(l2.value);
+    head.next = l2.next;
+    return head;
+  } if (l2 === null) {
+    head = new Node(l1.value);
+    head.next = l1.next;
+    return head;
+  }
+
+  head = new Node(l1.value);
+  head.next = l1.next;
+
+  const position = 1;
+  let curNode = new Node(l2.value);
+  curNode = l2.next;
+
+  while (curNode !== null) {
+
+  }
+}
+
+function insert(head, value, position) {
+  let node = head;
+  let shadow = null;
+  let count = 0;
+  const newNode = new Node(value);
+
+  // if (position === 0) {
+  //   this.addToHead(value);
+  //   return;
+  // }
+
+  while (count < position) {
+    shadow = node;
+    node = node.next;
+    count += 1;
+  }
+
+  newNode.next = shadow.next;
+  shadow.next = newNode;
+}
+
+module.exports = { Node, zip };
