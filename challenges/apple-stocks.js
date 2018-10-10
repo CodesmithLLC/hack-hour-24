@@ -13,7 +13,11 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  const profits = [];
+  for (let i = 0; i < stock_prices_yesterday.length; i += 1) {
+    profits.push(Math.max(...stock_prices_yesterday.slice(i)) - stock_prices_yesterday[i]);
+  }
+  return Math.max(...profits);
 }
 
 module.exports = bestProfit;
