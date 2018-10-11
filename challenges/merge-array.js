@@ -14,7 +14,30 @@
  */
 
 function mergeArrays(arr1, arr2) {
+  const mergedArray = [];
+  const length = Math.max(arr1.length, arr2.length);
 
+  // loop through the longer array
+  for (let i = 0; i < length; i += 1) {
+    // compare two numbers at that index
+    const arr1Num = arr1[i];
+    const arr2Num = arr2[i];
+    // if either number is undefined (end of array), auto add the valid number
+    if (!arr1Num) mergedArray.push(arr2Num);
+    else if (!arr2Num) mergedArray.push(arr1Num);
+    // else we compare and push smallest to largest
+    else {
+      const sortedArray = [arr1Num, arr2Num].sort();
+      mergedArray.push(...sortedArray);
+    }
+  }
+  // return array
+  return mergedArray;
 }
 
 module.exports = mergeArrays;
+
+const my_array = [3, 4, 6, 10, 11, 15, 21];
+const another_array = [1, 5, 8, 12, 14, 19];
+
+console.log(mergeArrays(my_array, another_array));
