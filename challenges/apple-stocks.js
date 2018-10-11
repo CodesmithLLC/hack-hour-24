@@ -13,7 +13,11 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
-
+  if (stock_prices_yesterday.length === 1 || stock_prices_yesterday.length === 0) return 0;
+  const topDollar = Math.max(...stock_prices_yesterday);
+  const lowBall = Math.min(...stock_prices_yesterday);
+  if (topDollar === lowBall) return 0;
+  return topDollar - lowBall;
 }
 
 module.exports = bestProfit;

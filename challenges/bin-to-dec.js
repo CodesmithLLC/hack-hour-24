@@ -14,7 +14,23 @@
  */
 
 function binToDec(binary) {
+  // check for zero return 0
+  if (binary === '0') return 0;
 
+  // convert to numbers
+  let workArr = Array.from(binary);
+  workArr = workArr.map(item => parseInt(item));
+
+  // loop through the array, the binary sum is equal each digit times 2to the index
+  let power = workArr.length - 1;
+
+  return workArr.reduce((acc, curr) => {
+    const powered = 2 ** power;
+    power -= 1;
+    const sumThis = curr * powered;
+    acc += sumThis;
+    return acc;
+  }, 0);
 }
-
+console.log(binToDec('101'));
 module.exports = binToDec;

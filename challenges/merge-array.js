@@ -13,8 +13,60 @@
  *
  */
 
-function mergeArrays(arr1, arr2) {
 
+
+function mergeArrays(arr1, arr2) {
+    if (arr1.length === 0) return arr2;
+    if (arr2.length === 0) return arr1;
+    const resultArr = [];
+
+    // iterate through both arrays, check the values and push them in order into a new array
+    // if one arr is longer than the other, just insert the end of it in the right place
+    if (arr1.length > arr2.length) {
+      const longArr = Array.from(arr1);
+      const shortArr = Array.from(arr2);
+    } 
+    else if (arr1.length < arr2.length) {
+      const longArr = Array.from(arr2);
+      const shortArr = Array.from(arr1);
+    }
+    else {
+      const workArr1 = Array.from(arr1);
+      const workArr2 = Array.from(arr2);
+    }
+
+    if (longArr) {
+      longArr.forEach((item, index) => {
+        if(shortArr[index] === undefined) {
+          if (item > resultArr[resultArr.length - 1]) {
+            resultArr.push(item);
+          }
+          else (resultArr.splice(resultArr.length - 2, 0, item));
+        }
+        else if (item > shortArr[index]) {
+          resultArr.push(shortArr[index]);
+          resultArr.push(item);
+
+        }
+        else {
+          resultArr.push(shortArr[index]);
+          resultArr.push(item);
+        }
+      });
+    }
+    else {
+      workArr1.forEach((item, index) => {
+        if (item > workArr2[index]) {
+          resultArr.push(workArr2[index]);
+          resultArr.push(item);
+        }
+        else {
+          resultArr.push(item);
+          resultArr.push(workArr2[index]);
+        }
+      });
+    }
 }
+
 
 module.exports = mergeArrays;

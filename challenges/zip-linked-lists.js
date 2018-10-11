@@ -11,6 +11,19 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-};
+  const zipped = new Node();
+  const nextArray = [];
+  let toggle = true;
+  const currNode = l1.valu;
 
-module.exports = {Node: Node, zip: zip};
+
+  while (l1.next != null && l2.next !== null) {
+    if (toggle) {
+      zipped.value = currNode;
+      zipped.next = l2CurrNode;
+      toggle = false;
+    }
+  }
+}
+
+module.exports = { Node, zip };
