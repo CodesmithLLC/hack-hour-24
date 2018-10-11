@@ -14,7 +14,26 @@
  */
 
 function mergeArrays(arr1, arr2) {
-
+  if (arr1.length === 0) return arr2;
+  if (arr2.length === 0) return arr1;
+  const returnArr = [];
+  while (arr1.length > 0 && arr2.length > 0) {
+    if (arr1[0] < arr2[0]) {
+      returnArr.push(arr1.shift());
+    } else {
+      returnArr.push(arr2.shift());
+    }
+  }
+  return [...returnArr, ...arr1, ...arr2];
 }
 
 module.exports = mergeArrays;
+
+console.log('---TESTING mergeArrays---');
+console.log(`mergeArrays([1, 2, 3], []): expect -> [1, 2, 3]: actual -> [${mergeArrays([], [1, 2, 3])}]`);
+console.log(`mergeArrays([], [1, 2, 3]): expect -> [1, 2, 3]: actual -> [${mergeArrays([], [1, 2, 3])}]`);
+console.log(`mergeArrays([1, 2, 3], [4, 5, 6]): expect -> [1, 2, 3, 4, 5, 6]: actual -> [${mergeArrays([1, 2, 3], [4, 5, 6])}]`);
+console.log(`mergeArrays([4, 5, 6], [1, 2, 3]): expect -> [1, 2, 3, 4, 5, 6]: actual -> [${mergeArrays([4, 5, 6], [1, 2, 3])}]`);
+console.log(`mergeArrays([1, 3, 5], [2, 4, 6]): expect -> [1, 2, 3, 4, 5, 6]: actual -> [${mergeArrays([1, 3, 5], [2, 4, 6])}]`);
+console.log(`mergeArrays([1, 3, 5, 7, 8, 9], [2, 4, 6]): expect -> [1, 2, 3, 4, 5, 6, 7, 8, 9]: actual -> [${mergeArrays([1, 3, 5, 7, 8, 9], [2, 4, 6])}]`);
+console.log(`mergeArrays([1, 3, 5], [2, 4, 6, 7, 8, 9]): expect -> [1, 2, 3, 4, 5, 6, 7, 8, 9]: actual -> [${mergeArrays([1, 3, 5], [2, 4, 6, 7, 8, 9])}]`);
