@@ -9,27 +9,34 @@
 //  */
 
 // function Node(value) {
-//     this.value = value;
-//     this.next = null;
+//   this.value = value;
+//   this.next = null;
 // }
 
-// // 
-
 // function reverseLinkedList(head) {
-//   let arr = [3,2,1];
-//   let test2 = new Node(arr[0]);
-//   let pointer = test2;
-//   while(arr[0]){
-//     pointer = new Node(arr[0])
-//     console.log(arr, pointer)
+//   let pointer = head;
+//   let arr = [];
+//   while (pointer) {
+//     arr.push(pointer.value);
+//     pointer = pointer.next;
+//   }
+//   arr.reverse();
+//   const newHead = new Node(arr[0]);
+//   arr = arr.slice(1);
+//   pointer = newHead;
+//   while (arr[0]) {
+//     pointer.next = new Node(arr[0])
 //     arr = arr.slice(1);
 //     pointer = pointer.next;
 //   }
-//   console.log(test2)
-//   return test2;  
+//   return newHead;
 // }
 
+// function reverseLinkedList2(head) {
   
+// }
+
+
 // const l1 = new Node(1);
 // l1.next = new Node(2);
 // l1.next.next = new Node(3);
