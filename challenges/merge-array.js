@@ -17,29 +17,31 @@ function mergeArrays(arr1, arr2) {
   const output = [];
   let arr1Index = 0;
   let arr2Index = 0;
-
-  while (arr1Index < arr1.length && arr2Index < arr2.length) {
-    if(arr1[arr1Index] < arr2[arr2Index]){
-      output.push(arr1[arr1Index]);
-      arr1Index++;
-    } else{
-      output.push(arr2[arr2Index])
-      arr2Index++;
+  if (arr1.length === 0) return arr2;
+  else if (arr2.length === 0) return arr1;
+  else{
+    while (arr1Index < arr1.length && arr2Index < arr2.length) {
+      if(arr1[arr1Index] < arr2[arr2Index]){
+        output.push(arr1[arr1Index]);
+        arr1Index++;
+      } else{
+        output.push(arr2[arr2Index])
+        arr2Index++;
+      }
     }
-  }
-  if(arr1Index < arr1.length){
-    while(arr1Index < arr1.length){
-      output.push(arr1[arr1Index]);
-      arr1Index += 1;
-    }
-  } else if(arr2Index < arr2.length){
-    while(arr2Index < arr2.length){
-      output.push(arr2[arr2Index]);
-      arr2Index += 1;
-    }
-  }
-  
-  return output;
+    if(arr1Index < arr1.length){
+      while(arr1Index < arr1.length){
+        output.push(arr1[arr1Index]);
+        arr1Index += 1;
+      }
+    } else if(arr2Index < arr2.length){
+      while(arr2Index < arr2.length){
+        output.push(arr2[arr2Index]);
+        arr2Index += 1;
+      }
+    } 
+    return output;
+  } 
 }
 const test1 = [3,4,6,10,11,15,21, 24, 25, 26, 27];
 const test2 = [1,5,8,12,14,28, 29, 30];
