@@ -14,30 +14,25 @@
  */
 
 function mergeArrays(arr1, arr2) {
-  const mergedArray = [];
-  const length = Math.max(arr1.length, arr2.length);
+  const merged = [];
+  let count = arr1.length + arr2.length;
+  let i = 0;
+  let j = 0;
 
-  // loop through the longer array
-  for (let i = 0; i < length; i += 1) {
-    // compare two numbers at that index
-    const arr1Num = arr1[i];
-    const arr2Num = arr2[i];
-    // if either number is undefined (end of array), auto add the valid number
-    if (!arr1Num) mergedArray.push(arr2Num);
-    else if (!arr2Num) mergedArray.push(arr1Num);
-    // else we compare and push smallest to largest
-    else {
-      const sortedArray = [arr1Num, arr2Num].sort();
-      mergedArray.push(...sortedArray);
+  while (count > 0) {
+
+    if (arr1[i] > arr2[j] || (!arr1[i] && arr2[j])) {
+      merged.push(arr2[j]);
+      j += 1;
+      count -= 1;
+
+    } else if (arr1[i] <= arr2[j] || (arr1[i] && !arr2[j])) {
+      merged.push(arr1[i]);
+      i += 1;
+      count -= 1;
     }
   }
-  // return array
-  return mergedArray;
+  return merged;
 }
 
 module.exports = mergeArrays;
-
-const my_array = [3, 4, 6, 10, 11, 15, 21];
-const another_array = [1, 5, 8, 12, 14, 19];
-
-console.log(mergeArrays(my_array, another_array));
