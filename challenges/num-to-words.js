@@ -98,11 +98,11 @@ const numToWords = function numToWords(num, scale = 0) {
 
 module.exports = numToWords;
 
-console.log('---TESTING numToWords---');
-console.log(`numToWords(0): expect -> 'Zero': actual -> ${numToWords(0)}`);
-console.log(`numToWords(43): expect -> 'FortyThree': actual -> ${numToWords(43)}`);
-console.log(`numToWords(2999): expect -> 'TwoThousandNineHundredNintyNine': actual -> ${numToWords(2999)}`);
-console.log(`numToWords(15): expect -> 'Fifteen': actual -> ${numToWords(15)}`);
-console.log(`numToWords(2483579411): expect -> 'TwoBillionFourHundredEightyThreeMillionFiveHundredSeventyNineThousandFourHundredEleven': actual -> ${numToWords(2483579411)}`);
-console.log(`numToWords(300525151340440): expect -> 'ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty': actual -> ${numToWords(300525151340440)}`);
-console.log(`numToWords(92120000000000000): expect -> 'NintyTwoQuadrillionOneHundredTwentyTrillion': actual -> ${numToWords(92120000000000000)}`);
+// console.log('---TESTING numToWords---');
+// console.log(`numToWords(0): expect -> 'Zero': actual -> ${numToWords(0)}`);
+// console.log(`numToWords(43): expect -> 'FortyThree': actual -> ${numToWords(43)}`);
+// console.log(`numToWords(2999): expect -> 'TwoThousandNineHundredNintyNine': actual -> ${numToWords(2999)}`);
+// console.log(`numToWords(15): expect -> 'Fifteen': actual -> ${numToWords(15)}`);
+// console.log(`numToWords(2483579411): expect -> 'TwoBillionFourHundredEightyThreeMillionFiveHundredSeventyNineThousandFourHundredEleven': actual -> ${numToWords(2483579411)}`);
+// console.log(`numToWords(300525151340440): expect -> 'ThreeHundredTrillionFiveHundredTwentyFiveBillionOneHundredFiftyOneMillionThreeHundredFortyThousandFourHundredForty': actual -> ${numToWords(300525151340440)}`);
+// console.log(`numToWords(92120000000000000): expect -> 'NintyTwoQuadrillionOneHundredTwentyTrillion': actual -> ${numToWords(92120000000000000)}`);
