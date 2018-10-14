@@ -14,8 +14,12 @@
 */
 
 function drawStairs(n) {
-
+  for (let i = 1; i <= n; i += 1) {
+    let buffer = (' ').repeat(n - i);
+    const stars = ('*').repeat(i);
+    // stairCase += `${buffer}${stars}\n`;
+    console.log(`${buffer}${stars}`);
+  }
 }
-
 
 module.exports = drawStairs;

@@ -10,7 +10,15 @@
  */
 
 function permPalin(str) {
-	
+  const letters = Object.keys(str
+    .split('')
+    .reduce((obj, nextLetter) => {
+      if (obj[nextLetter] === 1) delete obj[nextLetter];
+      else obj[nextLetter] = 1;
+      return obj;
+    }, {}));
+
+  return letters.length === 0 || letters.length === 1;
 }
 
 module.exports = permPalin;

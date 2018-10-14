@@ -10,6 +10,14 @@
 
 function subsetSum(array, target) {
 
+  function inner(target, i) {
+    if (target === 0) return true;
+    if (i === array.length) return false;
+    return inner(target - array[i], i + 1) || inner(target, i + 1);
+  }
+  return inner(target, 0);
 }
 
 module.exports = subsetSum;
+
+console.log(subsetSum([3, 7, 4, 2], 5));
