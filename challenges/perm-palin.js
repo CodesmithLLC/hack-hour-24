@@ -10,7 +10,20 @@
  */
 
 function permPalin(str) {
-	
+  
+  let arr = str.split('');
+  let keeper = [];
+  
+  function recurser(arr, keeper) {
+    if (str.length === 0 && str === str.split('').reverse().join('')) return true;
+    if (str.length === 0 && str !== str.split('').reverse().join('')) return false;
+
+    keeper.push(arr.shift());
+    
+    return recurser()
+  }
+  
+  return recurser();
 }
 
 module.exports = permPalin;
