@@ -13,7 +13,28 @@
  */
 
 function numToWords(num) {
+  const singleDigits = ['Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine'];
+  const teenDigits = ['Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+  const tensDigits = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninty'];
+  const bigDigits = ['Hundred', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
+
+  if (!num) return '';
+  const numToString = num.toString();
+  const workArr = Array.from(numToString);
+
+  if (workArr.length === 1) {
+    return singleDigits[parseInt(workArr[0])];
+  }
+  else if (workArr.length === 2) {
+    let result = '';
+    result.concat(teenDigits[parseInt])
+  }
 
 }
 
+console.log(numToWords(21));
+
 module.exports = numToWords;
+
+
+INSERT INTO users ("joel", "perkins" "joel.climbs@gmail.com", "jeeves", "https://github.com/joelkperkins", "https://www.linkedin.com/in/joelkperkins/");

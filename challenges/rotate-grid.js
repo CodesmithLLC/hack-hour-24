@@ -17,7 +17,25 @@
  */
 
 function rotateGrid(grid, n) {
+  const workArr = Array.from(grid);
+  let subResult = [];
+  const result = [];
 
+  while (workArr[0][0]) {
+    // go to the last element, take the first element push into a new array
+     // go back one, take the first element and push into the same array
+     // go back until at 0th 
+     // repeat
+    for (let i = workArr.length - 1, j = 0; i > -1; i -= 1, j += 1) {
+      subResult.push(workArr[i].pop());
+    }
+    result.unshift(subResult);
+    subResult = [];
+  }
 }
+
+const sampleGrid = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+rotateGrid(sampleGrid, 3);
 
 module.exports = rotateGrid;
