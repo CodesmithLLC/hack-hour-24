@@ -17,7 +17,28 @@
  */
 
 function rotateGrid(grid, n) {
-
+    let newGrid = [];
+    for (let i = 0; i < n; i++) {
+        newGrid.push([]);
+        for (let j = 0; j < n; j++) {
+            newGrid[i].push(undefined);
+        }
+    }
+    let x = 0;
+    let y = 0;
+    for (let newY = n - 1; newY >= 0; newY--) {
+        for (let newX = 0; newX < n; newX++) {
+            console.log(x, y);
+            newGrid[newX][newY] = grid[x][y];
+            if (++y % n == 0) {
+                y = 0;
+                x++;
+            }
+        }
+    }
+    console.log(newGrid);
+    return newGrid;
 }
 
+rotateGrid([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]], 4);
 module.exports = rotateGrid;
