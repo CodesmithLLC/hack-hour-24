@@ -16,8 +16,38 @@
  * BONUS: Do this in place
  */
 
-function rotateGrid(grid, n) {
-
-}
+const rotateGrid = function rotateGrid(grid, n) {
+  // Edge Case - grid size 0 or 1
+  if (n < 2) return grid;
+  for (let i = n - 1; i >= 0; i -= 1) {
+    for (let j = 0; j < n; j += 1) {
+      grid[j].push(grid[i].shift());
+    }
+  }
+  return grid;
+};
 
 module.exports = rotateGrid;
+
+// // TESTING rotateGrid
+// // Helper function to generate a sample grid
+// const genGrid = function genGrid(n) {
+//   const outGrid = [];
+//   let counter = 1;
+//   for (let i = 0; i < n; i += 1) {
+//     outGrid.push([]);
+//     for (let j = 0; j < n; j += 1) {
+//       outGrid[i][j] = counter;
+//       counter += 1;
+//     }
+//   }
+//   return outGrid;
+// };
+
+// // declare a constant for the side length
+// const sideLen = 5;
+
+// const sampleGrid = genGrid(sideLen);
+
+// console.log(sampleGrid);
+// console.log(rotateGrid(sampleGrid, sideLen));
