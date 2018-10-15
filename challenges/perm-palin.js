@@ -28,8 +28,8 @@ function permPalin(str) {
 
 module.exports = permPalin;
 
-console.log('---TESTING permPalin---');
-console.log(`permPalin('abab'): expect -> true: actual -> ${permPalin('abab')}`);
-console.log(`permPalin('cbaba'): expect -> true: actual -> ${permPalin('cbaba')}`);
-console.log(`permPalin('cbac'): expect -> false: actual -> ${permPalin('cbac')}`);
-console.log(`permPalin('a'): expect -> true: actual -> ${permPalin('a')}`);
+// console.log('---TESTING permPalin---');
+// console.log(`permPalin('abab'): expect -> true: actual -> ${permPalin('abab')}`);
+// console.log(`permPalin('cbaba'): expect -> true: actual -> ${permPalin('cbaba')}`);
+// console.log(`permPalin('cbac'): expect -> false: actual -> ${permPalin('cbac')}`);
+// console.log(`permPalin('a'): expect -> true: actual -> ${permPalin('a')}`);
