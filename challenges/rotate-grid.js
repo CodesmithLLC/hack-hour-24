@@ -33,10 +33,11 @@ function rotateGrid(grid, n) {
     grid[n-1][x] = gridCopy[y][gridCopy.length - 1];
     grid[y][0] = gridCopy[0][x];
   }
+  
   return grid;
 }
 
-rotateGrid([   [1, 2, 3],
+console.log(rotateGrid([   [1, 2, 3],
                [4, 5, 6],
-               [7, 8, 9]  ], 3)
+               [7, 8, 9]  ], 3));
 module.exports = rotateGrid;
