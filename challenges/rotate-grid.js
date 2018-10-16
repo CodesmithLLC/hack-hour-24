@@ -19,11 +19,14 @@
 const rotateGrid = function rotateGrid(grid, n) {
   // Edge Case - grid size 0 or 1
   if (n < 2) return grid;
+  // Starting iterating from the bottom row, going up
   for (let i = n - 1; i >= 0; i -= 1) {
+    // Push each value in the current row to the end of the array that corresponds to its index
     for (let j = 0; j < n; j += 1) {
       grid[j].push(grid[i].shift());
     }
   }
+  // Once complete, return the rotated grid
   return grid;
 };
 
@@ -45,7 +48,7 @@ module.exports = rotateGrid;
 // };
 
 // // declare a constant for the side length
-// const sideLen = 5;
+// const sideLen = 4;
 
 // const sampleGrid = genGrid(sideLen);
 
