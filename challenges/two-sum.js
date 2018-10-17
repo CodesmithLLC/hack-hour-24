@@ -3,7 +3,15 @@
  */
 
 function twoSum(arr, n) {
-
+  const storeObj = {};
+  for (let i = 0; i < arr.length; i += 1) {
+    if (storeObj[arr[i]]) {
+      return true
+    } else {
+      storeObj[n - arr[i]] = true
+    }
+  }
+  return false;
 }
 
 module.exports = twoSum;
