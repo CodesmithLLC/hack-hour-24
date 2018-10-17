@@ -1,4 +1,5 @@
-'use strict';
+
+
 /**
  * Write a function to reverse an array in place
  *
@@ -14,7 +15,25 @@
  */
 
 function reverseInPlace(array) {
+  // Loop through array with one index starting at the first element and one index starting at the last.
+  // Swap elements at indices until indices have passed each other.
+  let start = 0;
+  let end = array.length - 1;
 
+  while (start < end) {
+    const temp = array[start];
+    array[start] = array[end];
+    array[end] = temp;
+
+    start += 1;
+    end -= 1;
+  }
+
+  return array;
 }
+
+// Tests.
+// console.log(reverseInPlace([1, 2, 3]));
+// console.log(reverseInPlace([1, 2, 3, 4]));
 
 module.exports = reverseInPlace;

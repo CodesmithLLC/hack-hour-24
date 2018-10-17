@@ -16,7 +16,29 @@ function isSubstring(s1, s2) {
 }
 
 function stringRotation(s1, s2) {
+  // If strings are different lengths, cannot be true.
+  if (s1.length !== s2.length) {
+    return false;
+  }
 
+  // Get all possible rotations.
+  const rotations = [];
+
+  // First loop gets starting point of rotation.
+  for (let i = 0; i < s1.length; i += 1) {
+    let rotation = '';
+    // Second loop creates rotation.
+    for (let j = i; j < s1.length + i; j += 1) {
+      rotation += s1[j % s1.length];
+    }
+    rotations.push(rotation);
+  }
+  console.log(rotations);
+  return rotations.includes(s2);
+
+  // Brute force solution bad. Better solution from Joel.
+  // return isSubstring(s1.concat(s1), s2);
 }
 
-module.exports = {isSubstring: isSubstring, stringRotation: stringRotation};
+console.log(stringRotation('hello', 'llohe'));
+module.exports = { isSubstring, stringRotation };

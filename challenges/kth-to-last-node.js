@@ -22,7 +22,21 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  let kthNode = head;
+  let count = 0;
+  let curNode = head;
 
+  // Shift until we have k number of nodes between kthNode and curNode.
+  // Then set kth node to next when until we get to null.
+  while (curNode !== null) {
+    curNode = curNode.next;
+    count += 1;
+    if (count > k) {
+      kthNode = kthNode.next;
+    }
+  }
+
+  return kthNode.value;
 }
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = { Node, kthToLastNode };
