@@ -20,7 +20,7 @@ function validBST(tree, min = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_IN
   if (tree.left === null) {
     leftValidBST = true;
     // If left value is greater than tree.value or less than the min, the left branch is invalid
-  } else if (tree.left.value >= tree.value || tree.left.value <= tree.min) {
+  } else if (tree.left.value >= tree.value || tree.left.value <= min) {
     leftValidBST = false;
     // Otherwise, recursive call on the left branch with a new max equal to the parent's value
   } else {
@@ -30,7 +30,7 @@ function validBST(tree, min = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_IN
   if (tree.right === null) {
     rightValidBST = true;
     // If right value is less than tree.value or greater than the max, the right branch is invalid
-  } else if (tree.right.value <= tree.value || tree.right.value >= tree.max) {
+  } else if (tree.right.value <= tree.value || tree.right.value >= max) {
     rightValidBST = false;
     // Otherwise, recursive call on the right branch with a new min equal to the parent's value
   } else {
@@ -42,12 +42,12 @@ function validBST(tree, min = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_IN
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
 
-const myBinaryTree = new BinaryTree(10);
-myBinaryTree.left = new BinaryTree(2);
-myBinaryTree.left.left = new BinaryTree(1);
-myBinaryTree.left.right = new BinaryTree(16);
-myBinaryTree.right = new BinaryTree(20);
-myBinaryTree.right.left = new BinaryTree(6);
-myBinaryTree.right.right = new BinaryTree(25);
-console.log(myBinaryTree);
-console.log(validBST(myBinaryTree));
+// const myBinaryTree = new BinaryTree(10);
+// myBinaryTree.left = new BinaryTree(2);
+// myBinaryTree.left.left = new BinaryTree(1);
+// myBinaryTree.left.right = new BinaryTree(16);
+// myBinaryTree.right = new BinaryTree(20);
+// myBinaryTree.right.left = new BinaryTree(6);
+// myBinaryTree.right.right = new BinaryTree(25);
+// console.log(myBinaryTree);
+// console.log(validBST(myBinaryTree));
