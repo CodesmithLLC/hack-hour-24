@@ -41,3 +41,13 @@ function validBST(tree, min = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_IN
 }
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
+
+const myBinaryTree = new BinaryTree(10);
+myBinaryTree.left = new BinaryTree(2);
+myBinaryTree.left.left = new BinaryTree(1);
+myBinaryTree.left.right = new BinaryTree(16);
+myBinaryTree.right = new BinaryTree(20);
+myBinaryTree.right.left = new BinaryTree(6);
+myBinaryTree.right.right = new BinaryTree(25);
+console.log(myBinaryTree);
+console.log(validBST(myBinaryTree));
