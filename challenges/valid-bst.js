@@ -23,7 +23,7 @@ function validBST(tree, gpt = tree) {
       (tree.left && tree.left.value >= tree.value) || (tree.right && tree.value >= tree.right.value)
     )
     || (
-      (tree.left.value >= gpt.value) || (gpt.value >= tree.right.value)
+      (tree.left && tree.left.value >= gpt.value) || (tree.right && gpt.value >= tree.right.value)
     )
   ) return false;
 
