@@ -15,13 +15,13 @@ function BinaryTree(val) {
 function validBST(tree, min, max) {
     let curr = tree;
     if (curr.left) {
-        if (!max && curr.value > max) {
+        if (!max || curr.value > max) {
             max = curr.value;
-        }
+        } 
         return validBST(curr.left, min, max);
     }
     if (curr.right) {
-        if (!min && curr.value < min) {
+        if (!min || curr.value < min) {
             min = curr.value;
         }
         return validBST(curr.right, min, max);
