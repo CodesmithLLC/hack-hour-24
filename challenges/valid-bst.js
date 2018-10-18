@@ -12,16 +12,16 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function validBST(tree, min = tree.value, max = tree.value) {
+function validBST(tree, min = Number.NEGATIVE_INFINITY, max =  Number.POSITIVE_INFINITY) {
     let curr = tree;
     if (curr.left) {
-        if (curr.value < max) {
+        if (curr.value > max) {
             max = curr.value;
         }
         return validBST(curr.left, min, max);
     }
     if (curr.right) {
-        if (curr.value > min) {
+        if (curr.value < min) {
             min = curr.value;
         }
         return validBST(curr.right, min, max);
