@@ -12,30 +12,25 @@ function BinaryTree(val) {
     this.right = null;
 }
 
-function validBST(tree, min = Number.NEGATIVE_INFINITY, max =  Number.POSITIVE_INFINITY) {
+function validBST(tree, min, max) {
     let curr = tree;
     if (curr.left) {
-        if (curr.value > max) {
+        if (!max && curr.value > max) {
             max = curr.value;
         }
         return validBST(curr.left, min, max);
     }
     if (curr.right) {
-        if (curr.value < min) {
+        if (!min && curr.value < min) {
             min = curr.value;
         }
         return validBST(curr.right, min, max);
     }
-    if (curr > max) {
-        return false;
-    }
-    if (curr < min) {
+    if (curr > max || curr < min) {
         return false;
     }
     return true;
 }
-
-
 
 
 module.exports = {BinaryTree: BinaryTree, validBST: validBST};
