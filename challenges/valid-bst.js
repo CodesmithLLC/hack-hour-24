@@ -16,14 +16,26 @@ function validBST(tree, min = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_IN
   // Declare values to represent left and right validity
   let leftValidBST;
   let rightValidBST;
-  // Assess left value - it must be either null or between the min and this.value
-  if (!this.left) leftValidBST = true;
-  // If it's not null, issue a recursive call on the left BST setting a new max of the parent tree's value
-  else leftValidBST = (this.left.value >= this.value || this.left.value <= this.min) ? false : validBST(this.left, min, this.value);
-  // Assess right value - it must be either null or between the max and this.value
-  if (!this.right) rightValidBST = true;
-  // If it's not null, issue a recursive call on the right BST setting a new min of the parent tree's value
-  else rightValidBST = (this.right.value <= this.value || this.right.value >= this.max) ? false : validBST(this.right, this.value, max);
+  // Assess left value - if it's null, the left branch is valid
+  if (tree.left === null) {
+    leftValidBST = true;
+    // If left value is greater than tree.value or less than the min, the left branch is invalid
+  } else if (tree.left.value >= tree.value || tree.left.value <= tree.min) {
+    leftValidBST = false;
+    // Otherwise, recursive call on the left branch with a new max equal to the parent's value
+  } else {
+    leftValidBST = validBST(tree.left, min, tree.value);
+  }
+  // Assess right value - if it's null, the right branch is valid
+  if (tree.right === null) {
+    rightValidBST = true;
+    // If right value is less than tree.value or greater than the max, the right branch is invalid
+  } else if (tree.right.value <= tree.value || tree.right.value >= tree.max) {
+    rightValidBST = false;
+    // Otherwise, recursive call on the right branch with a new min equal to the parent's value
+  } else {
+    rightValidBST = validBST(tree.right, tree.value, max);
+  }
   // Return true only if both left and right are true
   return leftValidBST && rightValidBST;
 }
