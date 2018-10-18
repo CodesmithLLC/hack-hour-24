@@ -12,16 +12,19 @@ function BinaryTree(val) {
   this.right = null;
 }
 
-function validBST(tree) {
+function validBST(tree, min = Number.NEGATIVE_INFINITY, max = Number.POSITIVE_INFINITY) {
   // Declare values to represent left and right validity
   let leftValidBST;
   let rightValidBST;
-  // Assess left value
+  // Assess left value - it must be either null or between the min and this.value
   if (!this.left) leftValidBST = true;
-  else leftValidBST = (this.left.value >= this.value) ? false : validBST(this.left);
-  // Assess right value - make recursive call if right is a tree
+  // If it's not null, issue a recursive call on the left BST setting a new max of the parent tree's value
+  else leftValidBST = (this.left.value >= this.value || this.left.value <= this.min) ? false : validBST(this.left, min, this.value);
+  // Assess right value - it must be either null or between the max and this.value
   if (!this.right) rightValidBST = true;
-  else rightValidBST = (this.right.value <= this.value) ? false : validBST(this.right);
+  // If it's not null, issue a recursive call on the right BST setting a new min of the parent tree's value
+  else rightValidBST = (this.right.value <= this.value || this.right.value >= this.max) ? false : validBST(this.right, this.value, max);
+  // Return true only if both left and right are true
   return leftValidBST && rightValidBST;
 }
 
