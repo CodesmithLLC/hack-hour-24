@@ -19,14 +19,18 @@ function validBST(tree, gpt = tree) {
   // check left and right against currentNode
   // if either is false, return false
 
-  if ((tree.left && tree.left.value > tree.value) || (tree.right && tree.value > tree.right.value)) return false;
+  // check if left and right leaf value of parent isn't valid
+  if (tree.left && tree.left.value >= tree.value) return false;
+  if (tree.right && tree.right.value <= tree.value) return false;
 
   if (tree.value < gpt.value) {
-    if ((tree.left && tree.left.value > gpt.value) || (tree.right && gpt.value < tree.right.value)) {
+    if ((tree.left && tree.left.value >= gpt.value) || (tree.right && tree.right.value >= gpt.value)) {
       return false;
     }
-  } else if (tree.value > gpt.value) {
-    if ((tree.left && tree.left.value < gpt.value) || (tree.right && gpt.value > tree.right.value)) {
+  }
+
+  if (tree.value > gpt.value) {
+    if ((tree.left && tree.left.value <= gpt.value) || (tree.right && tree.right.value <= gpt.value)) {
       return false;
     }
   }
@@ -37,19 +41,19 @@ function validBST(tree, gpt = tree) {
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
 
-// const root = new BinaryTree(5);
-// const one = new BinaryTree(1);
-// const three = new BinaryTree(3);
-// const four = new BinaryTree(4);
-// const six = new BinaryTree(6);
-// const seven = new BinaryTree(7);
-// const eight = new BinaryTree(8);
+const root = new BinaryTree(5);
+const one = new BinaryTree(1);
+const three = new BinaryTree(3);
+const four = new BinaryTree(3);
+const six = new BinaryTree(6);
+const seven = new BinaryTree(7);
+const eight = new BinaryTree(8);
 
-// root.left = three;
-// root.right = seven;
-// three.left = one;
-// three.right = four;
-// seven.left = six;
-// seven.right = eight;
+root.left = three;
+root.right = seven;
+three.left = one;
+three.right = four;
+seven.left = six;
+seven.right = eight;
 
-// console.log(validBST(root));
+console.log(validBST(root));
