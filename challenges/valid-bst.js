@@ -28,9 +28,9 @@ function validBST(tree, gpt = tree) {
   ) return false;
 
   // call validBST for left && right
-  if (!tree.left) return validBST(tree.right);
-  if (!tree.right) return validBST(tree.left);
-  return validBST(tree.left) && validBST(tree.right);
+  if (!tree.left) return validBST(tree.right, tree);
+  if (!tree.right) return validBST(tree.left, tree);
+  return validBST(tree.left, tree) && validBST(tree.right, tree);
 }
 
 module.exports = { BinaryTree: BinaryTree, validBST: validBST };
