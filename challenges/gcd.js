@@ -8,7 +8,18 @@
  */
 
 function gcd(a, b) {
-
+  let lowerNumber = Math.min(a,b);
+  let high = Math.max(a,b);
+  while (lowerNumber >= 1) {
+    if (a % lowerNumber === 0 && b % lowerNumber === 0){
+      return lowerNumber;
+    } else{
+      lowerNumber = high % lowerNumber;
+    }
+  }
+  return lowerNumber;
 }
+
+console.log(gcd(6,80));
 
 module.exports = gcd;
