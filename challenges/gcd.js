@@ -8,7 +8,19 @@
  */
 
 function gcd(a, b) {
+  let gettingDivided = (a > b) ? a : b;
+  let remain = (a > b) ? b : a;
+  let temp;
 
+  while (remain !== 0) {
+    temp = remain;
+    remain = gettingDivided % remain;
+    gettingDivided = temp;
+  }
+
+  return temp;
 }
+// console.log(gcd(10, 10))
+
 
 module.exports = gcd;
