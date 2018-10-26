@@ -14,19 +14,10 @@
  */
 
 function binToDec(binary) {
-  const binArray = binary.split('').reverse();
-
-  return binArray.reduce((accum, next, i) => {
-    return accum + (Math.pow(2, i) * next);
-  }, 0);
+  return binary
+    .split('')
+    .reverse()
+    .reduce((accum, next, i) => accum + (2 ** i) * next, 0);
 }
 
 module.exports = binToDec;
-
-console.log(binToDec(''));
-/* 
-* 2^0 = 1
-* 2^1 = 2
-* 2^2 = 4
-* 2^3 = 8
-*/
