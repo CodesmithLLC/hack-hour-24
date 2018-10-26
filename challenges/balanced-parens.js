@@ -31,16 +31,14 @@ function balancedParens(input) {
     .filter(char => '[{()}]'.includes(char));
 
   for (let i = 0; i < charsOnlyArray.length; i += 1) {
+    if (parensStack.length === 0) return false;
     if ('{[('.includes(charsOnlyArray[i])) parensStack.push(charsOnlyArray[i]);
-    else if (parensStack.length === 0) return false;
     else {
       const pair = parensStack.pop() + charsOnlyArray[i];
-      if ('[]{}()'.includes(pair) === false) return false;
+      if (!'[]{}()'.includes(pair)) return false;
     }
   }
   return parensStack.length === 0;
 }
 
 module.exports = balancedParens;
-
-console.log(balancedParens(''));
