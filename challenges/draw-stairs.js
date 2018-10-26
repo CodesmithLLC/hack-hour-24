@@ -21,6 +21,7 @@ function drawStairs(n) {
     console.log(`${buffer}${stars}`);
     stairs = stairs === null ? `${buffer}${stars}\n` : stairs += `${buffer}${stars}\n`;
   }
+  console.log(stairs);
   return stairs;
 }
 
