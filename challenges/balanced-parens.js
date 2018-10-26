@@ -31,11 +31,10 @@ function balancedParens(input) {
     .filter(char => '[{()}]'.includes(char));
 
   for (let i = 0; i < charsOnlyArray.length; i += 1) {
-    if (parensStack.length === 0) return false;
     if ('{[('.includes(charsOnlyArray[i])) parensStack.push(charsOnlyArray[i]);
     else {
       const pair = parensStack.pop() + charsOnlyArray[i];
-      if (!'[]{}()'.includes(pair)) return false;
+      if ('[]{}()'.includes(pair) === false) return false;
     }
   }
   return parensStack.length === 0;
