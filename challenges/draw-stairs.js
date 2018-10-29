@@ -14,12 +14,15 @@
 */
 
 function drawStairs(n) {
+  let stairs = null;
   for (let i = 1; i <= n; i += 1) {
-    let buffer = (' ').repeat(n - i);
+    const buffer = (' ').repeat(n - i);
     const stars = ('*').repeat(i);
-    // stairCase += `${buffer}${stars}\n`;
     console.log(`${buffer}${stars}`);
+    stairs = stairs === null ? `${buffer}${stars}\n` : stairs += `${buffer}${stars}\n`;
   }
+  console.log(stairs);
+  return stairs;
 }
 
 module.exports = drawStairs;

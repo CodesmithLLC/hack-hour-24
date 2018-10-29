@@ -3,32 +3,24 @@
  */
 
 function highestProduct(array) {
-  const positivesArr = array.filter(num => num > 0).sort((a, b) => b - a);
-  const negativesArr = array.filter(num => num < 0).sort((a, b) => a - b);
-  const productThree = [];
+  if (!Array.isArray(array)) return 0;
+  if (array.length < 3) return 0;
 
-  while (productThree.length !== 3) {
-    const biggestNeg = negativesArr[0];
-    const biggestPos = positivesArr[0];
+  const sortedArray = array.sort((a, b) => a - b);
 
-    if (Math.abs(biggestNeg) > biggestPos) {
-      productThree.push(biggestNeg);
-      negativesArr.shift();
-    } else {
-      productThree.push(biggestPos);
-      positivesArr.shift();
-    }
+  // if two neg numbers exist, find product
+  const firstTwoNumsProduct = sortedArray.slice(0, 2).reduce((prod, num) => prod * num);
+
+  // find the product of the third and second last numbers
+  const thirdAndSecondLastNumsProduct = sortedArray.slice(-3, -1).reduce((prod, num) => prod * num);
+
+  // check if their product is > product of 3rd to last and 2nd to last numbers (positive)
+  if (firstTwoNumsProduct > thirdAndSecondLastNumsProduct) {
+    // if true, return product of greatest two neg numbers and highest pos number
+    return firstTwoNumsProduct * sortedArray.slice(-1);
   }
-
-  return productThree.reduce((product, num) => product * num);
+  // if false, return product of greatest three pos numbers
+  return thirdAndSecondLastNumsProduct * sortedArray.slice(-1);
 }
 
-console.log(highestProduct([-10, -5, -2, 0, 1, 2, 5]));
-
 module.exports = highestProduct;
-
-
-// if there is more than one negative
-  // find the largest two negatives greater than the sma
-
-  // remove zero if exists

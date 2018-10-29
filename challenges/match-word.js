@@ -11,17 +11,18 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
-  // if string is empty, return true
-  if (!str.length) return 0;
+  if (!str) return true;
 
   const wordsArray = str.match(/[a-zA-Z]+/g);
+
   const stackOfWords = wordsArray.reduce((stack, nextWord) => {
-    const reversed = nextWord.split('').reverse().join('');
-    if (stack.length === 0) stack.push(nextWord);
-    else if (stack[stack.length - 1] === reversed) {
-      stack.pop();
+    const reversed = nextWord.toUpperCase().split('').reverse().join('');
+
+    if (stack.includes(reversed)) {
+      const topStackWord = stack.pop();
+      if (topStackWord !== reversed) stack.push(topStackWord);
     } else {
-      stack.push(nextWord);
+      stack.push(nextWord.toUpperCase());
     }
     return stack;
   }, []);
@@ -29,5 +30,3 @@ function matchWord(str) {
 }
 
 module.exports = matchWord;
-
-console.log(matchWord('for__if__rof__fi'));

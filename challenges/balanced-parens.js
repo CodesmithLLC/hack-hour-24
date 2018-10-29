@@ -32,7 +32,6 @@ function balancedParens(input) {
 
   for (let i = 0; i < charsOnlyArray.length; i += 1) {
     if ('{[('.includes(charsOnlyArray[i])) parensStack.push(charsOnlyArray[i]);
-    else if (parensStack.length === 0) return false;
     else {
       const pair = parensStack.pop() + charsOnlyArray[i];
       if ('[]{}()'.includes(pair) === false) return false;
@@ -42,5 +41,3 @@ function balancedParens(input) {
 }
 
 module.exports = balancedParens;
-
-console.log(balancedParens(''));
