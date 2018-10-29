@@ -10,7 +10,21 @@
 
 
 function countTwos(num) {
-
+  let twoCount = 0;
+  for (let i = num; i >= 0; i -= 1) {
+    const numToString = [...i.toString()];
+    if (numToString.includes('2')) {
+      const result = numToString.filter(numChar => numChar === '2').length;
+      twoCount += result;
+    }
+  }
+  return twoCount;
 }
 
 module.exports = countTwos;
+
+console.log(countTwos(11420));
+
+// ones -> 2
+// tens -> 12, 20-29, 32, 42, 52, 62, 72, 82, 92
+// hundreds -> 102, 112, 120-29, 132, 142, 152, 162, 172, 182, 192 
