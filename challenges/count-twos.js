@@ -10,7 +10,28 @@
 
 
 function countTwos(num) {
+  let count = 0;
+  let currentNum = 1;
 
+  while (currentNum <= num) {
+    let operator = currentNum.toString();
+    if(operator[operator.length-1] === '2' && operator.length === 1){
+      count += 1;
+      currentNum += 1;
+    } else if (operator.indexOf('2') === -1){
+      currentNum += 1;
+    } else{
+      for(let i = 0; i < operator.length; i += 1){
+        if(operator[i] === '2'){
+          count += 1
+        }
+      }
+      currentNum += 1;
+    }
+  }
+  return count;
 }
+
+console.log(countTwos(11420));
 
 module.exports = countTwos;
