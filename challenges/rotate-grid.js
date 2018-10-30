@@ -22,15 +22,15 @@ function rotateGrid(grid, n) {
   });
 
   // i need to use gridcopy so I can keep the original while replacing the original grid
-  for (let x=0, y=0; x<grid[0].length; x++, y++) {
+  for (let x=0, y=0, z=n-1; x<grid[0].length; x++, y++, z--) {
     // loop through first row to replace the last column
-    // loop through last row to replace the first column
     grid[y][grid[0].length - 1] = gridCopy[0][x];
+    // loop through last row to replace the first column
     grid[y][0] = gridCopy[n -1][x];
 
     // loop through last column to replace the last row
+    grid[n-1][z] = gridCopy[y][gridCopy.length - 1];
     // loop through first column to replace the first row
-    grid[n-1][x] = gridCopy[y][gridCopy.length - 1];
     grid[y][0] = gridCopy[0][x];
   }
   
