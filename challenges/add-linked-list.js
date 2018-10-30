@@ -18,7 +18,85 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  let l1current = l1;
+  let l2current = l2;
+  let output = l1;
+  let head = l1;
+  let carryOver = 0;
+  let l1length = 0;
+  let l2length = 0;
+  while (l1current.next){
+    l1length += 1;
+    l1current = l1current.next;
 
+  }
+  while (l2current.next) {
+    l2length += 1;
+    l2current = l2current.next;
+  }
+  l1current = l1;
+  l2current = l2;
+  if(l1length >= l2length){
+    while(l1current) {
+      if(l2current !== null && l1current.value + l2current.value >= 10) {
+        carryOver = 1;
+        l1.value = l1current.value + l2current.value - 10;
+      } else if(l2current !== null){
+        l1.value = l1current.value + l2current.value + carryOver;
+        carryOver = 0;
+      } else{
+        l1.value = l1current.value;
+      }
+      if(l2current !== null){
+        l1 = l1.next;
+        l1current = l1current.next;
+        l2current = l2current.next;
+      } else{
+        l1 = l1.next;
+        l1current = l1current.next;
+      }
+      
+    }
+  } else{
+    while(l2current) {
+      if(l1current !== null && l1current.value + l2current.value >= 10) {
+        carryOver = 1;
+        l1.value = l1current.value + l2current.value - 10;
+      } else if(l1current !== null){
+        l1.value = l1current.value + l2current.value + carryOver;
+        carryOver = 0;
+      } else{
+        l1.value = l1current.value;
+      }
+      if(l1current !== null){
+        l1 = l1.next;
+        l1current = l1current.next;
+        l2current = l2current.next;
+      } else{
+        l1 = l1.next;
+        l2current = l2current.next;
+      }
+  }
+  }
+  return head;
 }
+
+let test1 = new Node(2);
+let test2 = new Node(1);
+let test3 = new Node(5);
+let test8 = new Node(9);
+
+test1.next = test2;
+test2.next = test3;
+test3.next = test8;
+
+let test4 = new Node(5);
+let test5 = new Node(9);
+let test6 = new Node(2);
+
+test4.next = test5;
+test5.next = test6;
+
+console.log(addLinkedList(test1, test4));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
