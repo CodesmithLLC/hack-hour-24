@@ -10,6 +10,10 @@
 
 
 function countTwos(num) {
+  const digits = num.toString().split('').reverse();
+  return digits.reduce((count, strDigit, idx, arr) => {
+
+  })
 
 }
 
