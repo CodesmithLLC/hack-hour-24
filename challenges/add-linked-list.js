@@ -18,7 +18,77 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
+  // let curNode1 = l1;
+  // let curNode2 = l2;
+  // let carry = 0;
+  // const total = [];
 
+  // while (curNode1 !== null && curNode2 !== null) {
+  //   const sum = curNode1.value + curNode2.value + carry;
+  //   total.push(sum % 10);
+  //   if (sum > 9) {
+  //     carry = 1;
+  //   } else {
+  //     carry = 0;
+  //   }
+  //   curNode1 = curNode1.next;
+  //   curNode2 = curNode2.next;
+  // }
+
+  // while (curNode1 !== null) {
+  //   const sum = curNode1.value + carry;
+  //   total.push(sum % 10);
+  //   if (sum > 9) {
+  //     carry = 1;
+  //   } else {
+  //     carry = 0;
+  //   }
+  // }
+
+  const num1 = [];
+  const num2 = [];
+
+  let curNode1 = l1;
+  let curNode2 = l2;
+
+  while (curNode1 !== null) {
+    num1.push(curNode1.value);
+    curNode1 = curNode1.next;
+  }
+
+  while (curNode2 !== null) {
+    num2.push(curNode2.value);
+    curNode2 = curNode2.next;
+  }
+
+  const sum = (parseInt(num1.join(''), 10) + parseInt(num2.join(''), 10)).toString().split('');
+  const head = new Node(sum.slice(-1)[0]);
+  let curNode = head;
+
+  for (let i = sum.length - 2; i >= 0; i -= 1) {
+    curNode.next = new Node(sum[i]);
+    curNode = curNode.next;
+  }
+
+  return head;
 }
 
-module.exports = {Node: Node, addLinkedList: addLinkedList};
+// const ll1 = new Node(2);
+// const ll2 = new Node(1);
+// const ll3 = new Node(5);
+
+// ll1.next = ll2;
+// ll2.next = ll3;
+
+// const ll4 = new Node(5);
+// const ll5 = new Node(9);
+// const ll6 = new Node(2);
+
+// ll4.next = ll5;
+// ll5.next = ll6;
+
+// console.log(ll1);
+// console.log(ll4);
+// console.log(addLinkedList(ll1, ll4));
+
+module.exports = { Node, addLinkedList };
