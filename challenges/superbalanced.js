@@ -14,7 +14,24 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-
+  // Case: Empty tree, return true
+  if (!this.left && !this.right) {
+    return true;
+  }
+  // Case: No left, right has grandchildren, return false
+  if (!this.left && this.right) {
+    if (this.right.right || this.right.left) {
+      return false;
+    }
+  }
+  // Case: No right, left has grandchildren, return false
+  if (this.left && !this.right) {
+    if (this.left.left || this.left.right) {
+      return false;
+    }
+  }
+  // Case: Left and Right exist, check both recursively, return true if both true
+  return superbalanced(this.left) && superbalanced(this.right);
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
