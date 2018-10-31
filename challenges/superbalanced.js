@@ -14,24 +14,31 @@ function BinaryTree(value) {
 }
 
 function superbalanced(tree) {
-  // Case: Empty tree, return true
-  if (!this.left && !this.right) {
+  // Declare array to store terminal heights
+  const terminalHeightArray = [];
+
+  // Helper function for recursive calls - keep track of heights, returns heights of empty trees
+  const heightQuery = (BST, height = 0) => {
+    // If empty, push height into terminalHeightArray
+    if (!BST.left && !BST.right) {
+      return terminalHeightArray.push(height);
+    }
+    // If not empty, recurisvely call heightQuery on available branches
+    if (BST.left) heightQuery(BST.left, height + 1);
+    if (BST.right) heightQuery(BST.right, height + 1);
     return true;
-  }
-  // Case: No left, right has grandchildren, return false
-  if (!this.left && this.right) {
-    if (this.right.right || this.right.left) {
-      return false;
-    }
-  }
-  // Case: No right, left has grandchildren, return false
-  if (this.left && !this.right) {
-    if (this.left.left || this.left.right) {
-      return false;
-    }
-  }
-  // Case: Left and Right exist, check both recursively, return true if both true
-  return superbalanced(this.left) && superbalanced(this.right);
+  };
+
+  // Call heightQuery on tree
+  heightQuery(tree);
+
+  // Sort terminalHeightArray from smallest to largest
+  terminalHeightArray.sort((a, b) => a - b);
+  const deepestPoint = terminalHeightArray[terminalHeightArray.length - 1];
+  const shallowestPoint = terminalHeightArray[0]
+
+  // Return true if difference between largest and smallest is 0 or 1
+  return (deepestPoint - shallowestPoint) <= 1;
 }
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
