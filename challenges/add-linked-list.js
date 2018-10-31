@@ -37,15 +37,15 @@ function addLinkedList(ll1, ll2) {
   }
   return ll1;
 }
-const test1 = new Node(7);
-test1.next = new Node(9);
+const test1 = new Node(9);
+test1.next = new Node(6);
 test1.next.next = new Node(4);
-test1.next.next.next = new Node(3);
+// test1.next.next.next = new Node(3);
 
-const test2 = new Node(4);
-test2.next = new Node(9);
-test2.next.next = new Node(1);
-test2.next.next.next = new Node(5);
+const test2 = new Node(0);
+// test2.next = new Node(0);
+// test2.next.next = new Node(1);
+// test2.next.next.next = new Node(5);
 
 
 
