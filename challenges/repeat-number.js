@@ -23,6 +23,4 @@ function repeatNumbers(array) {
   return false;
 }
 
-console.log(repeatNumbers([1,2,2,3]));
-
 module.exports = repeatNumbers;

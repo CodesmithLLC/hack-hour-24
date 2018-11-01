@@ -25,7 +25,6 @@ function superbalanced(tree) {
       balanced = false;
     }
     else {
-      console.log('left');
       currLeftNode = currLeftNode.left;
       count.left = count.left + 1;
     }
@@ -36,7 +35,6 @@ function superbalanced(tree) {
       balanced = false;
     }
     else {
-      console.log('right');
 
       currRightNode = currRightNode.right;
       count.right = count.right + 1;
@@ -48,13 +46,5 @@ function superbalanced(tree) {
   }
   return balanced;
 }
-
-let tree = new BinaryTree(9);
-tree.left = new BinaryTree(2);
-tree.right = new BinaryTree(12);
-tree.right.right = new BinaryTree(15);
-tree.right.right.right = new BinaryTree(16);
-
-console.log(superbalanced(tree));
 
 module.exports = {BinaryTree: BinaryTree, superbalanced: superbalanced};
