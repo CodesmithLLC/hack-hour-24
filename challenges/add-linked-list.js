@@ -18,6 +18,9 @@ function Node(val) {
 }
 
 function addLinkedList(ll1, ll2) {
+  if (!ll1) return ll2;
+  if (!ll2) return ll1;
+
   let pointer1 = ll1;
   let pointer2 = ll2;
   while (pointer1 && pointer2) {
