@@ -15,7 +15,7 @@ function repeatNumbers(array) {
   let sum = 0;
 
   array.forEach((element) => {
-    if (max === undefined || element) {
+    if (max === undefined || element > max) {
       max = element;
     }
     sum += element;
@@ -26,6 +26,6 @@ function repeatNumbers(array) {
   return sum - sumFirstN;
 }
 
-// console.log(repeatNumbers([2, 1, 2, 3, 4]));
+console.log(repeatNumbers([2, 1, 2, 4, 3]));
 
 module.exports = repeatNumbers;
