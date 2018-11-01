@@ -11,7 +11,14 @@
  */
 
 function repeatNumbers(array) {
-
+  const sortedArr = array.sort();
+  const last = sortedArr[sortedArr.length - 1];
+  const sumMinusDouble = (last / 2) * (1 + last);
+  let totalSum = 0;
+  for (let i = 0; i < sortedArr.length; i += 1) {
+    totalSum += sortedArr[i];
+  }
+  return totalSum - sumMinusDouble;
 }
 
 module.exports = repeatNumbers;
