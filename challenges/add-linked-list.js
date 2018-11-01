@@ -23,7 +23,6 @@ function addLinkedList(l1, l2) {
   let curr = l1;
   let curr2 = l2;
   let l3;
-  let curr3;
   let sum;
   let arr = [];
   while (curr && curr2) {
@@ -63,16 +62,16 @@ function addLinkedList(l1, l2) {
   return l3;
 }
 
-// let l1 = new Node(2);
-// l1.next = new Node(1);
-// l1.next.next = new Node(5);
-// // l1.next.next.next = new Node(7);
+let l1 = new Node(2);
+l1.next = new Node(1);
+l1.next.next = new Node(5);
+// l1.next.next.next = new Node(7);
 
 
-// let l2 = new Node(5);
-// l2.next = new Node(9);
-// l2.next.next = new Node(2);
+let l2 = new Node(5);
+l2.next = new Node(9);
+l2.next.next = new Node(2);
 
-// console.log(addLinkedList(l1, l2));
+console.log(addLinkedList(l1, l2));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
