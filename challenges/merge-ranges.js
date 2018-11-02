@@ -9,9 +9,25 @@
  * Do not assume the ranges are in order
  */
 
+ // I got help from the internet **make sure to redo
 
 function mergeRanges(array) {
+  const sortedArr = array.sort((a, b) => { return a[0]-b[0] || a[1]-b[1] });
+  const result = [];
+  let last;
 
+  sortedArr.forEach(ele => {
+    if (!last || ele[0] > last[1]) {
+      last = ele;
+      result.push(last);
+    } else if (ele[1] > last[1]) {
+      last[1] = ele[1];
+    }
+  })
+  
+  return result;
 }
+
+console.log(mergeRanges([[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]));
 
 module.exports = mergeRanges;
