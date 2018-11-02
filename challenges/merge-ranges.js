@@ -16,7 +16,6 @@ function mergeRanges(array) {
   let output = [];
   let rangeIndex = 0;
   sorted = array.sort((a,b) => a[0] > b[0]);
-  console.log(array);
   for (let i = 0; i < array.length; i += 1) {
     if(output.length === 0) {
       output.push(array[i]);
