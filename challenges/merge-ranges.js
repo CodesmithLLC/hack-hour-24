@@ -9,7 +9,7 @@
  * Do not assume the ranges are in order
  */
 
-var times = [[10, 12], [9, 10], [0, 1], [3, 5], [4, 8]];
+// var times = [[8, 12], [9, 10], [0, 1], [3, 5], [3, 4]];
 function mergeRanges(array) {
   if (!Array.isArray(array) || array.some(i => !Array.isArray(i))) return undefined;
   // sort array
