@@ -27,13 +27,41 @@
  *
  */
 
-var Node = function(value) {
+const Node = function Node(value) {
   this.value = value;
   this.next = null;
-}
+};
 
-function hasCycle(head) {
+const hasCycle = function hasCycle(head) {
+  // Assign a pointer to starting node
+  let currNode = head;
 
-}
+  // Create a new set to hold addresses
+  const nodeSet = new Set();
+
+  // Loop through nodes looking for a cycle
+  while (currNode) {
+    // If current node is in set, return true, otherwise loop
+    if (nodeSet.has(currNode)) return true;
+    nodeSet.add(currNode);
+    currNode = currNode.next;
+  }
+
+  // If list ends, no cycle
+  return false;
+};
 
 module.exports = {Node: Node, hasCycle: hasCycle}
+
+// console.log('---TESTING mergeRanges---');
+
+// const cycleList = new Node(1);
+// cycleList.next = new Node(2);
+// cycleList.next.next = new Node(3);
+// cycleList.next.next.next = cycleList;
+// console.log(`hasCycle(cycleList): expect -> true: actual -> [${hasCycle(cycleList)}]`);
+
+// const noCycleList = new Node(1);
+// cycleList.next = new Node(2);
+// cycleList.next.next = new Node(3);
+// console.log(`hasCycle(noCycleList): expect -> false: actual -> [${hasCycle(noCycleList)}]`);
