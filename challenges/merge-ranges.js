@@ -17,6 +17,7 @@ function mergeRanges(array) {
   let last;
 
   sortedArr.forEach(ele => {
+    console.log(result);
     if (!last || ele[0] > last[1]) {
       last = ele;
       result.push(last);

@@ -33,7 +33,34 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  // have 2 variables slow and fast
+  let slow = head;
+  let fast = head;
+  
+  // slow moves at 1 node
+  // fast moves 2 nodes at a time
+  // the condition needs to check if the next 2 nodes exist
+  while (fast.next && fast.next.next) {
+    slow = slow.next;
+    fast = fast.next.next;
 
+    // if the nodes slow and fast are equivalent then return true
+    if (slow === fast) {
+      return true;
+    }
+  }
+
+  // if the next 2 nodes don't exist, then you just return false
+  return false;
 }
+
+var node1 = new Node('1');
+var node2 = node1.next = new Node('2');
+var node3 = node2.next = new Node('3');
+var node4 = node3.next = new Node('4');
+var node5 = node4.next = new Node('5');
+console.log(hasCycle(node1)); // => false
+node5.next = node2;
+console.log(hasCycle(node1)); // => true
 
 module.exports = {Node: Node, hasCycle: hasCycle}
