@@ -23,8 +23,8 @@
 // If it's already a string, the number must be a duplicate, return it
 function repeatNumbers(array) {
   for (let i = 0; i < array.length; i += 1) {
-    // Check if the number at the array[i] is a string 
-    if (typeof array[Number(array[i])] === 'string') return array[i];
+    // Check if the number at the array[i] is a string
+    if (typeof array[Number(array[i])] === 'string') return Number(array[i]);
     array[Number(array[i])] = String(array[Number(array[i])]);
   }
   return false;
