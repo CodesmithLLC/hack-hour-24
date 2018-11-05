@@ -13,32 +13,43 @@ function BinaryTree(val) {
 }
 
 function validBST(tree) {
-  // Has no children.
-  if ((tree.left === null && tree.right === null) || tree === null) {
-    return true;
-  }
+  // // Has no children.
+  // if ((tree.left === null && tree.right === null) || tree === null) {
+  //   return true;
+  // }
 
-  // Check left child.
-  if (tree.left !== null) {
-    if (tree.value < tree.left.value) {
-      return false;
+  // // Check left child.
+  // if (tree.left !== null) {
+  //   if (tree.value < tree.left.value) {
+  //     return false;
+  //   }
+  // }
+
+  // // Check right child.
+  // if (tree.right !== null) {
+  //   if (tree.value > tree.right.value) {
+  //     return false;
+  //   }
+  // }
+
+  // // Is valid BST, so check children;
+  // if (tree.left !== null && tree.right !== null) {
+  //   return validBST(tree.left) && validBST(tree.right);
+  // } if (tree.left !== null) {
+  //   return validBST(tree.left);
+  // }
+  // return validBST(tree.right);
+
+  const travseralArray = [];
+  function preorderTraversal(tree) {
+    if (tree === null) {
+      return true;
     }
-  }
-
-  // Check right child.
-  if (tree.right !== null) {
-    if (tree.value > tree.right.value) {
-      return false;
+    if (tree.left !== null) {
+      preorderTraversal(tree.left);
     }
+    travseralArray.push(tree.value);
   }
-
-  // Is valid BST, so check children;
-  if (tree.left !== null && tree.right !== null) {
-    return validBST(tree.left) && validBST(tree.right);
-  } if (tree.left !== null) {
-    return validBST(tree.left);
-  }
-  return validBST(tree.right);
 }
 
 // const btree = new BinaryTree(9);

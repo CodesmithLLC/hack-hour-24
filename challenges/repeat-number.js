@@ -26,6 +26,6 @@ function repeatNumbers(array) {
   return sum - sumFirstN;
 }
 
-console.log(repeatNumbers([2, 1, 2, 4, 3]));
+// console.log(repeatNumbers([2, 1, 2, 4, 3]));
 
 module.exports = repeatNumbers;
