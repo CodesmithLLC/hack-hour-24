@@ -35,26 +35,29 @@ var Node = function(value) {
 // if reach null not circular...
 // 
 function hasCycle(head) {
-  // but i still don't understand the floyd hare/turtle algorithm :(
   let slow;
   let fast;
   if (!head || !head.next) return false;
   slow = head;
   fast = head;
   if (head.next === head) return true;
+  if (fast.next === null ) return false
+
   while (fast.next.next) {
     slow = slow.next;
     fast = fast.next.next;
+    if (fast.next === null ) return false
     if (slow === fast) return true;
   }
+
   return false;
 }
-// var node1 = new Node('1');
-// var node2 = node1.next = new Node('2');
-// var node3 = node2.next = new Node('3');
-// var node4 = node3.next = new Node('4');
-// var node5 = node4.next = new Node('5');
+var node1 = new Node('1');
+var node2 = node1.next = new Node('2');
+var node3 = node2.next = new Node('3');
+var node4 = node3.next = new Node('4');
+var node5 = node4.next = new Node('5');
 // node5.next = node2;
 // console.log(node1)
-// console.log(hasCycle(node1))
+console.log(hasCycle(node1))
 module.exports = {Node: Node, hasCycle: hasCycle}
