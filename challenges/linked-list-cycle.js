@@ -33,6 +33,9 @@ var Node = function(value) {
 }
 
 function hasCycle(head) {
+  if (!head) {
+    return null;
+  }
   // have 2 variables slow and fast
   let slow = head;
   let fast = head;
