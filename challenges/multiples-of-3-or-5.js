@@ -31,9 +31,9 @@ function sumMultiples3Or5Below1000() {
 // and returns the sum of multiples of x and y below z
 function sumMultiplesXOrYBelowZ(x, y, z) {
   let sum = 0;
-  let multx = 1000/x;
-  let multy = 1000/y;
-  let multxy = 1000/(x * y);
+  let multx = z/x;
+  let multy = z/y;
+  let multxy = z/(x * y);
   if(Number.isInteger(multx)) multx = multx - 1;
   else multx = Math.floor(multx);
   if(Number.isInteger(multy)) multy = multy - 1;
