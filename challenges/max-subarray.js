@@ -13,6 +13,9 @@ function maxSubarray(arr) {
   let runningSum = 0;
   for (let i = 0; i < arr.length; i += 1) {
     runningSum += arr[i];
+    if(runningSum > maxSum) {
+      maxSum = runningSum;
+    }
     for(let x = i + 1; x < arr.length; x += 1){
       runningSum += arr[x];
       if(runningSum > maxSum) {
