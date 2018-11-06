@@ -10,22 +10,18 @@
 
 
 function maxSubarray(arr) {
-  // if all negative
-  if (!arr.some(i => i > 0)) {
-    return Math.max(...arr);
-  }
-  // if at least 1 element > 0
-  let sum = 0;
-  const records = [];
+
+  let sum = -Infinity;
+  let max = -Infinity;
   for (let i = 0; i < arr.length; i += 1) {
     // sum starts to add nums when it encounters the 1st positive num
     // if sum becomes negative, reset it to 0, start counting from the next positive num
     sum = Math.max(0, sum + arr[i]);
-    records.push(sum);
+    max = Math.max(sum, max);
     // console.log(sum);
-    // console.log(records);
+    // console.log(max);
   }
-  return Math.max(...records);
+  return max;
 }
-console.log(maxSubarray([3, -10, 4, -1, 2]));
+console.log(maxSubarray([-10, -4, -5]));
 module.exports = maxSubarray;
