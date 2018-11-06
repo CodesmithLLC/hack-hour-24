@@ -21,6 +21,6 @@ function maxSubarray(arr) {
 
 module.exports = maxSubarray;
 
-console.log('---TESTING maxSubarray---');
-console.log(`maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]): expect -> 18 | actual -> ${maxSubarray([1, -2, 3, 10, -4, 7, 2, -5])}`);
-console.log(`maxSubarray([15, 20, -5, 10]): expect -> 40 | actual -> ${maxSubarray([15, 20, -5, 10])}`);
+// console.log('---TESTING maxSubarray---');
+// console.log(`maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]): expect -> 18 | actual -> ${maxSubarray([1, -2, 3, 10, -4, 7, 2, -5])}`);
+// console.log(`maxSubarray([15, 20, -5, 10]): expect -> 40 | actual -> ${maxSubarray([15, 20, -5, 10])}`);
