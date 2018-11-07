@@ -13,7 +13,25 @@
   */
 
 function anagrams(string) {
+  const stringArr = string.split('');
+  const retArr = [];
 
+  function produceAnagrams(currStr, currArr) {
+    if (currArr.length === 0) {
+      retArr.push(currStr);
+      return;
+    }
+
+    for (let i = 0; i < currArr.length; i += 1) {
+      produceAnagrams(currStr + currArr[i], currArr.filter((v, index) => index !== i));
+    }
+  }
+
+  produceAnagrams('', stringArr);
+
+  return retArr.filter((v, index, self) => self.indexOf(v) === index);
 }
+
+console.log(anagrams('abc'));
 
 module.exports = anagrams;
