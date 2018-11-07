@@ -13,7 +13,26 @@
   */
 
 function anagrams(string) {
+  let before, after, focus;
+  let output = [];
+  if(string.length < 2) {
+    return string;
+  } else{
+    for(let i = 0; i < string.length; i += 1) {
+      let firstLetter = string[i];
 
+      if(string.indexOf(firstLetter) != i)
+        continue;
+      
+      var remainingString = string.slice(0, i) + string.slice(i+1, string.length);
+
+      for( let subPermutation of anagrams(remainingString)){
+        output.push(firstLetter + subPermutation);
+      }
+    }
+  }
+  return output;
 }
 
+console.log(anagrams('abcd'));
 module.exports = anagrams;
