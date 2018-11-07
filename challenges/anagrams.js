@@ -17,16 +17,14 @@ const cache = {};
 function anagrams(string) {
   // Check if answer has already been cached
   if (cache[string]) return cache[string];
-  
+
+  // If empty string, return empty array
+  if (string === '') return [];
+
   // If string is a single character, return that character
   if (string.length === 1) {
     cache[string] = [string];
     return [string];
-  }
-
-  // If string is a double character return both variants
-  if (string.length === 2) {
-    cache[string] = [string, string.split('').reverse().join()];
   }
 
   // Otherwise create and cache an array of anagrams
@@ -36,7 +34,12 @@ function anagrams(string) {
     anagrams(remainingChars).forEach(anagram => anagramArray.push(string[i] + anagram));
   }
   cache[string] = anagramArray;
-  return anagramArray;
+
+  // Helper function to deduplicate the anagram array
+  const deDupe = array => array.filter((el, i) => array.indexOf(el) === i);
+
+  // Returnd de-duplicated array
+  return deDupe(anagramArray);
 }
 
 module.exports = anagrams;
