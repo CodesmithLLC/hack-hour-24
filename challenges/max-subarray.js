@@ -8,7 +8,7 @@
  */
 
 function maxSubarray(arr) {
-
+  // must be similar to coinSum summing of the numbers
 }
 
 module.exports = maxSubarray;
