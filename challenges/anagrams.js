@@ -19,7 +19,7 @@ function anagrams(string) {
   if (cache[string]) return cache[string];
 
   // If empty string, return empty array
-  if (string === '') return [];
+  if (string === '') return [''];
 
   // If string is a single character, return that character
   if (string.length === 1) {
