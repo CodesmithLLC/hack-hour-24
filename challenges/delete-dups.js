@@ -10,10 +10,20 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
-
-function deleteDups(head) {
-
-}
+const deleteDups = (head) => {
+  let currNode = head;
+  while (currNode) {
+    let trackerNode = currNode;
+    while (trackerNode.next) {
+      if (currNode.value === trackerNode.next.value) {
+        trackerNode.next = trackerNode.next.next;
+      } else {
+        trackerNode = trackerNode.next;
+      }
+    }
+    currNode = currNode.next;
+  }
+  return head;
+};
 
 module.exports = deleteDups;
