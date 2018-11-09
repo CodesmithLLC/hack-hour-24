@@ -12,6 +12,7 @@
   */
 
 function anagrams(string) {
+  
   function inner(first, rest) {
     if (rest.length === 1) {
       return [first + rest];
@@ -29,12 +30,13 @@ function anagrams(string) {
         results.push(first + anagram[j]);
       }
     }
+    // if(results.length === 0) return '';
     return results;
   }
 
   return inner('', string);
 }
-console.log(anagrams('x,y'));
+console.log(anagrams(''));
 
 
 module.exports = anagrams;

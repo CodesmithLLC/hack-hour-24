@@ -16,30 +16,39 @@
 
 // 3->5->9->5->4->5
 function deleteDups(head) {
-  var current = head,
-    arr = [],
-    prev,
-    next;
+  var curr = head,
+    obj = {},
+    prev;
+    // next;
   // till the end item is not null
-  while (current.next != null) {
+  while (curr.next != null) {
 
-    if (arr.indexOf(current.value) === -1) {
-      arr.push(current.value);
+    if (!obj[curr.value]) {
+      obj[curr.value] = 1;
     } else {
       if (prev) {
-        prev.next = current.next;
+        // console.log('kevin')
+        prev.next = curr.next;
       }
     }
-    prev = current;
-    current = current.next;
+    prev = curr;
+    curr = curr.next;
   }
-
-  if (current.next == null) {
-    if (arr.indexOf(current.value) !== -1) {
+  if (curr.next == null) {
+    if (obj[curr.value]) {
+      // console.log(curr.value,'why')
+      curr = null;
       prev.next = null;
+      let pointer = head;
+      while(pointer.next.next){
+        // console.log('k');
+        pointer = pointer.next
+      }
+      pointer.next = null;
+      // console.log(pointer)
     }
   }
-  console.log(head);
+  // console.log(JSON.stringify(head));
   return head;
 }
 
@@ -47,12 +56,14 @@ function Node(val) {
   this.value = val;
   this.next = null;
 }
-let l1 = new Node(3);
-l1.next = new Node(8);
-l1.next.next = new Node(6);
+let l1 = new Node(4);
+l1.next = new Node(5);
+l1.next.next = new Node(4);
 
-l1.next.next.next = new Node(8);
-// l1.next.next.next.next = new Node(8);
+l1.next.next.next = new Node(5);
+// l1.next.next.next.next = new Node(5);
+// l1.next.next.next.next.next = new Node(5);
+
 
 // console.log(JSON.stringify(l1))
 console.log(JSON.stringify(deleteDups(l1)));
