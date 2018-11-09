@@ -18,8 +18,8 @@
 function deleteDups(head) {
   var current = head,
     arr = [],
-    prev,
-    next;
+    prev;
+    // next;
   // till the end item is not null
   while (current.next != null) {
 
@@ -27,15 +27,18 @@ function deleteDups(head) {
       arr.push(current.value);
     } else {
       if (prev) {
+        console.log('kevin')
         prev.next = current.next;
       }
     }
     prev = current;
     current = current.next;
   }
-
+  current.next = null
   if (current.next == null) {
     if (arr.indexOf(current.value) !== -1) {
+      console.log(current.value)
+      current = null;
       prev.next = null;
     }
   }
@@ -48,11 +51,11 @@ function Node(val) {
   this.next = null;
 }
 let l1 = new Node(3);
-l1.next = new Node(8);
-l1.next.next = new Node(6);
+l1.next = new Node(4);
+l1.next.next = new Node(3);
 
 l1.next.next.next = new Node(8);
-// l1.next.next.next.next = new Node(8);
+l1.next.next.next.next = new Node(7);
 
 // console.log(JSON.stringify(l1))
 console.log(JSON.stringify(deleteDups(l1)));
