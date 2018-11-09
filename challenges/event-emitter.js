@@ -22,15 +22,31 @@
  */
 
 function EventEmitter() {
+  this.listeners = {};
 
 }
 
 EventEmitter.prototype.on = function(funcName, func) {
 
+  if(this.listeners[funcName]) {
+    this.listeners[funcName].unshift(func);
+  } else{
+    this.listeners[funcName] = [func];
+  }
 };
 
 EventEmitter.prototype.trigger = function(funcName, ...args) {
-
+  this.listeners[funcName].forEach(listener => {
+    listener(...args);
+  })
 };
 
+let instance = new EventEmitter();
+let counter = 0;
+instance.on('increment', function(x) {
+  counter += x;
+});
+instance.trigger('increment', 4);
+instance.trigger('increment', 6);
+console.log(counter);
 module.exports = EventEmitter;
