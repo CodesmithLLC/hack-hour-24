@@ -44,16 +44,35 @@ function deleteDups(head) {
   return newHead;
 }
 
-// const node1 = new Node(1);
-// const node2 = new Node(1);
-// const node3 = new Node(1);
-// const node4 = new Node(1);
+// function deleteDups(head) {
+//   const arr = [];
+//   let current = head.next;
+//   let prev = head;
+
+//   while (current !== null) {
+//     if (arr.indexOf(current.value) === -1) {
+//       arr.push(current.value);
+//       prev.next = current;
+//       prev = current;
+//     }
+
+//     current = current.next;
+//   }
+
+//   prev.next = null;
+
+//   return head;
+// }
+
+// const node1 = new Node(3);
+// const node2 = new Node(3);
+// const node3 = new Node(8);
+// const node4 = new Node(8);
 // node1.next = node2;
 // node2.next = node3;
 // node3.next = node4;
 
 // console.log(JSON.stringify(node1));
 // console.log(JSON.stringify(deleteDups(node1)));
-// deleteDups(node1);
 
 module.exports = deleteDups;
