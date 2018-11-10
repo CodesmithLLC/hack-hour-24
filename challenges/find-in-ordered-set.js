@@ -15,6 +15,7 @@ function findInOrderedSet(arr, target) {
   let arrCopy = arr.slice();
 
   while (arrCopy.length > 1) {
+    console.log(arrCopy, midway);
     if(arrCopy[midway] === target) {
       return true;
     } else if (arrCopy[midway] > target){
@@ -24,9 +25,12 @@ function findInOrderedSet(arr, target) {
     }
     midway = Math.floor(arrCopy.length/2);
   }
+  if(arrCopy[0] === target) {
+    return true;
+  }
   return false;
 }
 
 var nums = [1, 4, 6, 7, 9, 17, 45, 67];
-console.log(findInOrderedSet(nums, 27));
+console.log(findInOrderedSet(nums, 6));
 module.exports = findInOrderedSet;
