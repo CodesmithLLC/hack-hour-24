@@ -7,8 +7,21 @@
  *
  */
 
-function maxSubarray(arr) {
-  // must be similar to coinSum summing of the numbers
+ // you have to find the best sum of the previous point in the array
+function maxSubarray(arr) {  
+  // set accumulated sum and maximum sum to negative infinity to start
+  let accumulated = -Infinity, max = -Infinity;
+  // loop through arr
+  for (const num of arr) {  
+    // accumulated sum will either add to the previous accumulation, or it won't
+    accumulated = Math.max(accumulated + num, num);
+    // accumulated sum will either be better than max sum, or it won't
+    max = Math.max(accumulated, max);
+  }
+  // return maximum sum
+  return max;
 }
+
+console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]))
 
 module.exports = maxSubarray;

@@ -22,7 +22,7 @@
  */
 
 function EventEmitter() {
-
+  
 }
 
 EventEmitter.prototype.on = function(funcName, func) {

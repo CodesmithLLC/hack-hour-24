@@ -13,19 +13,6 @@
   */
 
 function anagrams(str) {
-  // const resultArr = [];
-
-  // for (let i = 0; i < string.length; i += 1) {
-  //   const miniArr = [string[i]];
-  //   function recurder(arr) {
-  //     if (arr.length === 0) return;
-  //     resultArr.push(arr.shift());
-  //     return recurder(arr);
-  //   }
-  //   recurder(string);
-  // }
-
-
   // time complexity: terrible
   var shrink = str.split('');
 	var grow = [];
