@@ -15,40 +15,26 @@
 // }
 
 // 3->5->9->5->4->5
-function deleteDups(head) {
-  var curr = head,
-    obj = {},
-    prev;
-    // next;
-  // till the end item is not null
-  while (curr.next != null) {
 
-    if (!obj[curr.value]) {
-      obj[curr.value] = 1;
+function deleteDups(head) {
+  // if empty or only 1 node
+  if (!head || !head.next) return head;
+  let curr = head;
+  let prev = head;
+  const testSet = new Set();
+  while (curr) {
+    if (testSet.has(curr.value)) {
+      // prev.next = curr.next;
+      prev.next = curr.next;
+      // console.log('h',head,'p',prev)
     } else {
-      if (prev) {
-        // console.log('kevin')
-        prev.next = curr.next;
-      }
+      testSet.add(curr.value);
+      prev = curr;
+      // console.log(',',head,'cc',prev)
     }
-    prev = curr;
     curr = curr.next;
   }
-  if (curr.next == null) {
-    if (obj[curr.value]) {
-      // console.log(curr.value,'why')
-      curr = null;
-      prev.next = null;
-      let pointer = head;
-      while(pointer.next.next){
-        // console.log('k');
-        pointer = pointer.next
-      }
-      pointer.next = null;
-      // console.log(pointer)
-    }
-  }
-  // console.log(JSON.stringify(head));
+  // console.log(prev,head)
   return head;
 }
 
