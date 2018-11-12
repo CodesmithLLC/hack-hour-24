@@ -31,13 +31,13 @@ const findInOrderedSet = (arr, target) => {
 
 module.exports = findInOrderedSet;
 
-console.log('---TESTING findInOrderedSet---');
-console.log(`findInOrderedSet([], 5): expect -> false: actual -> ${findInOrderedSet([], 5)}`);
-console.log(`findInOrderedSet([3], 5): expect -> false: actual -> ${findInOrderedSet([3], 5)}`);
-console.log(`findInOrderedSet([7], 5): expect -> false: actual -> ${findInOrderedSet([7], 5)}`);
-console.log(`findInOrderedSet([5], 5): expect -> true: actual -> ${findInOrderedSet([5], 5)}`);
-console.log(`findInOrderedSet([1, 2, 3, 4, 5], 1): expect -> true: actual -> ${findInOrderedSet([1, 2, 3, 4, 5], 1)}`);
-console.log(`findInOrderedSet([1, 2, 3, 4, 5], 5): expect -> true: actual -> ${findInOrderedSet([1, 2, 3, 4, 5], 5)}`);
-console.log(`findInOrderedSet([1, 2, 3, 4, 5], 0): expect -> false: actual -> ${findInOrderedSet([1, 2, 3, 4, 5], 0)}`);
-console.log(`findInOrderedSet([1, 2, 3, 4, 5], 6): expect -> false: actual -> ${findInOrderedSet([1, 2, 3, 4, 5], 6)}`);
-console.log(`findInOrderedSet([1, 2, 4, 5], 3): expect -> false: actual -> ${findInOrderedSet([1, 2, 4, 5], 3)}`);
+// console.log('---TESTING findInOrderedSet---');
+// console.log(`findInOrderedSet([], 5): expect -> false: actual -> ${findInOrderedSet([], 5)}`);
+// console.log(`findInOrderedSet([3], 5): expect -> false: actual -> ${findInOrderedSet([3], 5)}`);
+// console.log(`findInOrderedSet([7], 5): expect -> false: actual -> ${findInOrderedSet([7], 5)}`);
+// console.log(`findInOrderedSet([5], 5): expect -> true: actual -> ${findInOrderedSet([5], 5)}`);
+// console.log(`findInOrderedSet([1, 2, 3, 4, 5], 1): expect -> true: actual -> ${findInOrderedSet([1, 2, 3, 4, 5], 1)}`);
+// console.log(`findInOrderedSet([1, 2, 3, 4, 5], 5): expect -> true: actual -> ${findInOrderedSet([1, 2, 3, 4, 5], 5)}`);
+// console.log(`findInOrderedSet([1, 2, 3, 4, 5], 0): expect -> false: actual -> ${findInOrderedSet([1, 2, 3, 4, 5], 0)}`);
+// console.log(`findInOrderedSet([1, 2, 3, 4, 5], 6): expect -> false: actual -> ${findInOrderedSet([1, 2, 3, 4, 5], 6)}`);
+// console.log(`findInOrderedSet([1, 2, 4, 5], 3): expect -> false: actual -> ${findInOrderedSet([1, 2, 4, 5], 3)}`);
