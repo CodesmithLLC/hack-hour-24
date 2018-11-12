@@ -15,10 +15,12 @@ function insertionSort(array) {
       }
     }
   }
+
+  return array;
 }
 
-const array = [8, 5, 1, 3, 2, 4, 7, 10];
-insertionSort(array);
-console.log(array);
+// const array = [8, 5, 1, 3, 2, 4, 7, 10];
+// insertionSort(array);
+// console.log(insertionSort(array));
 
 module.exports = insertionSort;
