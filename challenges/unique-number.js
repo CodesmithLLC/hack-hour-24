@@ -10,7 +10,11 @@
  *
  */
 function uniqueNumber(array) {
-
+  const filteredArray = array.filter(num => array.indexOf(num) === array.lastIndexOf(num));
+  return filteredArray[0];
 }
 
 module.exports = uniqueNumber;
+
+// console.log('---TESTING uniqueNumber---');
+// console.log(`uniqueNumber([1, 2, 1, 3, 3]): expect -> 2: actual -> ${uniqueNumber([1, 2, 1, 3, 3])}`);
