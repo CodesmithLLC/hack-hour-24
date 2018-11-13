@@ -10,7 +10,27 @@
  *
  */
 function uniqueNumber(array) {
+  let cache = {};
+  let onlyOnce = {};
+
+  array.forEach(item => {
+
+    if (cache[item]) {
+      cache[item] += 1;  
+      delete onlyOnce[item];
+    }
+    else {
+      cache[item] = 1;
+      onlyOnce[item] = item;
+    }
+
+  })
+  let result = Object.values(onlyOnce);
+  return result[0];
+
 
 }
+
+console.log(uniqueNumber([1,2,1,3,3]));
 
 module.exports = uniqueNumber;
