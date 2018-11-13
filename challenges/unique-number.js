@@ -10,7 +10,11 @@
  *
  */
 function uniqueNumber(array) {
-
+  // A number xor itself is 0.
+  // XOR is true for 01 and 10 and false for 00 and 11.
+  return array.reduce((a, b) => a ^ b);
 }
+
+console.log(uniqueNumber([1, 2, 1, 3, 3]));
 
 module.exports = uniqueNumber;
