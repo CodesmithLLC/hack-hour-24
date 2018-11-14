@@ -20,22 +20,18 @@ function fizzbuzz(num) {
     // define an empty array for return
     let ret = [];
     // loop number from 1 to num, if hit (%3 == 0 && %5 == 0), put 'fizzbuzz'; if hit (%3 == 0), put 'fizz'; or if hit (%5 == 0) put 'buzz', index for others
-    for (let i = 0; i < num; i++) {
-        if (i % 3 == 0) {
-            if (i % 5 == 0)
-                ret.push('fizzbuzz');
-            else
-                ret.push('fizz');
-        }
-        else if (i % 5 == 0) {
+    for (let i = 1; i <= num; i++) {
+        if (i % 3 == 0 && i % 5 == 0)
+            ret.push('fizzbuzz');
+        else if (i % 3 == 0)
+            ret.push('fizz');
+        else if (i % 5 == 0)
             ret.push('buzz');
-        }
-        else {
+        else
             ret.push(i);
-        }
     }
     return ret;
 }
-
+console.log(fizzbuzz(16));
 
 module.exports = fizzbuzz;

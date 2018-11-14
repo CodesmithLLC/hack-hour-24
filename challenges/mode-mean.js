@@ -15,12 +15,12 @@ function modemean(array) {
     // create counter map
     let mapCount = {};
     let maxOccurCount = Number.MIN_VALUE;
-    let modeList = [];
+    let maxModeList = [];
     let sum = 0;
     // check mode and sum up mean
     array.forEach((elem, _) => {
         sum += elem;
-
+        // add count by 1
         if (mapCount[elem] === undefined)
             mapCount[elem] = 1;
         else
@@ -28,18 +28,18 @@ function modemean(array) {
         // update mode list
         if (mapCount[elem] > maxOccurCount) {
             maxOccurCount = mapCount[elem];
-            modeList = [elem];
+            maxModeList = [elem];
         }
-        // if mode number isn't in the mode list, add it
-        if (mapCount[elem] === maxOccurCount && !modeList.find(x => x === elem)) {
-            modeList.push(elem);
+        // if elem ties to the max count but isn't in the mode list, add it
+        if (mapCount[elem] === maxOccurCount && !maxModeList.find(x => x === elem)) {
+            maxModeList.push(elem);
         }
     });
     // calculate mean
     let mean = Math.floor(sum / array.length);
     // compare mode and mean
-    for (let i = 0; i < modeList.length; i++) {
-        if (modeList[i] === mean)
+    for (let i = 0; i < maxModeList.length; i++) {
+        if (maxModeList[i] === mean)
             return true;
     }
     return false;
