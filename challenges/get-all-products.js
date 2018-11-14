@@ -10,7 +10,22 @@
  */
 
 function getAllProducts(array) {
-
+  let result = [];
+  let pass1 = 1;
+  let pass2 = 1;
+  if (array.length === 0) return;
+  for (let i = 0; i < array.length; i += 1) {
+    result[i] = pass1;
+    pass1 *= array[i];
+  }
+  for (let i = array.length -1; i >= 0; i -= 1) {
+    result[i] *= pass2;
+    pass2 *= array[i];
+  }
+  return result;
 }
+
+test = [1,7,3,4,5,9];
+console.log(getAllProducts(test));
 
 module.exports = getAllProducts;
