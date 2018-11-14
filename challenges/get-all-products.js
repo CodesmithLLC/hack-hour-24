@@ -10,7 +10,15 @@
  */
 
 function getAllProducts(array) {
-
+  const productArray = array.map((num, i) => {
+    const valofI = array.splice(i, 1);
+    const product = array.reduce((prod, num) => prod * num, 1);
+    array.splice(i, 0, ...valofI);
+    return product;
+  });
+  return productArray
 }
 
 module.exports = getAllProducts;
+
+console.log(getAllProducts([1, 7, 3, 4]))
