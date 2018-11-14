@@ -27,6 +27,7 @@ function getAllProducts(array) {
   // inner(0, []);
   // return result;
   if (!Array.isArray(array)) return undefined;
+  if (array.length === 0) return 0;
   const resultArr = [];
   for (let i = 0; i < array.length; i += 1) {
     // console.log(array.slice(0, i), array.slice(i + 1));
@@ -38,5 +39,5 @@ function getAllProducts(array) {
   return resultArr;
 }
 
-// console.log(getAllProducts());
+// console.log(getAllProducts([]));
 module.exports = getAllProducts;
