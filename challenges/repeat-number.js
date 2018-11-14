@@ -23,3 +23,4 @@ function repeatNumbers(array) {
 module.exports = repeatNumbers;
 
 console.log(repeatNumbers([1, 2, 3, 2]));
+// (3 * 4) / 2

@@ -10,7 +10,22 @@
  *
  */
 function uniqueNumber(array) {
+  const objFor = {}; // key of number, val of position in array
+  let uniqNumIndex;
 
+  array.forEach((num, i) => {
+    // if num already exists in object and the num from the uniq index is equal to this num
+    if (objFor[num] && array[uniqNumIndex] === num) {
+      // wipe uniqNumIndex;
+    } else {
+      objFor[num] = i;
+      uniqNumIndex = i;
+    }
+  });
+
+  return array[uniqNumIndex];
 }
 
 module.exports = uniqueNumber;
+
+// console.log(uniqueNumber([1,2,1,3,3]))

@@ -16,21 +16,25 @@ function Node(val) {
 }
 
 function deleteDups(head) {
-  let listHistory = '';
-  let ptr = head;
+  const set = new Set();
+  let safe = head, curr = head;
 
-  while (ptr !== null) {
-    if (listHistory.includes(ptr.value)) return false;
-    listHistory += ptr.value;
-    ptr = ptr.next;
+  while (curr) {
+    if (set.has(curr.value)) {
+      safe.next = curr.next;
+    } else {
+      set.add(curr.value);
+      safe = curr;
+    }
+    curr = curr.next;
   }
-  return true;
+  return head;
 }
 
 module.exports = deleteDups;
 
 const head = new Node(1);
-const two = new Node(2);
+const two = new Node(1);
 const three = new Node(3);
 const threeAgain = new Node(3);
 
@@ -39,3 +43,16 @@ two.next = three;
 three.next = threeAgain;
 
 console.log(deleteDups(head))
+
+// let listHistory = '';
+// let curr = head;
+
+// while (curr.next !== null) {
+//   if (listHistory.includes(curr.value)) {
+
+//   }
+
+//   listHistory += curr.value;
+//   curr = curr.next;
+// }
+// return true;

@@ -5,7 +5,7 @@
 // write a function that will find the sum of all the multiples of 3 or 5
 // below 1000 and return that sum.
 
-function sumMultiples3Or5Below1000(x = 3, y = 5, z = 1000) {
+function sumMultiples3Or5Below1000(x = 3, y = 5, z = 10) {
   let sum = [];
 
   for (let i = 1; i < z; i += 1) {

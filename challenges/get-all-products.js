@@ -10,6 +10,9 @@
  */
 
 function getAllProducts(array) {
+
+  if (array.length === 0) return [0];
+
   const productArray = array.map((num, i) => {
     const valofI = array.splice(i, 1);
     const product = array.reduce((prod, num) => prod * num, 1);
