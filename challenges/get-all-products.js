@@ -10,7 +10,25 @@
  */
 
 function getAllProducts(array) {
+  const sortedArr = array.sort((a, b) => a - b);
+  const products = [];
 
+  (function computeProducts(curArr, sortedArr) {
+    if (curArr.length === array.length - 1) {
+      products.push(curArr.reduce((acc, val) => acc * val));
+      return;
+    }
+    if (sortedArr.length === 0) {
+      return;
+    }
+
+    computeProducts(curArr.concat([sortedArr[0]]), sortedArr.slice(1));
+    computeProducts(curArr, sortedArr.slice(1));
+  }([], sortedArr));
+
+  return products;
 }
+
+// console.log(getAllProducts([1, 7, 3, 4]));
 
 module.exports = getAllProducts;
