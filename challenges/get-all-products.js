@@ -10,8 +10,9 @@
  */
 
 function getAllProducts(array) {
-  // EDGE CASE - Array is empty or has only one item
-  if (array.length <= 1) return array;
+  // EDGE CASES - Array is empty or has only one item
+  if (!array.length) return [0];
+  if (array.length === 1) return array;
   // Declare an arry to hold unique products and a set to cache array permutations and all products
   const productsArray = [];
   const productsSet = new Set();
@@ -35,7 +36,7 @@ function getAllProducts(array) {
 module.exports = getAllProducts;
 
 // console.log('---TESTING gcd---');
-// console.log(`getAllProducts([]): expect -> []: actual -> [${getAllProducts([])}]`);
+// console.log(`getAllProducts([]): expect -> [0]: actual -> [${getAllProducts([])}]`);
 // console.log(`getAllProducts([5]): expect -> [5]: actual -> [${getAllProducts([5])}]`);
 // console.log(`getAllProducts([1, 7, 3, 4]): expect -> [84, 12, 28, 21]: actual -> [${getAllProducts([1, 7, 3, 4])}]`);
 // console.log(`getAllProducts([2, 2, 2, 2]): expect -> [8]: actual -> [${getAllProducts([2, 2, 2, 2])}]`);
