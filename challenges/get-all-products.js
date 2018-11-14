@@ -13,7 +13,7 @@ function getAllProducts(array) {
   let result = [];
   let pass1 = 1;
   let pass2 = 1;
-  if (array.length === 0) return;
+  if (array.length === 0) return [0];
   for (let i = 0; i < array.length; i += 1) {
     result[i] = pass1;
     pass1 *= array[i];
@@ -25,7 +25,7 @@ function getAllProducts(array) {
   return result;
 }
 
-test = [1,7,3,4,5,9];
+test = [1,7,3,4];
 console.log(getAllProducts(test));
 
 module.exports = getAllProducts;
