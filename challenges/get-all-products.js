@@ -10,6 +10,7 @@
  */
 
 function getAllProducts(array) {
+  if (array.length === 0) { return 0; }
   let result = [];
   for (let i = 0; i < array.length; i += 1) {
     let temp = 1;
@@ -18,7 +19,7 @@ function getAllProducts(array) {
         temp *= array[j];
       }
     }
-    result.push(temp)
+    result.push(temp);
   }
   return result;
 }
