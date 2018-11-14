@@ -21,11 +21,11 @@ function getAllProducts(array) {
     const newArray = array.slice(0, i).concat(array.slice(i + 1));
     if (!productsSet.has(newArray)) {
       // If that array permutaiton isn't already cached, add to cache and find the product
-      productsSet.add(newArray);
+      // productsSet.add(newArray);
       const product = newArray.reduce((acc, cur) => acc * cur);
       if (!productsSet.has(product)) {
         // If that product isn't already cached, add to cache and output array
-        productsSet.add(product);
+        // productsSet.add(product);
         productsArray.push(product);
       }
     }
