@@ -22,8 +22,37 @@
  *
  */
 
-function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+/**
+ * Approach
+ * Find all circles that start is in
+ * Find all circles destination is in (which Tyus is not in)
+ */
 
+// Helper function, determines if a coordinate is inside a circle
+function isInside(centerX, centerY, radius, targetX, targetY) {
+  const distX = Math.abs(centerX - targetX);
+  const distY = Math.abs(centerY - targetY);
+  const distOverall = Math.sqrt((distX ** 2) + (distY ** 2));
+  return distOverall < radius;
+}
+
+function circleCountry(xArr, yArr, rArr, startX, startY, endX, endY) {
+  // Declare counter for borders crossed
+  let borderCount = 0;
+  // Loop through circles arrays
+  for (let i = 0; i < xArr.length; i += 1) {
+    // If Tyus is inside a border the target is not inside, increment borderCount
+    if (
+      isInside(xArr[i], yArr[i], rArr[i], startX, startY)
+      && !isInside(xArr[i], yArr[i], rArr[i], endX, endY)
+    ) borderCount += 1;
+    // If Tyus is outside a border the target is inside, increment borderCount
+    if (
+      isInside(xArr[i], yArr[i], rArr[i], endX, endY)
+      && !isInside(xArr[i], yArr[i], rArr[i], startX, startY)
+    ) borderCount += 1;
+  }
+  return borderCount;
 }
 
 module.exports = circleCountry;
