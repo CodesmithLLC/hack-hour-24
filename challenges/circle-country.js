@@ -23,7 +23,21 @@
  */
 
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
+  // Number of cirles the endpoint is in.
+  let numCircles = 0;
 
+  x.forEach((xc, index) => {
+    const startIntersect = ((xc - start_x) ** 2) + ((y[index] - start_y) ** 2) < r[index] ** 2;
+    const endIntersect = ((xc - end_x) ** 2) + ((y[index] - end_y) ** 2) < r[index] ** 2;
+
+    if (startIntersect && !endIntersect) {
+      numCircles += 1;
+    } else if (!startIntersect && endIntersect) {
+      numCircles += 1;
+    }
+  });
+
+  return numCircles;
 }
 
 module.exports = circleCountry;
