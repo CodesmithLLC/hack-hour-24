@@ -38,7 +38,7 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
       circleEnd.push(i);
     }
   }
-  const differentCircleCount = circleStart.length + circleEnd.length - intersection(circleStart, circleEnd).length;
+  const differentCircleCount = circleStart.length + circleEnd.length - 2*intersection(circleStart, circleEnd).length;
   return differentCircleCount;
 }
 
