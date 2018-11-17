@@ -24,7 +24,10 @@ function bubbleSort(array) {
     }
 
   } while (swapped === true);
+
+  return workArr;
 }
+
 
 
 module.exports = bubbleSort;
