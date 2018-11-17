@@ -27,8 +27,8 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   let numCircles = 0;
 
   x.forEach((xc, index) => {
-    const startIntersect = ((xc - start_x) ** 2) + ((y[index] - start_y) ** 2) < r[index] ** 2;
-    const endIntersect = ((xc - end_x) ** 2) + ((y[index] - end_y) ** 2) < r[index] ** 2;
+    const startIntersect = Math.pow((xc - start_x), 2) + Math.pow((y[index] - start_y), 2) < Math.pow(r[index], 2);
+    const endIntersect = Math.pow((xc - end_x), 2) + Math.pow((y[index] - end_y), 2) < Math.pow(r[index], 2);
 
     if (startIntersect && !endIntersect) {
       numCircles += 1;
@@ -39,5 +39,7 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
 
   return numCircles;
 }
+
+console.log(circleCountry([1, 4, 4, 0], [1, 4, 3, 0], [0.5, 2, 0.5, 100], 1, 1, 4, 3));
 
 module.exports = circleCountry;
