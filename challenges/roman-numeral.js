@@ -18,7 +18,7 @@
  */
 
 function romanNumeral(n) {
-    const ronuMap= {
+    const romanNumMap= {
         1: 'I',
         4: 'IV',
         5: 'V',
@@ -33,18 +33,18 @@ function romanNumeral(n) {
         900: 'CM',
         1000: 'M'
     }
-    return recursion(ronuMap, n);
+    return recursion(romanNumMap, n);
 }
 
-function recursion(ronuMap, n) {
+function recursion(romanNumMap, n) {
     if (n == 0)
         return "";
     // find the largest divider
-    let dividers = Object.keys(ronuMap).filter((num) => num <= n);
+    let dividers = Object.keys(romanNumMap).filter((num) => num <= n);
     let divider = Math.max(...dividers);
     // divide it and keep recursion with the remain
     let remain = n % divider;
-    return ronuMap[divider]+ recursion(ronuMap, remain);
+    return romanNumMap[divider]+ recursion(romanNumMap, remain);
 }
 
 console.log(romanNumeral(999));

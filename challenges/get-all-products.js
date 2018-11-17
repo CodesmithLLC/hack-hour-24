@@ -13,7 +13,7 @@ function getAllProducts(array) {
   let sum = 1;
   let ret = [];
   for (let i = 0; i < array.length; i++) {
-    let j = (i+1) % array.length;
+    let j = (i + 1) % array.length;
     let sum = 1;
     while (j != i) {
       sum *= array[j];
