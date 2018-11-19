@@ -22,5 +22,5 @@ function bubbleSort(array) {
 module.exports = bubbleSort;
 
 
-const array = [9, 4, 1, 2, 3];
+const array = [-9, 4, 1, 2, 3, 0];
 console.log(bubbleSort(array));
