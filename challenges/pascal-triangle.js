@@ -32,8 +32,24 @@
   ]
 */
 
-function pascalTriangle(numRows) {
+function pascalTriangle(numRows, PT = []) {
+  if (PT.length === numRows) return PT;
+  if (numRows === 1) return pascalTriangle(numRows, [[1]]);
 
+  // take the last row and reduce for a new array
+  const priorRow = PT[PT.length - 1];
+  const nextRow = [];
+
+  for (let i = 0; i <= PT.length; i += 1) {
+    if (i === 0 || i === PT.length) nextRow.push(1);
+    else {
+      nextRow.push(priorRow[i - 1] + priorRow[i]);
+    }
+  }
+  PT.push(nextRow);
+  return pascalTriangle(numRows, PT);
 }
 
 module.exports = pascalTriangle;
+
+// console.log(pascalTriangle(5));
