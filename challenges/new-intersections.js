@@ -18,16 +18,61 @@
  */
 
 const newIntersections = (x, y) => {
-  // Find the height and width of the shape inside the old points
-  const height = Math.max(...y) - Math.min(...y);
-  const width = Math.max(...x) - Math.min(...x);
-  // Edge case - height or width < 2, return 0
-  if (height < 2 || width < 2) return 0;
-  return (height - 1) * (width - 1);
+  // Edge case: Not arrays or array of less than 3 points
+  if (!x || !y || !Array.isArray(x) || !Array.isArray(y) || x.length <= 3) return 0;
+  // Declare counter for intersections (return value)
+  let intersections = 0;
+  // Generate dictionary of horizontal and vertical lines
+  const hLines = {};
+  const vLines = {};
+  for (let i = 0; i < x.length; i += 1) {
+    if (vLines[x[i]]) {
+      vLines[x[i]].start = Math.min(vLines[x[i]].start, y[i]);
+      vLines[x[i]].end = Math.max(vLines[x[i]].end, y[i]);
+    } else {
+      vLines[x[i]] = {
+        start: y[i],
+        end: y[i],
+      };
+    }
+    if (hLines[y[i]]) {
+      hLines[y[i]].start = Math.min(hLines[y[i]].start, x[i]);
+      hLines[y[i]].end = Math.max(hLines[y[i]].end, x[i]);
+    } else {
+      hLines[y[i]] = {
+        start: x[i],
+        end: x[i],
+      };
+    }
+  }
+
+  // Clear single points out of hLines and vLines
+  Object.keys(vLines).forEach((vX) => {
+    if (vLines[vX].start === vLines[vX].end) delete vLines[vX];
+  });
+
+  Object.keys(hLines).forEach((vY) => {
+    if (hLines[vY].start === hLines[vY].end) delete hLines[vY];
+  });
+
+  // Iterate through all points in the vertical dictionary
+  Object.keys(vLines).forEach((vX) => {
+    for (let vY = vLines[vX].start; vY <= vLines[vX].end; vY += 1) {
+      // Check if the point is also in the horizontal dictionary
+      if (hLines[vY]) {
+        if (vX >= hLines[vY].start && vX <= hLines[vY].end) {
+          // If same point is in both dictionaries, increment intersections
+          intersections += 1;
+        }
+      }
+    }
+  });
+
+  return intersections;
 };
 
 module.exports = newIntersections;
 
 // console.log('---TESTING newIntersections---');
-// console.log('Points: (2, 2), (2, 5), (5, 2), (5, 5)');
-// console.log(`newIntersections([2, 2, 5, 5], [2, 5, 2, 5]): expect -> 4: actual -> ${newIntersections([2, 2, 5, 5], [2, 5, 2, 5])}`);
+// console.log('Points: (2, 2), (2, 5), (0, 3), (4, 3)');
+// console.log(`newIntersections([2, 2, 0, 4], [2, 5, 3, 3]): expect -> 1: actual -> ${newIntersections([2, 2, 0, 4], [2, 5, 3, 3])}`);
