@@ -17,8 +17,17 @@
  * 	 
  */
 
-function newIntersections(x, y){
-
-}
+const newIntersections = (x, y) => {
+  // Find the height and width of the shape inside the old points
+  const height = Math.max(...y) - Math.min(...y);
+  const width = Math.max(...x) - Math.min(...x);
+  // Edge case - height or width < 2, return 0
+  if (height < 2 || width < 2) return 0;
+  return (height - 1) * (width - 1);
+};
 
 module.exports = newIntersections;
+
+// console.log('---TESTING newIntersections---');
+// console.log('Points: (2, 2), (2, 5), (5, 2), (5, 5)');
+// console.log(`newIntersections([2, 2, 5, 5], [2, 5, 2, 5]): expect -> 4: actual -> ${newIntersections([2, 2, 5, 5], [2, 5, 2, 5])}`);
