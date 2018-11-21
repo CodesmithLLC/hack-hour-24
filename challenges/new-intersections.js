@@ -54,7 +54,7 @@ function newIntersections(x, y) {
       // console.log(dictx[x].min, dictx[x].max)
       for (y in dicty) {
         // console.log(dictx[x].min, parseInt(y), dictx[x].max, parseInt(y))
-        if (dictx[x].min < parseInt(y) && dictx[x].max > parseInt(y) && dicty[y].min !== dicty[y].max) {
+        if (dictx[x].min < y && dictx[x].max > y && dicty[y].min !== dicty[y].max) {
           count +=1
         }
       }
