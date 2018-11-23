@@ -14,51 +14,65 @@ function Node(value) {
 }
 
 function reverseLinkedList(head) {
-  const stack = [];
+  // const stack = [];
 
-  // If head is null, return null.
-  if (head === null) {
-    return null;
-  }
+  // // If head is null, return null.
+  // if (head === null) {
+  //   return null;
+  // }
 
-  // If there is only one node.
-  if (head.next === null) {
-    return head;
-  }
+  // // If there is only one node.
+  // if (head.next === null) {
+  //   return head;
+  // }
 
+  // let curNode = head;
+
+  // // Loop through and push nodes onto stack.
+  // while (curNode != null) {
+  //   stack.push(curNode);
+  //   curNode = curNode.next;
+  // }
+
+  // const newHead = stack.pop();
+  // curNode = newHead;
+
+  // // Loop through stack and rebuild linked list in reverse order.
+  // while (stack.length !== 0) {
+  //   const nextNode = stack.pop();
+  //   curNode.next = nextNode;
+  //   curNode = nextNode;
+  // }
+
+  // // Set tail node's next node to null.
+  // curNode.next = null;
+
+  // return newHead;
+
+  // In place.
   let curNode = head;
+  let prevNode = null;
 
-  // Loop through and push nodes onto stack.
-  while (curNode != null) {
-    stack.push(curNode);
-    curNode = curNode.next;
+  while (curNode !== null) {
+    const temp = curNode.next;
+    curNode.next = prevNode;
+    prevNode = curNode;
+    curNode = temp;
   }
 
-  const newHead = stack.pop();
-  curNode = newHead;
-
-  // Loop through stack and rebuild linked list in reverse order.
-  while (stack.length !== 0) {
-    const nextNode = stack.pop();
-    curNode.next = nextNode;
-    curNode = nextNode;
-  }
-
-  // Set tail node's next node to null.
-  curNode.next = null;
-
-  return newHead;
+  head = prevNode;
+  return head;
 }
 
-const node1 = new Node(1);
-const node2 = new Node(2);
-const node3 = new Node(3);
+// const node1 = new Node(1);
+// const node2 = new Node(2);
+// const node3 = new Node(3);
 
-node1.next = node2;
-node2.next = node3;
+// node1.next = node2;
+// node2.next = node3;
 
-console.log(node1);
+// console.log(node1);
 
-console.log(reverseLinkedList(node1));
+// console.log(reverseLinkedList(node1));
 
 module.exports = { Node, reverseLinkedList };
