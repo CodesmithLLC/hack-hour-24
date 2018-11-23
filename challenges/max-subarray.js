@@ -9,50 +9,72 @@
 
 function maxSubarray(arr) {
   // Bruteforce.
-  let start;
-  let end;
+  // let start;
+  // let end;
+  // let max = -Infinity;
+
+  // for (let i = 0; i < arr.length; i += 1) {
+  //   let curSum = 0;
+  //   for (let j = i; j < arr.length; j += 1) {
+  //     curSum += arr[j];
+  //     if (curSum > max) {
+  //       max = curSum;
+  //       start = i;
+  //       end = j;
+  //     }
+  //   }
+  // }
+
+  //   return max;
+  // }
+
+  // function maxSubarray2(arr) {
+  //   let start;
+  //   let end;
+  //   let max = -Infinity;
+  //   let curSum = 0;
+  //   let i = 0;
+  //   let j = 0;
+
+  //   while (j < arr.length) {
+  //     if (curSum + arr[j] < 0) {
+  //       if (curSum > max) {
+  //         max = curSum;
+  //         start = i;
+  //         end = j - 1;
+  //       }
+  //       curSum = arr[j];
+  //       i = j;
+  //     } else {
+  //       curSum += arr[j];
+  //     }
+  //     j += 1;
+  //   }
+
+  //   return max;
+
+  let curSum = 0;
   let max = -Infinity;
+  let i = 0;
+  let start = 0;
+  let end;
 
-  for (let i = 0; i < arr.length; i += 1) {
-    let curSum = 0;
-    for (let j = i; j < arr.length; j += 1) {
-      curSum += arr[j];
+  while (i < arr.length) {
+    if (curSum + arr[i] > 0) {
+      curSum += arr[i];
       if (curSum > max) {
+        end = i;
         max = curSum;
-        start = i;
-        end = j;
       }
+    } else {
+      curSum = 0;
+      start = i + 1;
     }
+    i += 1;
   }
-
+  // console.log(start, end);
   return max;
 }
-
-// function maxSubarray2(arr) {
-//   let start;
-//   let end;
-//   let max = -Infinity;
-//   let curSum = 0;
-//   let i = 0;
-//   let j = 0;
-
-//   while (j < arr.length) {
-//     if (curSum + arr[j] < 0) {
-//       if (curSum > max) {
-//         max = curSum;
-//         start = i;
-//         end = j - 1;
-//       }
-//       curSum = arr[j];
-//       i = j;
-//     } else {
-//       curSum += arr[j];
-//     }
-//     j += 1;
-//   }
-
-//   return max;
-// }
 
 // console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
 

@@ -57,8 +57,8 @@ function getAllProducts(array) {
   return products;
 }
 
-console.log(getAllProducts([1, 7, 3, 4]));
-console.log(getAllProducts([1, 0, 3, 4]));
-console.log(getAllProducts([1, 0, 0, 4]));
+// console.log(getAllProducts([1, 7, 3, 4]));
+// console.log(getAllProducts([1, 0, 3, 4]));
+// console.log(getAllProducts([1, 0, 0, 4]));
 
 module.exports = getAllProducts;
