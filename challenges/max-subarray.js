@@ -60,7 +60,8 @@ function maxSubarray(arr) {
   let end;
 
   while (i < arr.length) {
-    if (curSum + arr[i] > 0) {
+    // Take care of case where all numbers are zero by adding second condition.
+    if (curSum + arr[i] > 0 || curSum + arr[i] > max) {
       curSum += arr[i];
       if (curSum > max) {
         end = i;
@@ -77,5 +78,7 @@ function maxSubarray(arr) {
 }
 
 // console.log(maxSubarray([1, -2, 3, 10, -4, 7, 2, -5]));
+// console.log(maxSubarray([-1, -2, -3, -10, -4, -7, -2, -5]));
+// console.log(maxSubarray([15, 20, -5, 10]));
 
 module.exports = maxSubarray;
