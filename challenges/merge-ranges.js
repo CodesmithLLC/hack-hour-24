@@ -41,28 +41,27 @@ function mergeRanges(array) {
 
   // return mergedRanges;
 
-  const sortedRanges = array.sort((a, b) => {
-    if (a[0] !== b[0]) {
-      return a[0] - b[0];
+  const sortedRanges = array.sort((a, b) => a[0] > b[0]);
+  const mergedRanges = [];
+  let curRange;
+
+  sortedRanges.forEach((range) => {
+    if (curRange === undefined) {
+      curRange = range;
+    } else if (range[0] > curRange[1]) {
+      mergedRanges.push(curRange);
+      curRange = range;
+    } else {
+      curRange[1] = Math.max(curRange[1], range[1]);
     }
-    return a[1] - b[1];
   });
 
-  const mergedRanges = [];
-  let currentRange;
-
-  for (let i = 0; i < sortedRanges.length; i += 1) {
-    if (currentRange === undefined) {
-      currentRange = sortedRanges[i];
-    } else if (currentRange[1] >= sortedRanges[i][0]) {
-      currentRange[1] = Math.max(currentRange[1], sortedRanges[i][1]);
-    } else {
-      mergedRanges.push(currentRange);
-      currentRange = sortedRanges[i];
-    }
+  // Push last range.
+  if (curRange !== undefined) {
+    mergedRanges.push(curRange);
   }
 
-  return sortedRanges;
+  return mergedRanges;
 }
 
 const times = [[9, 10], [0, 1], [3, 5], [4, 8], [10, 12]];
