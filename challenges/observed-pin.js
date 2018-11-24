@@ -39,12 +39,39 @@ expectations = {
 
 */
 
+// Dictionary of alternative numbers to a number
+const numDict = {
+  1: ['1', '2', '4'],
+  2: ['1', '2', '3', '5'],
+  3: ['2', '3', '6'],
+  4: ['1', '4', '5', '7'],
+  5: ['2', '4', '5', '6', '8'],
+  6: ['3', '5', '6', '9'],
+  7: ['4', '7', '8'],
+  8: ['5', '7', '8', '9', '0'],
+  9: ['6', '8', '9'],
+  0: ['8'],
+};
 
-
-
-function getPINs(observed) {
-
+function getPINs(observed, variations = []) {
+  // Edge Case: No number, return empty array
+  if (!observed.length) return variations;
+  // If no variations, set variations equal to numDict at observed, recursively call getPINs
+  const currNum = observed[0];
+  const newObserved = observed.slice(1);
+  const currNumAlts = numDict[currNum];
+  if (!variations.length) {
+    return getPINs(newObserved, currNumAlts);
+  }
+  // If variations already exist, use numDict return to create additional variations using first digit in observed
+  const newVariations = [];
+  variations.forEach((variation) => {
+    currNumAlts.forEach((currNumAlt) => {
+      newVariations.push(variation.concat(currNumAlt));
+    });
+  });
+  // Once additional variations
+  return getPINs(newObserved, newVariations);
 }
-
 
 module.exports = getPINs
