@@ -48,24 +48,25 @@ const newIntersections = (x, y) => {
 
   // Clear single points out of hLines and vLines
   Object.keys(vLines).forEach((vX) => {
-    if (vLines[vX].end - vLines[vX].start <= 1) delete vLines[vX];
+    if (vLines[vX].end - vLines[vX].start === 0) delete vLines[vX];
   });
 
   Object.keys(hLines).forEach((vY) => {
-    if (hLines[vY].end - hLines[vY].start <= 1) delete hLines[vY];
+    if (hLines[vY].end - hLines[vY].start === 0) delete hLines[vY];
   });
 
-  // Iterate through all points in the vertical dictionary
+  console.log(vLines);
+  console.log(hLines);
+
+  // Iterate through all x coordinates in vertical lines
   Object.keys(vLines).forEach((vX) => {
-    for (let vY = Math.floor(vLines[vX].start + 1); vY < vLines[vX].end; vY += 1) {
-      // Check if the point is also in the horizontal dictionary
-      if (hLines[vY]) {
-        if (vX > hLines[vY].start && vX < hLines[vY].end) {
-          // If same point is in both dictionaries, increment intersections
-          intersections += 1;
-        }
+    // For each vertical line, iterate through each horizontal line
+    Object.keys(hLines).forEach((vY) => {
+      if (vLines[vX].start < vY && vY < vLines[vX].end && hLines[vY].start < vX && vX < hLines[vY].end) {
+        // If the lines intersect, increment intersections
+        intersections += 1;
       }
-    }
+    });
   });
 
   return intersections;
