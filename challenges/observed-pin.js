@@ -40,10 +40,11 @@ expectations = {
 */
 
 
-
+// +3 down, +1 across, edge for 0: below 8
 
 function getPINs(observed) {
 
+  // inner function
 }
 
 

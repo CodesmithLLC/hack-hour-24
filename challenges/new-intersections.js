@@ -22,3 +22,8 @@ function newIntersections(x, y){
 }
 
 module.exports = newIntersections;
+
+
+// if two x-coords same
+  // if distance between those two coords (via y coords) difference is greater than 1
+    // 
