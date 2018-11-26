@@ -55,9 +55,6 @@ const newIntersections = (x, y) => {
     if (hLines[vY].end - hLines[vY].start === 0) delete hLines[vY];
   });
 
-  console.log(vLines);
-  console.log(hLines);
-
   // Iterate through all x coordinates in vertical lines
   Object.keys(vLines).forEach((vX) => {
     // For each vertical line, iterate through each horizontal line
