@@ -15,7 +15,24 @@
  */
 
 function countStairs(n) {
-
+  let totalWays = 0;
+  function countWays(num) {
+    if (num === 0) {
+      totalWays += 1;
+      return;
+    }
+    if (num > 0) {
+      if (num === 1) {
+        countWays(num-1);
+      } else {
+        countWays(num-1);
+        countWays(num-2);
+      }
+    }
+  }
+  countWays(n);
+  return totalWays;
 }
 
+console.log(countStairs(5));
 module.exports = countStairs;
