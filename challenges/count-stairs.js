@@ -15,7 +15,21 @@
  */
 
 function countStairs(n) {
-
+  let resultCount = 0;
+  function recurse(n) {
+    console.log('THIS IS N',n);
+    if(n === 0) {
+      resultCount += 1;
+      return;
+    } 
+    if(n > 0) {
+      recurse(n-2);
+      recurse(n-1);
+    }
+  }
+  recurse(n);
+  return resultCount;
 }
+console.log(countStairs(5));
 
 module.exports = countStairs;
