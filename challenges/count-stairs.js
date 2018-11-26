@@ -22,5 +22,3 @@ function countStairs(n, combos = 0) {
 }
 
 module.exports = countStairs;
-
-// console.log(countStairs(5));
