@@ -15,7 +15,29 @@
  */
 
 function countStairs(n) {
+  // Better way is to use Fibonacci.
 
+  let count = 0;
+
+  function findPermutations(n) {
+    if (n === 0) {
+      count += 1;
+      return;
+    }
+
+    if (n < 0) {
+      return;
+    }
+
+    findPermutations(n - 2);
+    findPermutations(n - 1);
+  }
+
+  findPermutations(n);
+
+  return count;
 }
+
+console.log(countStairs(5));
 
 module.exports = countStairs;
