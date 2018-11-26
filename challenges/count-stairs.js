@@ -15,7 +15,14 @@
  */
 
 function countStairs(n) {
-
+  if (n === 0) return 1;
+  if (n === 1) return 1;
+  return countStairs(n - 1) + countStairs(n - 2);
 }
 
 module.exports = countStairs;
+
+// console.log('---TESTING countStairs---');
+// console.log(`countStairs(1): expect -> 1: actual -> ${countStairs(1)}`);
+// console.log(`countStairs(2): expect -> 2: actual -> ${countStairs(2)}`);
+// console.log(`countStairs(5): expect -> 8: actual -> ${countStairs(5)}`);
