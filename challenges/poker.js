@@ -63,17 +63,10 @@ const findOfAKind = (hand) => {
     else cards[hand[i]] = 1;
   }
 
-  // Identify count of most frequently seen card
+  // Identify frequency of most frequently seen card
   const maxCardCount = Math.max(...Object.values(cards));
 
-  // Delete cards that don't match this frequency
-  Object.keys(cards).forEach((card) => {
-    if (cards[card] < maxCardCount) {
-      delete cards[card];
-    }
-  });
-
-  // Identify highest card with highest frequency
+  // Identify highest card
   const maxCard = Math.max(...Object.keys(cards));
 
   // Return frequency (X of a kind) and the card that has that frequency
@@ -107,7 +100,7 @@ function poker(hand1, hand2) {
   if (hand1Straight) return 'Player 1 wins';
   if (hand2Straight) return 'Player 2 wins';
 
-  // Determine winner based on high of a kind frequency and card
+  // Determine winner based on high of a kind frequency and max card
   if (hand1OfAKind[0] !== hand2OfAKind[0]) {
     return hand1OfAKind[0] > hand2OfAKind[0] ? 'Player 1 wins' : 'Player 2 wins';
   }
@@ -125,3 +118,6 @@ module.exports = poker;
 // console.log('Hand 1: ', newHand1);
 // console.log('Hand 2: ', newHand2);
 // console.log(poker(newHand1, newHand2));
+
+// console.log(poker([3, 5, 5, 5, 2], [4, 6, 7, 8, 8]));
+// console.log(poker([4, 4, 4, 2, 14], [8, 8, 8, 4, 5]));
