@@ -26,6 +26,20 @@ Challange:
   ** keep in mind time complexity
 */
 function missingNum(Array) {
+  let max = Number.MIN_VALUE;
+  let sum = 0;
+  for (let i = 0; i < Array.length; i++) {
+    sum += Array[i];
+    // update max
+    if (Array[i] > max)
+      max = Array[i];
+  }
+  // if the largest number is missing
+  if (Array.length + 1 != max)
+    return max;
+  // otherwise, find out by expect total - actual total
+  return (1 + max) * (Array.length + 1) / 2 - sum;
 }
 
+console.log(missingNum([2, 3, 1, 5]));
 module.exports = missingNum;
