@@ -1,6 +1,8 @@
-/* 
-A zero-indexed array A consisting of N different integers is given. 
-The array contains integers in the range [1..(N + 1)], which means 
+/* eslint linebreak-style: 0 */
+
+/*
+A zero-indexed array A consisting of N different integers is given.
+The array contains integers in the range [1..(N + 1)], which means
 that exactly one element is missing.Your goal is to find that missing element.
 Write a function that, given an array A, returns the value of the missing element.
 
@@ -21,11 +23,23 @@ Assume that:
 expected worst-case time complexity is O(N);
 expected worst-case space complexity is O(N), beyond input storage (not counting the storage required for input arguments).
 
-Challange: 
+Challange:
   ** cannot use additional storage, variables are okay not any TYPE of object
   ** keep in mind time complexity
 */
-function missingNum(Array) {
-}
+
+const missingNum = (arr) => {
+  const numSet = new Set();
+  for (let i = 1; i <= arr.length; i += 1) {
+    numSet.add(i);
+  }
+  for (let i = 0; i < arr.length; i += 1) {
+    numSet.delete(arr[i]);
+  }
+  return numSet.values().next().value;
+};
 
 module.exports = missingNum;
+
+// console.log('---TESTING missingNum---');
+// console.log(`missingNum([5, 4, 2, 1]): expect -> 3: actual -> ${missingNum([5, 4, 2, 1])}`);

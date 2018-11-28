@@ -20,61 +20,36 @@
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
 
-// Helper function - generate deck of 52 cards
-const generateDeck = () => {
-  const deck = [];
-  for (let i = 0; i < 4; i += 1) {
-    for (let j = 2; j < 15; j += 1) {
-      deck.push(j);
-    }
-  }
-  return deck;
-};
-
-// Helper function - generate two hands
-const generateHands = (deck) => {
-  const hand1 = [];
-  const hand2 = [];
-  // Loop through deck 5 times, slicing two cards out each time
-  for (let i = 0; i < 5; i += 1) {
-    let cardIndex = Math.floor(Math.random() * deck.length);
-    hand1.push(...deck.splice(cardIndex, 1));
-    cardIndex = Math.floor(Math.random() * deck.length);
-    hand2.push(...deck.splice(cardIndex, 1));
-  }
-  return [hand1, hand2];
-};
-
-// Helper function - Find straight, return high card
-const findStraight = (hand) => {
-  hand.sort((a, b) => a - b);
-  for (let i = 1; i < hand.length; i += 1) {
-    if (hand[i] - hand[i - 1] !== 1) return false;
-  }
-  return hand[hand.length - 1];
-};
-
-// Helper function - Find x of a kind, return repeating card
-const findOfAKind = (hand) => {
-  // Create dictionary of card frequency (card: freq)
-  const cards = {};
-  for (let i = 0; i < hand.length; i += 1) {
-    if (cards[hand[i]]) cards[hand[i]] += 1;
-    else cards[hand[i]] = 1;
-  }
-
-  // Identify frequency of most frequently seen card
-  const maxCardCount = Math.max(...Object.values(cards));
-
-  // Identify highest card
-  const maxCard = Math.max(...Object.keys(cards));
-
-  // Return frequency (X of a kind) and the card that has that frequency
-  return [maxCardCount, maxCard];
-};
-
 // Primary function - Compare two poker hands, identify winner
 function poker(hand1, hand2) {
+  // Helper function - Find straight, return high card
+  const findStraight = (hand) => {
+    hand.sort((a, b) => a - b);
+    for (let i = 1; i < hand.length; i += 1) {
+      if (hand[i] - hand[i - 1] !== 1) return false;
+    }
+    return hand[hand.length - 1];
+  };
+
+  // Helper function - Find x of a kind, return repeating card
+  const findOfAKind = (hand) => {
+    // Create dictionary of card frequency (card: freq)
+    const cards = {};
+    for (let i = 0; i < hand.length; i += 1) {
+      if (cards[hand[i]]) cards[hand[i]] += 1;
+      else cards[hand[i]] = 1;
+    }
+
+    // Identify frequency of most frequently seen card
+    const maxCardCount = Math.max(...Object.values(cards));
+
+    // Identify highest card
+    const maxCard = Math.max(...Object.keys(cards));
+
+    // Return frequency (X of a kind) and the card that has that frequency
+    return [maxCardCount, maxCard];
+  };
+
   // Check for straight and of a kinds
   const hand1OfAKind = findOfAKind(hand1);
   const hand2OfAKind = findOfAKind(hand2);
@@ -113,6 +88,31 @@ function poker(hand1, hand2) {
 module.exports = poker;
 
 // console.log('---TESTING poker---');
+// // Helper function - generate deck of 52 cards
+// const generateDeck = () => {
+//   const deck = [];
+//   for (let i = 0; i < 4; i += 1) {
+//     for (let j = 2; j < 15; j += 1) {
+//       deck.push(j);
+//     }
+//   }
+//   return deck;
+// };
+
+// // Helper function - generate two hands
+// const generateHands = (deck) => {
+//   const hand1 = [];
+//   const hand2 = [];
+//   // Loop through deck 5 times, slicing two cards out each time
+//   for (let i = 0; i < 5; i += 1) {
+//     let cardIndex = Math.floor(Math.random() * deck.length);
+//     hand1.push(...deck.splice(cardIndex, 1));
+//     cardIndex = Math.floor(Math.random() * deck.length);
+//     hand2.push(...deck.splice(cardIndex, 1));
+//   }
+//   return [hand1, hand2];
+// };
+
 // const newDeck = generateDeck();
 // const [newHand1, newHand2] = generateHands(newDeck);
 // console.log('Hand 1: ', newHand1);
