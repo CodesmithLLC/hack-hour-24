@@ -29,14 +29,12 @@ Challange:
 */
 
 const missingNum = (arr) => {
-  const numSet = new Set();
-  for (let i = 1; i <= arr.length; i += 1) {
-    numSet.add(i);
-  }
-  for (let i = 0; i < arr.length; i += 1) {
-    numSet.delete(arr[i]);
-  }
-  return numSet.values().next().value;
+  // Algorithm for finding the sum of numbers 1 thru N
+  const sum1thruN = ((arr.length + 1) * (arr.length + 2)) / 2;
+  // Use reduce to sum up values in input array
+  const sumArr = arr.reduce((a, b) => a + b);
+  // Find and return the difference
+  return sum1thruN - sumArr;
 };
 
 module.exports = missingNum;
