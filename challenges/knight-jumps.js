@@ -10,8 +10,33 @@
 //  example input:
 // var str = "(4 5)"
 
-function knightjumps(str) {
 
+function countMoves(coordNums, offsetChoices) {
+  if (coordNums.length === 0)
+    return 1;
+  let moves = 0;
+  const curCoordNum = coordNums.shift();
+  for (let i = 0; i < offsetChoices.length; i++) {
+    let newOffsetChoices = offsetChoices.slice();
+    newOffsetChoices.splice(i, 1);
+    // get combination counts of the other coords
+    const subMoves = countMoves(coordNums.slice(), newOffsetChoices);
+    if (curCoordNum + offsetChoices[i] <= 8) {
+      moves += subMoves;
+    }
+    if (curCoordNum - offsetChoices[i] > 0) {
+      moves += subMoves;
+    }
+  }
+  return moves;
 }
 
+function knightjumps(str) {
+  const coords = str.match(/[0-9]+/g);
+  if (coords.length != 2)
+    return;
+  const coordNums = coords.map(elem => Number.parseInt(elem));
+  return countMoves(coordNums, [2, 3]);
+}
+console.log(knightjumps('(4 5)'));
 module.exports = knightjumps;
