@@ -11,6 +11,9 @@
 
 function solveKnapsack(items, weightAvailable) {
   let max = -Infinity;
+
+  if (items.length === 0 || weightAvailable === 0) return 0;
+
   function findMaxValue(index, weightLeft, value) {
     let newVal = value;
 
@@ -34,11 +37,11 @@ function solveKnapsack(items, weightAvailable) {
   return max;
 }
 
-const items = [{ weight: 1, value: 3 }, { weight: 2, value: 4 }, { weight: 3, value: 5 }];
-solveKnapsack(items, 3); // returns 7 (from items[0] and items[1])
-solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
+// const items = [{ weight: 1, value: 3 }, { weight: 2, value: 4 }, { weight: 3, value: 5 }];
+// solveKnapsack(items, 3); // returns 7 (from items[0] and items[1])
+// solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 
-console.log(solveKnapsack(items, 3));
-console.log(solveKnapsack(items, 5));
+// console.log(solveKnapsack(items, 3));
+// console.log(solveKnapsack(items, 5));
 
 module.exports = solveKnapsack;
