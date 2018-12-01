@@ -10,7 +10,32 @@
 */
 
 function solveKnapsack(items, weightAvailable) {
+  // need a storage for the values to find Max
+  const endValues = [];
 
+  // need to recurse through the items to find the Max Values given the weight
+  function weighter(remainingItems, weightAvailable, currVal = 0) {
+    // base case
+    if (remainingWeight >= weightAvailable || remainingItems.length <= 1) {
+      return;
+    }
+    console.log('remaining items ==========> ', remainingItems, 
+    '\nweight available ==========> ', weightAvailable,
+    '\ncurrent value ==========> ', currVal,
+    '\n---------------------------------------------------------------------------------')
+    // pushes the current value
+    endValues.push(currVal);
+    // recurse the function
+    return (weighter(remainingItems.slice(1), weightAvailable - remainingItems[0].weight, currVal + remainingItems[0].value)) || (weighter(remainingItems.slice(1), remainingWeight, currVal))
+  }
+
+  // (weighter(remainingItems.slice(1), remainingWeight + remainingItems[0].weight, currVal + remainingItems[0].value)) || 
+  // || (weighter(remainingItems.slice(1), remainingWeight, currVal))
+  weighter(items, weightAvailable);
+  console.log(endValues);
+
+  return Math.max(...endValues);
 };
 
+console.log(solveKnapsack([{weight: 1, value : 3}, {weight: 2, value : 4}, {weight: 3, value : 5}], 5))
 module.exports = solveKnapsack;

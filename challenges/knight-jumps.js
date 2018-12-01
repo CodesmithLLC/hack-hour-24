@@ -10,8 +10,20 @@
 //  example input:
 // var str = "(4 5)"
 
+// mathy solution
 function knightjumps(str) {
-
+  var x = reflect(+str[1]);
+  var y = reflect(+str[3]);
+  var x_distance = Math.max(3 - x, 0);
+  var y_distance = Math.max(3 - y, 0);
+  return 8 - distanceToValue(x_distance + y_distance);
 }
+
+function distanceToValue(d) { return d < 2 ? 2 * d : d + 2; }
+function reflect(n) { return n > 4 ? 9 - n : n; }
+
+/*
+
+*/
 
 module.exports = knightjumps;

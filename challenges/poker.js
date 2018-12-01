@@ -19,8 +19,92 @@
  * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
-function poker(hand1, hand2) {
 
+function countCards(hand) {
+  const count = {};
+  hand.forEach(card => {
+    count[card] = count[card] + 1 || 1;
+  });
+  return count;
 }
+
+const ranks = [
+  count => Object.values(count).includes(4),
+  count => Object.entries(count).length === 2,
+  (count) => {
+    const cards = Object.keys(count).sort();
+    return (
+      cards[4] - cards[3] === 1 &&
+      cards[3] - cards[2] === 1 &&
+      cards[2] - cards[1] === 1 &&
+      cards[1] - cards[0] === 1
+    )
+  },
+  count => Object.values(count).includes(3),
+  count => Object.values(count).filter(num => num === 2).length === 2,
+  count => Object.values(count).includes(2),
+];
+
+function until(array, item) {
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i](item)) return i;
+  }
+  return array.length;
+}
+
+function poker(...hands) {
+  const [oneRank, twoRank] = hands.map(countCards).map(count => until(ranks, count));
+  if (oneRank !== twoRank) {
+    return oneRank < twoRank
+      ? 'Player 1 wins'
+      : 'Player 2 wins';
+  }
+  const [oneHigh, twoHigh] = hands.map(hand => Math.max(...hand));
+  if (oneHigh !== twoHigh) {
+    return oneHigh > twoHigh
+      ? 'Player 1 wins'
+      : 'Player 2 wins';
+  }
+
+  return 'Draw';
+}
+
+// unfinisheds
+// function Deck() {
+//   this.size = 52;
+//   this.deck = 
+// }
+
+/* 
+my version 
+function poker(hand1, hand2) {
+  // put hand 1 into an object counter
+  const h1Count = hand1.reduce((acc, curr) => {
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+  }, {});
+  // put hand 2 into an object counter
+  const h2Count = hand2.reduce((acc, curr) => {
+    acc[curr] = (acc[curr] || 0) + 1;
+    return acc;
+  }, {});
+
+  // check 4 of a kind
+  Object.values(h1Count).forEach(ele => {
+    if (ele === 4) {
+      
+    }
+  })
+
+  // check full house
+  // check straight
+  // check 3 of a kind
+  // check 2 pair
+  // check 1 pair
+  // check high card
+}
+*/
+
+poker([3,5,5,5,2], [4,6,7,8,8]);
 
 module.exports = poker;

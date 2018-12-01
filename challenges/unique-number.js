@@ -10,7 +10,19 @@
  *
  */
 function uniqueNumber(array) {
+  // XOR is one or the other X ^
 
+  // declare our result var
+  let output = 0;
+  // iterate through our array
+  for (let i = 0; i < array.length; i += 1) {
+    output = output ^ array[i];
+  }
+  // return the output
+  return output;
+
+  // alternative
+  // return array.reduce((acc, next) => acc ^ next);
 }
 
 module.exports = uniqueNumber;

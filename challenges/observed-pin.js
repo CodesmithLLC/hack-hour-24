@@ -40,9 +40,67 @@ expectations = {
 */
 
 
+/* MY NOTES
 
+1 = [1,2,4]
+2 = [1,2,3,5]
+3 = [2,3,6]
+4 = [1,4,5,7]
+5 = [2,4,5,6,8]
+6 = [3,5,6,9]
+7 = [4,7,8]
+8 = [5,7,8,9]
+9 = [6,8,9]
+0 = [0,8]
+
+create an object with the numbers and have their values set to an array
+split the observed string into an array, loop through this array
+
+*/
 
 function getPINs(observed) {
+  /* MY VERSION
+
+    // object of possible values for each number
+    let obj = {
+      1: [1,2,4],
+      2: [1,2,3,5],
+      3: [2,3,6],
+      4: [1,4,5,7],
+      5: [2,4,5,6,8],
+      6: [3,5,6,9],
+      7: [4,7,8],
+      8: [5,7,8,9],
+      9: [6,8,9],
+      0: [0,8]
+    }
+    // observed value split into separate strings
+    const split = observed.split('');
+    // loop through the observed array
+    for (let i = 0; i < split.length; i += 1) {
+      // create an empty string per recursive call
+      let variation = '';
+      // find the array in object
+      obj[split[i]]
+    }
+
+    function conserve(variation) {
+
+    }
+  */
+
+  /* Seans version  unfinished */
+  let combos = [''];
+
+  while (observed) {
+    const adjacents = pad[observed[0]];
+    const newPossibles = [];
+    for (let i = 0; i < adjacents.length; i += 1) {
+      for (let j = 0; j < combos.length; j += 1) {
+
+      }
+    }
+  }
 
 }
 

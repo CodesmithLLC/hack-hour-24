@@ -10,6 +10,22 @@ findInOrderedSet(nums, 2);  -> false
  */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
 function findInOrderedSet(arr, target) {
   // using binary search O(log(n)) time
   let left = 0;
@@ -26,6 +42,16 @@ function findInOrderedSet(arr, target) {
     }
   }
   return false;
+
+  // // recursive method
+  // function binarySearch(start, end) {
+  //   const mid = Math.floor((start + end) / 2);
+  //   if (target === arr[mid]) return true;
+  //   if (start >= end) return false;
+  //   if (target < arr[mid]) return binarySearch(start, mid - 1);
+  //   if (target > arr[mid]) return binarySearch(mid + 1, end);
+  // }
+  // return binarySearch(0, arr.length - 1);
 }
 
 var nums = [1, 4, 6, 7, 9, 17, 45]

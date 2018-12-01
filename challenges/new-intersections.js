@@ -18,7 +18,9 @@
  */
 
 function newIntersections(x, y){
+  const xLines = {}, yLines = {};
 
+  // the goal here is to find all the points at which the x Lines and y Lines intersect
 }
 
 module.exports = newIntersections;
