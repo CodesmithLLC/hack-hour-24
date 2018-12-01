@@ -17,7 +17,8 @@ const commonElements = (array1, array2, array3, array4) => {
   const commonArray2 = array3.filter(el => array4.includes(el));
   const commonArrayFinal = commonArray1.filter(el => commonArray2.includes(el));
   if (!commonArrayFinal.length) return 'Nothing in Common!';
-  return commonArrayFinal.filter((el, index) => index === commonArrayFinal.indexOf(el));
+  const outArray = commonArrayFinal.filter((el, index) => index === commonArrayFinal.indexOf(el));
+  return outArray;
 };
 
 module.exports = commonElements;
