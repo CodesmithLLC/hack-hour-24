@@ -27,7 +27,8 @@ function commonElements(array1, array2, array3, array4){
       result.push(key);
     }
   }
-  return result;
+
+  return result.length===0?"Nothing in Common!":result;
 }
 function removeDup(arr){
   return arr.filter((ele,index)=>arr.indexOf(ele) === index)
@@ -36,5 +37,5 @@ function removeDup(arr){
 //   let common = arr1.filter(i=>arr2.indexOf(i)>-1);
 //   return common.filter((ele,index)=>common.indexOf(ele) === index)
 // }
-console.log(commonElements([1,4,6,7,'ferret',12,12,99,2000,'dog','dog',99,1000],[15,9,9,'ferret',9,26,12,12,'dog'],[23,12,12,77,'ferret',9,88,100,'dog'],['ferret',12,12,45,9,66,77,78,2000]))
+// console.log(commonElements(['dog','dog','ferret'],[15,9,9,'ferret',9,26,12,12,'dog'],[23,12,12,77,'ferret',9,88,100,'dog'],['ferret']))
 module.exports = commonElements;
