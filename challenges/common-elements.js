@@ -13,7 +13,7 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 const commonElements = (array1, array2, array3, array4) => {
-  const commonArray1 = array1.filter(el => array2.includes(el));
+  const commonArray1 = array1.filter(el => array2.d(el));
   const commonArray2 = array3.filter(el => array4.includes(el));
   const commonArrayFinal = commonArray1.filter(el => commonArray2.includes(el));
   if (!commonArrayFinal.length) return 'Nothing in Common!';
