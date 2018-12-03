@@ -20,10 +20,27 @@ eachPermutation([1, 2, 3], function(perm) {
 [ 3, 2, 1 ]
 */
 
-function eachPermutation(arr, callback) {
-
+function permu(arr) {
+  if (arr.length === 0)
+    return [[]];
+  let collections = [];
+  for (let i = 0; i < arr.length; i++) {
+    let remainArr = arr.slice();
+    remainArr.splice(i, 1);
+    permu(remainArr).forEach((elem) => {
+      elem.unshift(arr[i]);
+      collections.push(elem);
+    });
+  }
+  return collections;
 }
-
-
+ function eachPermutation(arr, callback) {
+   permu(arr).forEach((elem) => {
+     callback(elem);
+   });
+ }
+eachPermutation([1, 2, 3], (perm) => {
+  console.log(perm);
+});
 
 module.exports = eachPermutation;
