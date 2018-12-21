@@ -13,7 +13,20 @@
   */
 
 function anagrams(string) {
+  if (string === '')
+    return [''];
 
+  let arr = string.split('');
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let remainArr = arr.slice();
+    remainArr.splice(i, 1);
+    anagrams(remainArr.join('')).forEach(elem => {
+      result.push(arr[i] + elem);
+    });
+  }
+  return result;
 }
 
+console.log(anagrams('abc'));
 module.exports = anagrams;
