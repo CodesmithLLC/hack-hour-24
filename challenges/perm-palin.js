@@ -10,27 +10,22 @@
  */
 
 function permPalin(str) {
-    let i = 0;
-    let midI = Math.floor(str.length / 2);
-	while (i < str.length) {
-        let j = str.length - 1;
-        while (j >= i) {
-            if (str.charAt(i) === str.charAt(j))
-                return checkPalin(str.slice(i, j+1));
-            j--;
-        }
-        i++;
+    const storage = {};
+    // loop through string to count occurrences
+    for (let i = 0; i < str.length; i++) {
+      if (storage[str[i]]) storage[str[i]] += 1;
+      else storage[str[i]] = 1;
     }
-    return false;
-}
-
-function checkPalin(subStr) {
-    let i = 0;
-    let j = subStr.length - 1;
-    while (i < j) {
-        if (subStr.charAt(i++) != subStr.charAt(j--))
-            return false;
+    // create variable to count number of odd occurrences
+    let odds = 0;
+    // loop through object
+    for (const key in storage) {
+      // count number of odd occurrences
+      if (storage[key] % 2 === 1) odds += 1;
+      // if number of odds is greater than 1, palindrome does not exist, exit early
+      if (odds > 1) return false;
     }
+    // otherwise palindrome exists
     return true;
 }
 
