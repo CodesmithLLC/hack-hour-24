@@ -2,10 +2,10 @@
  *
  * You are given an array x and an array y that represent the coordinates of several OLD points
  * 
- *   - x is the array of x-coordinates and y is the array of y-coordinates 
+ *   - x is the array of x-coordinates and y is the array of y-coordinates
  *   - (x[i], y[i]) correspond to coordinates of the i'th OLD point
  *
- * Write an algorithm to find the number of NEW points that can be placed 
+ * Write an algorithm to find the number of NEW points that can be placed
  * such that there are OLD points above, below, to the left, and to the right of the NEW point
  *
  *   - 'OLD directly above NEW' means the NEW x-coordinate = OLD x-coordinate & NEW y-coordinate < OLD y-coordinate
@@ -17,8 +17,12 @@
  * 	 
  */
 
-function newIntersections(x, y){
-
+function newIntersections(x, y) {
+  x.sort((a, b) => a - b);
+  y.sort((a, b) => a - b);
+  let xRange = x[0] - x[x.length - 1] - 2;
+  let yRange = y[0] - y[y.length - 1] - 2;
+  return xRange * yRange;
 }
 
 module.exports = newIntersections;
