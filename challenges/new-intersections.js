@@ -40,19 +40,19 @@ function newIntersections(x, y) {
 
   for (const prop in xCoords) {
     if (xCoords[prop].length > 1) {
-      xCoordsFixed[prop] = [Math.min.apply(null, xCoords[parseInt(prop)]), Math.max.apply(null, xCoords[parseInt(prop)])];
+      xCoordsFixed[prop] = [Math.min.apply(null, xCoords[+prop]), Math.max.apply(null, xCoords[+prop])];
     }
   }
 
   for (const prop in yCoords) {
     if (yCoords[prop].length > 1) {
-      yCoordsFixed[prop] = [Math.min.apply(null, yCoords[parseInt(prop)]), Math.max.apply(null, yCoords[parseInt(prop)])];
+      yCoordsFixed[prop] = [Math.min.apply(null, yCoords[+prop]), Math.max.apply(null, yCoords[+prop])];
     }
   }
   let pointCount = 0;
-  for (const prop in xCoordsFixed) {
-    for (let i = xCoordsFixed[prop][0] + 1; i < xCoordsFixed[prop][1]; i += 1) {
-      if (yCoordsFixed[i] && yCoordsFixed[i][0] < prop && yCoordsFixed[i][1] > prop) {
+  for (const xProp in xCoordsFixed) {
+    for (const yProp in yCoordsFixed) {
+      if (xProp > yCoordsFixed[yProp][0] && xProp < yCoordsFixed[yProp][1] && yProp > xCoordsFixed[xProp][0] && yProp < xCoordsFixed[xProp][1]) {
         pointCount += 1;
       }
     }
@@ -61,6 +61,6 @@ function newIntersections(x, y) {
   return pointCount;
 }
 
-
+// console.log(newIntersections([0, 1, 5, 2, 2], [3, 1, 3, 0, 5]));
 
 module.exports = newIntersections;
