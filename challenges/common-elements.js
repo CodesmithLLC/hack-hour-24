@@ -17,7 +17,11 @@ function commonElements(...args) {
     let newSet = new Set(curr);
     return [...newSet].filter(elem => acc.indexOf(elem) !== -1);
   });
-  return result.reverse();
+  if (result.length > 0) {
+    return result;
+  } else {
+    return "Nothing in Common!"
+  }
 }
 
 // var arr1 = [1, 4, 6, 7, "ferret", 12, 12, 99, 2000, "dog", "dog", 99, 1000];
