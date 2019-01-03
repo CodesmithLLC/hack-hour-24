@@ -20,7 +20,50 @@
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
 function poker(hand1, hand2) {
+  function scoreHand(hand) {
+    const highCard = Math.max(hand);
+    let score = 0;
+    const obj = {};
+    hand.foreach((card) => {
+      if (!obj[card]) {
+        obj[card] = 1;
+      } else {
+        obj[card] += 1;
+      }
+    });
+    const maxNumCards = Math.max(obj.values);
+    // score hands from 0 (nothing) - 6 (4-of-a-kind).  
+    if (maxNumCards === 4) {
+      score = 6;
+    }
+    if (maxNumCards === 3) {
+      //test for full house, if yes score 5, if no give score of 3
+      if 
 
+    }
+    // test for straight, give score 4
+    // test for pairs
+    return [score, highCard];
+  }
+  const hand1Score = scoreHand(hand1);
+  const hand2Score = scoreHand(hand2);
+  if (hand1Score[0] > hand2Score[0]) {
+    return 'Player 1 wins';
+  }
+  if (hand1Score[0] < hand2Score[0]) {
+    return 'Player 2 wins';
+  }
+  if (hand1Score[0] === hand2Score[0]) {
+    if (hand1Score[1] > hand2Score[1]) {
+      return 'Player 1 wins';
+    }
+    if (hand1Score[1] < hand2Score[1]) {
+      return 'Player 2 wins';
+    }
+    if (hand1Score[1] === hand2Score[1]) {
+      return 'draw';
+    }
+  }
 }
 
 module.exports = poker;

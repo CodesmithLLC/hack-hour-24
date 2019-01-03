@@ -13,6 +13,12 @@
   */
 
 function anagrams(string) {
+  let results = new Set;
+  for (let i = 0; i < string.length; i += 1) {
+    let str = string[i];
+    let trimString = string.splice(i, 1);
+    for (let j = 0; j < )
+  }
 
 }
 

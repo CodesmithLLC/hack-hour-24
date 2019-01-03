@@ -11,6 +11,29 @@
 // matchWord('');  -> true
 
 function matchWord(str) {
+  let str = '%%$@$while  try ! yrt  for if_fi rof #*#  elihw'
+
+
+  str = str.replace(/[^\w\s]|_/g, "")
+          .replace(/\s+/g, " ");
+
+  const strArr = str.split(' ');
+  return arrTester(strArr);
+
+}
+
+const arrTester = function(strArray){
+  if (strArray.length === 0) {
+    return true
+  }
+  let endStr = strArray.pop();
+  for (let i = 0; i < strArr.length; i += 1) {
+    if (strArray[i] === endStr.split('').reverse().join()) {
+      strArray.splice(i, 1);
+      return arrTester(strArray);
+    }
+  }
+  return false;
 
 }
 
