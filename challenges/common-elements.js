@@ -12,11 +12,17 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
-function commonElements(arr1, arr2, arr3, arr4) {
-  const args = [arr1, arr2, arr3, arr4];
+function commonElements(...args) {
+  // collect all arguments into args
   const result = args.reduce((acc, curr) => {
-    const newSet = new Set(curr);
-    return [...newSet].filter(elem => acc.indexOf(elem) !== -1);
+    // // create new set from each arg array, eliminating duplicates
+    // const newSet = new Set(curr);
+    // // use spread operator to turn set back into array to filter
+    // // only keep elements that are also in accumulator
+    // return [...newSet].filter(elem => acc.indexOf(elem) !== -1);
+    const filtered = curr.filter(elem => acc.indexOf(elem) !== -1);
+    const elimDupesSet = new Set(filtered);
+    return [...elimDupesSet];
   });
   if (result.length > 0) {
     return result;
