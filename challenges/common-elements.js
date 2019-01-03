@@ -13,10 +13,11 @@
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
 function commonElements(...args) {
-  return args.reduce((acc, curr) => {
+  const result = args.reduce((acc, curr) => {
     let newSet = new Set(curr);
     return [...newSet].filter(elem => acc.indexOf(elem) !== -1);
   });
+  return result.reverse();
 }
 
 // var arr1 = [1, 4, 6, 7, "ferret", 12, 12, 99, 2000, "dog", "dog", 99, 1000];
