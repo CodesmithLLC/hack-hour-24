@@ -10,10 +10,47 @@
  * How would you solve this problem if a temporary buffer is not allowed?
  */
 
-
-
 function deleteDups(head) {
-
+  const storeSet = new Set();
+  if (head.next) {
+    if (!storeSet.has(head.next.value)) {
+      storeSet.add(head.next.value);
+      deleteDups(head.next);
+    } else if (head.next.next) {
+      head.next = head.next.next;
+      deleteDups(head.next.next);
+    } else {
+      head.next = null;
+    }
+  }
 }
+
+class LinkedList {
+  constructor(value) {
+    this.head = null;
+    this.addToHead(value);
+  }
+
+  addToHead(value) {
+    const newNode = { value };
+    newNode.next = this.head;
+    this.head = newNode;
+    return this;
+  }
+}
+
+const list = new LinkedList("A")
+  .addToHead("B")
+  .addToHead("C")
+  .addToHead("C")
+  .addToHead("D");
+
+deleteDups(list.head);
+
+console.log(list.head.value);
+console.log(list.head.next.value);
+console.log(list.head.next.next.value);
+console.log(list.head.next.next.next.value);
+console.log(list.head.next.next.next.next.value);
 
 module.exports = deleteDups;

@@ -9,7 +9,10 @@
  */
 
 function subsetSum(array, target) {
-
+  for (let i = 0; i < array.length; i++) {
+    let sum = array[i];
+    array.splice(i, 1)
+  }
 }
 
 module.exports = subsetSum;

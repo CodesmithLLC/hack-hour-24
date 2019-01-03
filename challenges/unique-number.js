@@ -9,6 +9,9 @@
  * Complete the challenge in O(1) space
  *
  */
+
+use XOR / binary numbers
+
 function uniqueNumber(array) {
 
 }

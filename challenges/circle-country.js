@@ -26,7 +26,7 @@ function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   let result = 0;
   // for each circle (x, y, r) determine distance from center to start point
   for (let i = 0; i < x.length; i += 1) {
-    const distanceA = Math.sqrt(Math.pow(x[i] - start_x, 2) + Math.pow(y[i] - start_y, 2))
+    const distanceA = Math.sqrt(Math.pow(x[i] - start_x, 2) + Math.pow(y[i] - start_y, 2));
     // is distance greater than radius?
     const startWithinCircle = r[i] - distanceA > 0;
 
