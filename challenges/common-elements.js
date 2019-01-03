@@ -15,7 +15,7 @@
 function commonElements(array1, array2, array3, array4) {
   const arraysArr = [array1, array2, array3, array4];
   return arraysArr.reduce((acc, curr) => {
-    return acc.filter(elem => curr.indexOf(elem) !== -1);
+    return curr.filter(elem => acc.indexOf(elem) !== -1);
   });
 }
 
