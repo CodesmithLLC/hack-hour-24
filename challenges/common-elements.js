@@ -12,9 +12,8 @@
 
 // if there are no common numbers or strings return the string "Nothing in Common!"
 
-function commonElements(array1, array2, array3, array4) {
-  const arraysArr = [array1, array2, array3, array4];
-  return arraysArr.reduce((acc, curr) => {
+function commonElements(...args) {
+  return args.reduce((acc, curr) => {
     let newSet = new Set(curr);
     return [...newSet].filter(elem => acc.indexOf(elem) !== -1);
   });
