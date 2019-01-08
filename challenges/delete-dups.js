@@ -15,11 +15,10 @@ function deleteDups(head) {
   const store = {};
   store[currNode.value] = true;
   while (currNode.next) {
-    if (store[currNode.next.value]) {
+    while (store[currNode.next.value]) {
       currNode.next = currNode.next.next;
-    } else {
-      store[currNode.next.value] = true;
     }
+    store[currNode.next.value] = true;
     currNode = currNode.next;
   }
   return head;
