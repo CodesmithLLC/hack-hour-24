@@ -11,46 +11,60 @@
  */
 
 function deleteDups(head) {
-  const storeSet = new Set();
-  if (head.next) {
-    if (!storeSet.has(head.next.value)) {
-      storeSet.add(head.next.value);
-      deleteDups(head.next);
-    } else if (head.next.next) {
-      head.next = head.next.next;
-      deleteDups(head.next.next);
+  let currNode = head;
+  const store = {};
+  store[currNode.value] = true;
+  while (currNode.next) {
+    if (store[currNode.next.value]) {
+      currNode.next = currNode.next.next;
     } else {
-      head.next = null;
+      store[currNode.next.value] = true;
     }
+    currNode = currNode.next;
   }
 }
 
-class LinkedList {
-  constructor(value) {
-    this.head = null;
-    this.addToHead(value);
-  }
+// function deleteDups(head) {
+//   const storeSet = new Set();
+//   if (head.next) {
+//     if (!storeSet.has(head.next.value)) {
+//       storeSet.add(head.next.value);
+//       deleteDups(head.next);
+//     } else if (head.next.next) {
+//       head.next = head.next.next;
+//       deleteDups(head.next.next);
+//     } else {
+//       head.next = null;
+//     }
+//   }
+// }
 
-  addToHead(value) {
-    const newNode = { value };
-    newNode.next = this.head;
-    this.head = newNode;
-    return this;
-  }
-}
+// class LinkedList {
+//   constructor(value) {
+//     this.head = null;
+//     this.addToHead(value);
+//   }
 
-const list = new LinkedList("A")
-  .addToHead("B")
-  .addToHead("C")
-  .addToHead("C")
-  .addToHead("D");
+//   addToHead(value) {
+//     const newNode = { value };
+//     newNode.next = this.head;
+//     this.head = newNode;
+//     return this;
+//   }
+// }
 
-deleteDups(list.head);
+// const list = new LinkedList("A")
+//   .addToHead("B")
+//   .addToHead("C")
+//   .addToHead("C")
+//   .addToHead("D");
 
-console.log(list.head.value);
-console.log(list.head.next.value);
-console.log(list.head.next.next.value);
-console.log(list.head.next.next.next.value);
-console.log(list.head.next.next.next.next.value);
+// deleteDups(list.head);
+
+// console.log(list.head.value);
+// console.log(list.head.next.value);
+// console.log(list.head.next.next.value);
+// console.log(list.head.next.next.next.value);
+// console.log(list.head.next.next.next.next.value);
 
 module.exports = deleteDups;
