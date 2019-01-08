@@ -22,6 +22,7 @@ function deleteDups(head) {
     }
     currNode = currNode.next;
   }
+  return head;
 }
 
 // function deleteDups(head) {
