@@ -14,10 +14,10 @@
 
 
 function mergeRanges(array) {
-  const mergedRanges = [array[0]];
   const sortedArr = array.sort( (arrA, arrB) => {
-    return arrA[0] - arrB[0]
+    return arrA[0] - arrB[0];
   });
+  const mergedRanges = [sortedArr[0]];
   for (let i = 1; i < sortedArr.length; i += 1) {
     let merged = false;
     for (let j = 0; j < mergedRanges.length; j += 1) {
@@ -25,13 +25,16 @@ function mergeRanges(array) {
         if (sortedArr[i][1] > mergedRanges[j][1]) {
           mergedRanges[j][1] = sortedArr[i][1];
           merged = true;
-        }
+        } 
       }
       if (sortedArr[i][1] >= mergedRanges[j][0] && sortedArr[i][1] <= mergedRanges[j][1]) {
         if (sortedArr[i][0] < mergedRanges[j][0]) {
           mergedRanges[j][0] = sortedArr[i][0];
           merged = true;
         }
+      }
+      if (sortedArr[i][0] >= mergedRanges[j][0] && sortedArr[i][0] <= mergedRanges[j][1] && sortedArr[i][1] >= mergedRanges[j][0] && sortedArr[i][1] <= mergedRanges[j][1]) {
+        merged = true;
       }
     }
     if (!merged) {
@@ -41,7 +44,7 @@ function mergeRanges(array) {
   return mergedRanges;
 }
 
-var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]]
+var times = [[0, 1], [3, 5], [7, 8], [9, 12], [4, 5]]
 
 console.log('answer: ', mergeRanges(times)); // -> [[0, 1], [3, 8], [9, 12]]
 
