@@ -12,47 +12,47 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
-function helperFunc(number, reslt) {
+function helperFunc(number) {
   let num = number;
-  let result = reslt || '';
+  let result = '';
 
   if (num >= 100) {
     const numHundreds = Math.floor(num / 100);
     const leftOver = num % 100;
-    result += helperFunc(numHundreds, result);
+    result += helperFunc(numHundreds);
     result += 'Hundred';
     result += helperFunc(leftOver);
     return result;
   }
-  if (num > 90) {
+  if (num >= 90) {
     result += 'Ninety';
     num -= 90;
   }
-  if (num > 80) {
+  if (num >= 80) {
     result += 'Eighty';
     num -= 80;
   }
-  if (num > 70) {
+  if (num >= 70) {
     result += 'Seventy';
     num -= 70;
   }
-  if (num > 60) {
+  if (num >= 60) {
     result += 'Sixty';
     num -= 60;
   }
-  if (num > 50) {
+  if (num >= 50) {
     result += 'Fifty';
     num -= 50;
   }
-  if (num > 40) {
+  if (num >= 40) {
     result += 'Forty';
     num -= 40;
   }
-  if (num > 30) {
+  if (num >= 30) {
     result += 'Thirty';
     num -= 30;
   }
-  if (num > 20) {
+  if (num >= 20) {
     result += 'Twenty';
     num -= 20;
   }
@@ -138,7 +138,7 @@ function helperFunc(number, reslt) {
 
 function numToWords(num) {
   // edge case
-  if (num === 0 && result === undefined) {
+  if (num === 0) {
     return 'Zero';
   }
   let outerResult = '';
@@ -147,7 +147,7 @@ function numToWords(num) {
   while (numToString.length % 3) {
     numToString = `0${numToString}`;
   }
-  const units = ['', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion'];
+  const units = ['', 'Thousand', 'Million', 'Billion', 'Trillion', 'Quadrillion', 'Quintillion', 'Sextillion', 'Septillion', 'Octillion', 'Nonillion', 'Decillion', 'Undecillion', 'Duodecillion', 'Tredecillion', 'Quattuordecillion', 'Quindecillion', 'Sexdecillion', 'Septendecillion', 'Octodecillion', 'Novemdecillion', 'Vigintillion'];
   const digitGroups = [];
   while (numToString.length) {
     const numStringArr = numToString.split('');
@@ -156,9 +156,12 @@ function numToWords(num) {
     digitGroups.push(threeDigits);
     numToString = numStringArr.join('');
   }
+  console.log('digitGroups: ', digitGroups);
 
   for (let i = 0; i < digitGroups.length; i += 1) {
-    outerResult = `${helperFunc(digitGroups[i])}${units[i]}${outerResult}`;
+    if (digitGroups[i] > 0) {
+      outerResult = `${helperFunc(digitGroups[i])}${units[i]}${outerResult}`;
+    }
   }
 
   return outerResult;
