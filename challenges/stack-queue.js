@@ -16,13 +16,11 @@ class Stack {
   }
 
   pop() {
-    if (this.items.length > 0) {
-      this.length -= 1;
-      const item = this.items[this.length];
-      delete this.items[this.length];
-      return item;
-    }
-    return undefined;
+    if (!this.length) return undefined;
+    this.length -= 1;
+    const item = this.items[this.length];
+    delete this.items[this.length];
+    return item;
   }
 }
 
@@ -53,5 +51,10 @@ class Queue {
   }
 }
 
+let myQueue = new Queue;
+myQueue.enqueue('a')
+myQueue.enqueue('b')
+myQueue.enqueue('c')
+console.log(myQueue.dequeue());
 
 module.exports = {Stack: Stack, Queue: Queue};
