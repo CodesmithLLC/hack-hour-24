@@ -9,22 +9,29 @@
  */
 
 function Node(value) {
-    this.value = value;
-    this.next = null;
+  this.value = value;
+  this.next = null;
 }
 
-let prevVal, nextVal;
+
 
 function reverseLinkedList(head) {
-    if (!prevVal) prevVal = null;
-    nextVal = head.next
-    if (head.next) {
-        head.next = prevVal;
-        prevVal = head
-        reverseLinkedList(nextVal)
-    }
+  let curr = head;
+  let { next } = head;
+  let nextNext = next.next;
+
+  curr.next = null;
+  next.next = curr;
+
+  while (nextNext) {
+    curr = next;
+    next = nextNext;
+    nextNext = next.next;
+
+    next.next = curr;
+  }
+  return next;
 }
 
 
-
-module.exports = {Node: Node, reverseLinkedList: reverseLinkedList};
+module.exports = { Node, reverseLinkedList };
