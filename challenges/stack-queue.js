@@ -5,26 +5,26 @@
 
 class Stack {
   constructor() {
-    this.items = [];
+    this.items = {};
+    this.length = 0;
   }
 
   push(element) {
-    return this.items.push(element);
+    this.items[this.length] = element;
+    this.length += 1;
+    return this.length;
   }
 
   pop() {
     if (this.items.length > 0) {
-      return this.items.pop();
+      this.length -= 1;
+      const item = this.items[this.length];
+      delete this.items[this.length];
+      return item;
     }
     return undefined;
   }
-
-  rtrn() {
-    return this.items;
-  }
 }
-
-
 
 /**
 * Queue Class
@@ -35,43 +35,23 @@ class Queue {
   constructor() {
     this.pushStack = new Stack();
     this.popStack = new Stack();
-    this.mode = 'push';
   }
 
   enqueue(elem) {
-    if (this.mode === 'pop') {
-      while (this.popStack.length > 0) {
-        this.pushStack.push(this.popStack.pop());
-      }
-      this.mode = 'push';
+    while (this.popStack.length > 0) {
+      this.pushStack.push(this.popStack.pop());
     }
-    if (this.mode === 'push') {
-      this.pushStack.push(elem);
-    }
+    this.pushStack.push(elem);
+    return this.pushStack.length;
   }
 
   dequeue() {
-    if (this.mode === 'push') {
-      while (this.pushStack.length > 0) {
-        this.popStack.push(this.pushStack.pop());
-      }
-      this.mode = 'pop';
+    while (this.pushStack.length > 0) {
+      this.popStack.push(this.pushStack.pop());
     }
     return this.popStack.pop();
   }
 }
 
-const newQueue = new Queue();
-console.log(newQueue.enqueue);
-
-newQueue.enqueue(3);
-newQueue.enqueue(5);
-newQueue.enqueue(7);
-newQueue.dequeue();
-console.log(newQueue.dequeue());
-newQueue.enqueue(9);
-newQueue.enqueue(11);
-newQueue.dequeue();
-console.log(newQueue.dequeue());
 
 module.exports = {Stack: Stack, Queue: Queue};
