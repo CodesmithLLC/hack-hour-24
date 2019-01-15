@@ -14,17 +14,35 @@ function BinaryTree(value) {
 }
 
 
-function superbalanced(tree) {
-  return (balanced(tree)) !== -2;
-  
-  function balanced(tree) {
-    if (!tree.left && !tree.right) {
-      return -1;
+function superbalanced(t) {
+  let heights = [];
+
+  function checkHeight(tree, h = 0) {
+    let height = h;
+    if (tree.left === null && tree.right === null) {
+      heights.push(height);
+    } else if (tree.left) {
+      checkHeight(tree.left, height += 1);
+    } else if (tree.right) {
+      checkHeight(tree.right, height += 1);
     }
-    if (tree.left) {}
+  }
+
+  checkHeight(t);
+  heights = heights.sort((a, b) => a - b);
+  return (heights[heights.length - 1] - heights[0] === 0 || heights[heights.length - 1] - heights[0] === 1) 
+
+
+  // return (balanced(tree)) !== -2;
+  
+  // function balanced(tree) {
+  //   if (!tree.left && !tree.right) {
+  //     return -1;
+  //   }
+  //   if (tree.left) {}
 
     
-  }
+  // }
 
   
 }
