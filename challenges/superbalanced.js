@@ -30,7 +30,9 @@ function superbalanced(t) {
 
   checkHeight(t);
   heights = heights.sort((a, b) => a - b);
-  return (heights[heights.length - 1] - heights[0] === 0 || heights[heights.length - 1] - heights[0] === 1) 
+  const smallest = heights[0];
+  const largest = heights[heights.length - 1];
+  return (largest - smallest === 0 || largest - smallest === 1);
 
 
   // return (balanced(tree)) !== -2;
