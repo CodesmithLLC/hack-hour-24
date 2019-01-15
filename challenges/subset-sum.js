@@ -9,10 +9,12 @@
  */
 
 function subsetSum(array, target) {
-  for (let i = 0; i < array.length; i++) {
-    let sum = array[i];
-    array.splice(i, 1)
-  }
+  if (array[0] === target) { return true; }
+  if (array.length === 1) { return false; }
+  return subsetSum(array.slice(1), target) || subsetSum(array.slice(1), target - array[0]);
 }
+
+console.log(subsetSum([8, 2, 4, 12], 13));
+console.log(subsetSum([8, -2, 1, -3], 6));
 
 module.exports = subsetSum;
