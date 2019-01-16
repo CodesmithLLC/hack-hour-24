@@ -12,6 +12,30 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
+function numberToString(n) {
+  let numStr = String(n);
+
+  if (Math.abs(n) < 1.0) {
+    const e = parseInt(n.toString().split('e-')[1]);
+    if (e) {
+      const negative = n < 0;
+      if (negative) n *= -1;
+      n *= Math.pow(10, e - 1);
+      numStr = `0.${  (new Array(e)).join('0')  }${n.toString().substring(2)}`;
+      if (negative) numStr = '-' + numStr;
+    }
+  } else {
+    let e = parseInt(n.toString().split('+')[1]);
+    if (e > 20) {
+      e -= 20;
+      n /= Math.pow(10, e);
+      numStr = n.toString() + (new Array(e + 1)).join('0');
+    }
+  }
+
+  return numStr;
+}
+
 function helperFunc(number) {
   let num = number;
   let result = '';
@@ -142,7 +166,8 @@ function numToWords(num) {
     return 'Zero';
   }
   let outerResult = '';
-  let numToString = num.toString();
+  let numToString = numberToString(num);
+  console.log('numToString: ', numToString);
   // add zero's to front so number of digits divisible by three
   while (numToString.length % 3) {
     numToString = `0${numToString}`;
