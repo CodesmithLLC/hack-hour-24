@@ -57,6 +57,7 @@ const llb3 = new Node(2);
 llb1.next = llb2;
 llb2.next = llb3;
 
+
 console.log(addLinkedList(lla1, llb1));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};

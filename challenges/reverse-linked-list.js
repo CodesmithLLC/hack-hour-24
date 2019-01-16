@@ -17,7 +17,7 @@ function Node(value) {
 
 function reverseLinkedList(head) {
   if (!head) { return head; }
-  if (!head.next) { return head;};
+  if (!head.next) { return head; }
   let curr = head;
   let { next } = head;
   let nextNext = next.next;
