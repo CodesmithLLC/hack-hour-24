@@ -14,13 +14,15 @@
 
 
 
-function anagrams(string) {
 
-  const result = [];
+function anagrams(string) {
+  if (string === '') { return ['']; }
+
+  const result = new Set;
 
   function helperFunc(str, temp = '') {
     if (str.length === 1) {
-      result.push(temp + str);
+      result.add(temp + str);
     } else {
       for (let i = 0; i < str.length; i += 1) {
         let currTemp = temp;
@@ -33,9 +35,8 @@ function anagrams(string) {
     }
   }
   helperFunc(string);
-  return result;
+  return [...result];
 }
 
-var result = anagrams('abc');
 
 module.exports = anagrams;
