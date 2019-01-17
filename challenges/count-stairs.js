@@ -23,10 +23,10 @@ function countStairs(n) {
     }
     if (num > 0) {
       if (num === 1) {
-        countWays(num-1);
+        countWays(num - 1);
       } else {
-        countWays(num-1);
-        countWays(num-2);
+        countWays(num - 1);
+        countWays(num - 2);
       }
     }
   }

@@ -28,7 +28,7 @@ function decToBin(decimal) {
   let binary = '';
   while (decimal > 0) {
     decimal = decimal / 2;
-    if (decimal === Math.floor(decimal)){
+    if (decimal === Math.floor(decimal)) {
       binary += '0';
     } else {
       binary += '1';

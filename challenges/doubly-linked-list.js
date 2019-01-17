@@ -2,6 +2,7 @@
 Create a doubly linked list with an add and remove method
  */
 
+
 function LinkedList() {
   this.head = null;
   this.tail = null;

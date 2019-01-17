@@ -10,6 +10,7 @@
  *
  */
 
+
 use XOR / binary numbers
 
 function uniqueNumber(array) {

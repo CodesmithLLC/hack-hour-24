@@ -24,6 +24,4 @@ function eachPermutation(arr, callback) {
 
 }
 
-
-
 module.exports = eachPermutation;

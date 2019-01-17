@@ -21,3 +21,4 @@ function repeatNumbers(array) {
 }
 
 module.exports = repeatNumbers;
+

@@ -13,7 +13,6 @@ function countTwos(num) {
   const let numDigits = num.toString().length;
   let result = 0;
   for (let i = numDigits.length; i > 0; i -= 1) {
-    
   }
 }
 

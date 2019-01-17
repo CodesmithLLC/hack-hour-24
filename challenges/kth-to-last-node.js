@@ -62,9 +62,7 @@ function kthToLastNode(k, head) {
 //   }
 
 //   return currentVal.value;
-// }
+}
 
 
-
-
-module.exports = {Node: Node, kthToLastNode: kthToLastNode};
+module.exports = {Node: Node, kthToLastNode: kthToLastNode}

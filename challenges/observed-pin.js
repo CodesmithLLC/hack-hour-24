@@ -40,8 +40,6 @@ expectations = {
 */
 
 
-
-
 function getPINs(observed) {
 
 }

@@ -19,4 +19,5 @@ function powTail(base, power, current = 1) {
   }
 }
 
+
 module.exports = pow;

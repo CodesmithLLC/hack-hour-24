@@ -22,6 +22,7 @@
  *
  */
 
+
 function circleCountry(x, y, r, start_x, start_y, end_x, end_y) {
   let result = 0;
   // for each circle (x, y, r) determine distance from center to start point

@@ -41,7 +41,7 @@
 //   // make a new set out of each array to eliminate duplicates
 //   const args = [...arguments];
 //   const argSets = args.map(subArr => [...new Set(subArr)]);
-  
+
 //   // tally up ocurrences of each num/word
 //   const cache = argSets.reduce((a, b) => {
 //     b.forEach(el => {

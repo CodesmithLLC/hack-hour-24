@@ -7,6 +7,7 @@
 example: http://www.geeksforgeeks.org/wp-content/uploads/balanced_tree.GIF
  */
 
+
 function BinaryTree(value) {
   this.value = value;
   this.left = null;

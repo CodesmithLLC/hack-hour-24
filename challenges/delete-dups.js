@@ -24,6 +24,7 @@ function deleteDups(head) {
   return head;
 }
 
+
 // function deleteDups(head) {
 //   const storeSet = new Set();
 //   if (head.next) {
@@ -66,5 +67,6 @@ function deleteDups(head) {
 // console.log(list.head.next.next.value);
 // console.log(list.head.next.next.next.value);
 // console.log(list.head.next.next.next.next.value);
+
 
 module.exports = deleteDups;
