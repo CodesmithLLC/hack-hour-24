@@ -24,7 +24,7 @@ function addLinkedList(l1, l2) {
   let prevNode = null;
   let carryOver = null;
 
-  while (l1tracker || l2tracker || carryOver) {
+  while (typeof l1tracker === 'number' || typeof l2tracker === 'number' || carryOver) {
     let sum = l1tracker.value + l2tracker.value + carryOver;
     carryOver = 0;
     if (sum > 9) {
