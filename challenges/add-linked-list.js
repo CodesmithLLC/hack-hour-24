@@ -24,9 +24,9 @@ function addLinkedList(l1, l2) {
   let prevNode = null;
   let carryOver = null;
 
-  while (typeof l1tracker.value === 'number' || typeof l2tracker.value === 'number' || carryOver) {
-    l1tracker.value = l1tracker.value || 0;
-    l2tracker.value = l2tracker.value || 0;
+  while (l1tracker || l2tracker || carryOver) {
+    l1tracker = l1tracker || new Node(0);
+    l2tracker = l2tracker || new Node(0);
     let sum = l1tracker.value + l2tracker.value + carryOver;
     carryOver = 0;
     if (sum > 9) {
@@ -89,6 +89,7 @@ function addLinkedList(l1, l2) {
 
 
 // console.log(addLinkedList(lla1, llb1));
+// console.log(llb1);
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
 
