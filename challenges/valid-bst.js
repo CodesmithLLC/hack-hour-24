@@ -4,6 +4,7 @@
  *      at any given node, the value of all the nodes in its right tree must be > its value
  * Assume that each value in the tree is unique.
  */
+
  
 
 function BinaryTree(val) {

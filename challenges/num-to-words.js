@@ -12,6 +12,7 @@
  * numToWords(92120000000000000) -> 'NintyTwoQuadrillionOneHundredTwentyTrillion'
  */
 
+
 function numberToString(n) {
   let numStr = String(n);
 

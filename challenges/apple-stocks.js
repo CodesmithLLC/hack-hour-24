@@ -35,7 +35,7 @@ function bestProfit(stock_prices_yesterday) {
   return maxProfit;
 }
 
-// //test:
+// test:
 // stock_prices_yesterday1 = [100, 80, 150, 50, 140]
 // let result = bestProfit(stock_prices_yesterday1);
 // console.log('result: ', result);

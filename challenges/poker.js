@@ -19,6 +19,7 @@
  * BONUS: Account for suits and add in Flush & Straight Flush/Royal Flush.
  * BONUS2: Create a deck of cards function that generates two random hands for you.
  */
+
 function poker(hand1, hand2) {
   function scoreHand(hand) {
     const highCard = Math.max(hand);

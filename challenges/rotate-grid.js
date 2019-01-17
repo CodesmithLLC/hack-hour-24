@@ -16,6 +16,7 @@
  * BONUS: Do this in place
  */
 
+
 function rotateGrid(grid, n) {
   const grid2 = [];
   for (let i = 0; i < n; i += 1) {

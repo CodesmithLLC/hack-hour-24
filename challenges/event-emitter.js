@@ -47,7 +47,7 @@ EventEmitter.prototype.trigger = function (funcName, ...args) {
 let instance = new EventEmitter();
 let counter = 0;
 instance.on('increment', () => {
-  counter++;
+  counter += 1;
 }); // counter should be 0
 console.log(counter);
 instance.trigger('increment'); // counter should be 1

@@ -17,6 +17,7 @@
  *
  */
 
+
 function newIntersections(x, y) {
   const xCoords = {};
   const yCoords = {};

@@ -9,9 +9,10 @@
  * do not use division, becuase zero might be in the array and you cannot divide by zero
  */
 
+
 function getAllProducts(array) {
   if (array.length === 0) { return [0]; }
-  let result = [];
+  const result = [];
   for (let i = 0; i < array.length; i += 1) {
     let temp = 1;
     for (let j = 0; j < array.length; j += 1) {

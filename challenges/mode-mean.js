@@ -10,6 +10,7 @@
  */
 
 
+
 function modemean(array) {
   let mean = array.reduce( (a, b) => a + b) / array.length;
   let mode;

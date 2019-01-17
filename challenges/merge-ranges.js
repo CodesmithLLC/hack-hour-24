@@ -13,6 +13,7 @@
 
 
 
+
 function mergeRanges(array) {
   const sortedArr = array.sort( (arrA, arrB) => {
     return arrA[0] - arrB[0];

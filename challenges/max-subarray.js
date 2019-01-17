@@ -7,6 +7,7 @@
  *
  */
 
+
 function maxSubarray(arr) {
   let greatestSum;
   // loop through a starting index

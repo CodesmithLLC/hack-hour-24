@@ -9,6 +9,7 @@
  *
  */
 
+
 function permPalin(str) {
 	
 }

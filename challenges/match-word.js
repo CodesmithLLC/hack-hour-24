@@ -10,6 +10,7 @@
 // matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
 // matchWord('');  -> true
 
+
 function matchWord(str) {
   let str = '%%$@$while  try ! yrt  for if_fi rof #*#  elihw'
 
