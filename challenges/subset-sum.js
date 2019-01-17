@@ -8,25 +8,18 @@
  * subsetSum([8, -2, 1, -3], 6) -> true, 8 + 1 + (-3) = 6
  */
 
-function subsetSum(array, target, sum=0) {
+function subsetSum(array, target, sum = 0) {
   if (sum === target) { return true; }
-  if (array.length === 0) { return false };
-  return subsetSum(array.slice(1), target, sum += array[0]) || subsetSum(array.slice(1), target, sum)
-
-
-
-
-
-
-
-
+  if (array.length === 0) { return false; }
+  const sumPlus = sum + array[0];
+  return subsetSum(array.slice(1), target, sumPlus) || subsetSum(array.slice(1), target, sum);
 
   // if (array[0] === target) { return true; }
   // if (array.length <= 1) { return false; }
   // return subsetSum(array.slice(1), target) || subsetSum(array.slice(1), target - array[0]);
 }
 
-console.log(subsetSum([8, 2, 4, 12], 13));
-console.log(subsetSum([8, -2, 1, -3], 6));
+// console.log(subsetSum([8, 2, 4, 12], 13));
+// console.log(subsetSum([8, -2, 1, -3], 6));
 
 module.exports = subsetSum;

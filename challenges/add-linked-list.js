@@ -45,19 +45,19 @@ function addLinkedList(l1, l2) {
   actuallyAdd(l2);
 }
 
-const lla1 = new Node(3);
-const lla2 = new Node(3);
-const lla3 = new Node(3);
-lla1.next = lla2;
-lla2.next = lla3;
+// const lla1 = new Node(3);
+// const lla2 = new Node(3);
+// const lla3 = new Node(3);
+// lla1.next = lla2;
+// lla2.next = lla3;
 
-const llb1 = new Node(2);
-const llb2 = new Node(2);
-const llb3 = new Node(2);
-llb1.next = llb2;
-llb2.next = llb3;
+// const llb1 = new Node(2);
+// const llb2 = new Node(2);
+// const llb3 = new Node(2);
+// llb1.next = llb2;
+// llb2.next = llb3;
 
 
-console.log(addLinkedList(lla1, llb1));
+// console.log(addLinkedList(lla1, llb1));
 
 module.exports = {Node: Node, addLinkedList: addLinkedList};
