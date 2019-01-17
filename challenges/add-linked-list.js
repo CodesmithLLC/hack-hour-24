@@ -18,31 +18,59 @@ function Node(val) {
 }
 
 function addLinkedList(l1, l2) {
-  let total = 0;
-  let places = 0;
-  function actuallyAdd(LL) {
-    countPlaces(LL);
-    let placeTotal = LL.value;
-    for (let i = 0; i < places; i += 1) {
-      placeTotal *= 10;
+  let l1tracker = l1;
+  let l2tracker = l2;
+  let head = null;
+  let prevNode = null;
+  let carryOver = null;
+
+  while (l1tracker || l2tracker || carryOver) {
+    let sum = l1tracker.value + l2tracker.value + carryOver;
+    carryOver = 0;
+    if (sum > 9) {
+      carryOver = 1;
+      sum -= 10;
     }
-    places -= 1;
-    total += placeTotal;
-    if (this.next) {
-      actuallyAdd(this.next);
+
+    if (prevNode) {
+      prevNode.next = new Node(sum);
+      prevNode = prevNode.next;
+    } else if (!head) {
+      head = new Node(sum);
+      prevNode = head;
     }
+    l1tracker = l1tracker.next;
+    l2tracker = l2tracker.next;
   }
-  function countPlaces(LList) {
-    if (LList.next) {
-      places += 1;
-      countPlaces(LList.next);
-    }
-    if (!LList.next) {
-      actuallyAdd(LList);
-    }
-  }
-  actuallyAdd(l1);
-  actuallyAdd(l2);
+  return head;
+
+
+
+  // let total = 0;
+  // let places = 0;
+  // function actuallyAdd(LL) {
+  //   countPlaces(LL);
+  //   let placeTotal = LL.value;
+  //   for (let i = 0; i < places; i += 1) {
+  //     placeTotal *= 10;
+  //   }
+  //   places -= 1;
+  //   total += placeTotal;
+  //   if (this.next) {
+  //     actuallyAdd(this.next);
+  //   }
+  // }
+  // function countPlaces(LList) {
+  //   if (LList.next) {
+  //     places += 1;
+  //     countPlaces(LList.next);
+  //   }
+  //   if (!LList.next) {
+  //     actuallyAdd(LList);
+  //   }
+  // }
+  // actuallyAdd(l1);
+  // actuallyAdd(l2);
 }
 
 // const lla1 = new Node(3);
