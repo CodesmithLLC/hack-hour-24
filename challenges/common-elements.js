@@ -37,37 +37,38 @@
 
 
 // // method 1: using an object
-// function commonElements() {
-//   // make a new set out of each array to eliminate duplicates
-//   const args = [...arguments];
-//   const argSets = args.map(subArr => [...new Set(subArr)]);
+function commonElements() {
+  // make a new set out of each array to eliminate duplicates
+  const args = [...arguments];
+  const argSets = args.map(subArr => [...new Set(subArr)]);
 
-//   // tally up ocurrences of each num/word
-//   const cache = argSets.reduce((a, b) => {
-//     b.forEach(el => {
-//       if (!a[el]) a[el] = 1;
-//       else a[el] += 1;
-//     });
-//     return a;
-//   }, {});
+  // tally up ocurrences of each num/word
+  const cache = argSets.reduce((a, b) => {
+    b.forEach(el => {
+      if (!a[el]) a[el] = 1;
+      else a[el] += 1;
+    });
+    return a;
+  }, {});
   
-//   // if num/word tallies up to args length, push to output
-//   const output = [];
-//   for (const key in cache) {
-//     if (cache[key] === args.length) output.push(key * 1 || key);
-//   }
+  // if num/word tallies up to args length, push to output
+  const output = [];
+  for (const key in cache) {
+    if (cache[key] === args.length) output.push(key * 1 || key);
+  }
 
-//   // if no common elements, return "Nothing in Common!"
-//   if (output.length === 0) return "Nothing in Common!";
-//   return output;
-// }
+  // if no common elements, return "Nothing in Common!"
+  if (output.length === 0) return "Nothing in Common!";
+  return output;
+}
 
 // // method 2: using HOF's
+// this doesn't work:
 
-function commonElements() {
-  const args = [...arguments].slice(1);
-  const filtered = arguments[0].filter(el => args.every(subArr => subArr.includes(el)));
-  const uniques = [...new Set(filtered)];
-  return uniques;
-}
+// function commonElements() {
+//   const args = [...arguments].slice(1);
+//   const filtered = arguments[0].filter(el => args.every(subArr => subArr.includes(el)));
+//   const uniques = [...new Set(filtered)];
+//   return uniques;
+// }
 module.exports = commonElements;
