@@ -63,6 +63,7 @@
 // }
 
 // // method 2: using HOF's
+
 function commonElements() {
   const args = [...arguments].slice(1);
   const filtered = arguments[0].filter(el => args.every(subArr => subArr.includes(el)));
