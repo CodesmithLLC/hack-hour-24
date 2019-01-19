@@ -34,18 +34,21 @@ function balancedParens(input) {
       p += 1;
     }
     if (input[i] === ')') {
+      if (b > 0 || c > 0) { return false; }
       p -= 1;
     }
     if (input[i] === '[') {
       b += 1;
     }
     if (input[i] === ']') {
+      if (p > 0 || c > 0) { return false; }
       b -= 1;
     }
     if (input[i] === '{') {
       c += 1;
     }
     if (input[i] === '}') {
+      if (b > 0 || p > 0) { return false; }
       c -= 1;
     }
     if (p < 0 || b < 0 || c < 0) {
