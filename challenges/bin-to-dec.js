@@ -38,4 +38,5 @@ function decToBin(decimal) {
   return binary;
 }
 
+
 module.exports = binToDec;
