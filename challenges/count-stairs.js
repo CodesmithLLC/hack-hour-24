@@ -34,5 +34,6 @@ function countStairs(n) {
   return totalWays;
 }
 
+
 console.log(countStairs(5));
 module.exports = countStairs;

@@ -13,6 +13,7 @@
 
 */
 
+
 function drawStairs(n) {
     // loop to log each line
     for (let i = n; i >= 1; i--){
