@@ -13,6 +13,14 @@
  */
 
 function bestProfit(stock_prices_yesterday) {
+  if (!Array.isArray(stock_prices_yesterday)) {
+    return 0;
+  }
+  for (let i = 0; i < stock_prices_yesterday.length; i += 1) {
+    if (typeof stock_prices_yesterday[i] !== 'number') {
+      return 0;
+    }
+  }
   // declare maxProfit = 0;
   let maxProfit = 0;
   // set opening value to lowVal
