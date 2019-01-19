@@ -9,12 +9,22 @@
 // countTwos(11420);  -> 4483
 
 
-function countTwos(num) {
-  const let numDigits = num.toString().length;
-  let result = 0;
-  for (let i = numDigits.length; i > 0; i -= 1) {
+const numOfTwos = (str) => {
+  let twos = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === '2') twos += 1;
   }
-}
+  return twos;
+};
+
+const countTwos = (num) => {
+  let total = 0;
+  while (num > 0) {
+    total += numOfTwos(String(num));
+    num -= 1;
+  }
+  return total;
+};
 
 
 
