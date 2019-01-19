@@ -25,41 +25,35 @@
  */
 
 function balancedParens(input) {
-      var p = 0; 
-      var b = 0; 
-      var c = 0;
+  const neededParens = [];
 
   for (let i = 0; i < input.length; i += 1) {
     if (input[i] === '(') {
-      p += 1;
+      neededParens.push(')');
     }
     if (input[i] === ')') {
-      if (b > 0 || c > 0) { return false; }
-      p -= 1;
+      if (neededParens.pop() !== ')') return false;
     }
     if (input[i] === '[') {
-      b += 1;
+      neededParens.push(']');
     }
     if (input[i] === ']') {
-      if (p > 0 || c > 0) { return false; }
-      b -= 1;
+      if (neededParens.pop() !== ']') return false;
     }
     if (input[i] === '{') {
-      c += 1;
+      neededParens.push('}');
     }
     if (input[i] === '}') {
-      if (b > 0 || p > 0) { return false; }
-      c -= 1;
-    }
-    if (p < 0 || b < 0 || c < 0) {
-      return false;
+      if (neededParens.pop() !== '}') return false;
     }
   }
-  if (p === 0 && b === 0 && c === 0) {
-    return true;
-  }
-  return false;
+  return (neededParens.length === 0);
 }
+
+// console.log(balancedParens('[](){}'))  // 
+// console.log(balancedParens('[({})]')) // 
+// console.log(balancedParens('[(]{)}'))  //
+
 
 
 module.exports = balancedParens;
