@@ -44,14 +44,16 @@ EventEmitter.prototype.trigger = function (funcName, ...args) {
   }
 };
 
-let instance = new EventEmitter();
-let counter = 0;
-instance.on('increment', () => {
-  counter += 1;
-}); // counter should be 0
-console.log(counter);
-instance.trigger('increment'); // counter should be 1
-console.log(counter);
-instance.trigger('increment'); // counter should be 2
-console.log(counter);
+// let instance = new EventEmitter();
+// let counter = 0;
+// instance.on('increment', () => {
+//   counter += 1;
+// }); // counter should be 0
+// console.log(counter);
+// instance.trigger('increment'); // counter should be 1
+// console.log(counter);
+// instance.trigger('increment'); // counter should be 2
+// console.log(counter);
+
+
 module.exports = EventEmitter;
