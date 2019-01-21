@@ -21,6 +21,23 @@ eachPermutation([1, 2, 3], function(perm) {
 */
 
 function eachPermutation(arr, callback) {
+  const permutations = [];
+
+  function helperFunc(permutation, arr) {
+    if (arr.length === 0) {
+      permutations.push(permutation);
+    } else {
+      for (let i = 0; i < arr.length; i += 1) {
+        const thisArr = arr.slice(0);
+        const thisPermutation = permutation.slice(0);
+        let removedItem = thisArr.splice(i, 1)[0];
+        thisPermutation.push(removedItem);
+        helperFunc(thisPermutation, thisArr);
+      }
+    }
+  }
+  helperFunc([], arr);
+  permutations.forEach(perm => callback(perm));
 
 }
 
