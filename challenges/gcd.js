@@ -8,7 +8,16 @@
  */
 
 function gcd(a, b) {
-
+  let lesser = Math.min(a, b);
+  for (let i = 2; i <= lesser; i += 1) {
+    let divNum = b / i;
+    if (divNum === Math.floor(divNum)) {
+      if (a / divNum === Math.floor(a / divNum)) {
+        return divNum;
+      }
+    }
+  }
 }
+
 
 module.exports = gcd;
