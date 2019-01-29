@@ -28,7 +28,7 @@ function solveKnapsack(items, weightAvailable) {
     }
   }
 
-  
+
   sKRecursive(items);
   const withinWeight = everyCombination.filter(comb => comb.weight <= weightAvailable);
 
@@ -37,6 +37,7 @@ function solveKnapsack(items, weightAvailable) {
   );
 
 }
+
 
 // items = [
 //   { weight: 1, value: 3 },
