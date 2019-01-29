@@ -12,7 +12,47 @@
 
 
 function knightjumps(str) {
-
+  const x = +str[1];
+  const y = +str[3];
+  let result = 8;
+  // if x is 2 or 7, subtract 2
+  if (x === 2 || x === 7) {
+    result -= 2;
+    // if y is 2 or 7 subtract 2
+    if (y === 2 || y === 7) {
+      result -= 2;
+    }
+    // if y is 1 or 8 subtract 3
+    if (y === 1 || y === 8) {
+      result -= 3;
+    }
+  }
+  // if x is 1 or 8, subtract 4
+  if (x === 1 || x === 8) {
+    result -= 4;
+    // if y is 2 or 7 subtract 1
+    if (y === 2 || y === 7) {
+      result -= 1;
+    }
+    // if y is 1 or 8 subtract 2
+    if (y === 1 || y === 8) {
+      result -= 2;
+    }
+  }
+  // if x is 3-6
+  if (x > 2 && x < 7) {
+    // if y is 1 or 8 subtract 4
+    if (y === 1 || y === 8) {
+      result -= 4;
+    }
+    // if y is 2 or 7 subtract 2
+    if (y === 2 || y === 7) {
+      result -= 2;
+    }
+  }
+  return result;
 }
 
+
+//console.log(knightjumps('(2 2)'));
 module.exports = knightjumps;
