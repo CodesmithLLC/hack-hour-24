@@ -8,11 +8,13 @@ function highestProduct(array) {
   const slicedArr = array.slice(0, 3);
   let result = slicedArr.shift();
   for (let i = 0; i < slicedArr.length; i += 1) {
-    if (slicedArr[i] > 0) {
+    if (slicedArr[i] >= 1) {
       result *= slicedArr[i];
     }
   }
   return result;
 }
+
+//console.log(highestProduct([2, 3, 4, 5, 6, 7]));
 
 module.exports = highestProduct;
