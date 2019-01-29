@@ -4,17 +4,14 @@
 
 
 function highestProduct(array) {
-  array.sort((a, b) => b - a);
-  const slicedArr = array.slice(0, 3);
-  let result = slicedArr.shift();
-  for (let i = 0; i < slicedArr.length; i += 1) {
-    if (slicedArr[i] >= 1) {
-      result *= slicedArr[i];
-    }
-  }
-  return result;
+  array.sort((a, b) => a - b);
+  const lowNums = array.slice(0, 2);
+  const highNums = array.slice(array.length - 3);
+  const result1 = lowNums.reduce((acc, cur) => acc * cur, highNums[2]);
+  const result2 = highNums.reduce((acc, cur) => acc * cur);
+  return Math.max(result1, result2);
 }
 
-//console.log(highestProduct([2, 3, 4, 5, 6, 7]));
+console.log(highestProduct([-2, -50, 4, 5, 6, 7]));
 
 module.exports = highestProduct;
