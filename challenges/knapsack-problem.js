@@ -47,6 +47,8 @@ function solveKnapsack(items, weightAvailable) {
 // console.log(solveKnapsack(items, 5)); // returns 7 (from items[0] and items[1])
 // // solveKnapsack(items, 5); // returns 9 (from items[1] and items[2])
 
+
+
 module.exports = solveKnapsack;
 
 
