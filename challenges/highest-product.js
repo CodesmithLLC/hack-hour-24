@@ -12,6 +12,5 @@ function highestProduct(array) {
   return Math.max(result1, result2);
 }
 
-console.log(highestProduct([-2, -50, 4, 5, 6, 7]));
 
 module.exports = highestProduct;
