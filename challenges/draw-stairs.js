@@ -15,19 +15,22 @@
 
 
 function drawStairs(n) {
-    // Represent each line of stairs by a string of leading spaces with a string of blocks
+
+  // loop to log each line
+  for (let i = n; i >= 1; i--) {
+    // set each string to empty and then add to it
     let line = '';
-    // Populate the line with blank spaces equal to the height of the stairs
-    for (let i = 0; i < n; i += 1) {
-      line += ' ';
+    // use a loop to add the correct amount of spaces
+    for (let j = 1; j <= n; j++) {
+      if (j >= i) {
+        line += '*';
+      } else {
+        line += ' ';
+      }
     }
-    // For each row: remove a leading space and add a block to the end of line, then print that line
-    for (let i = 0; i < n; i += 1) {
-      line = line.substring(1);
-      line += '*';
-      console.log(line);
-    }
+    console.log(line);
   }
+}
 
 drawStairs(3);
 

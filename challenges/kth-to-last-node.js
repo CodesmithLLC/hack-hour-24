@@ -27,7 +27,7 @@ function kthToLastNode(k, head) {
   let current = head;
 
   for (let i = 0; i < k - 1; i++) {
-    lead = lead.next
+    lead = lead.next;
   }
 
   while (lead.next) {
@@ -38,31 +38,30 @@ function kthToLastNode(k, head) {
   return current.value;
 
 
+  // // my original solution:
+  //  function Node(val) {
+  //   this.value = val;
+  //   this.next = null;
+  // }
 
-// // my original solution:
-//  function Node(val) {
-//   this.value = val;
-//   this.next = null;
-// }
+  // function kthToLastNode(k, head) {
+  //   let currentVal = head;
+  //   let nodeCount = 1;
 
-// function kthToLastNode(k, head) {
-//   let currentVal = head;
-//   let nodeCount = 1;
+  //   // find out how many items are in linked list:
+  //   while (currentVal.next) {
+  //     nodeCount += 1;
+  //     currentVal = currentVal.next;
+  //   }
 
-//   // find out how many items are in linked list:
-//   while (currentVal.next) {
-//     nodeCount += 1;
-//     currentVal = currentVal.next;
-//   }
-
-//   // find item. go down list nodeCount - k times.
-//   currentVal = head;
-//   for (let i = 0; i < nodeCount - k; i += 1) {
-//     currentVal = currentVal.next;
-//   }
+  //   // find item. go down list nodeCount - k times.
+  //   currentVal = head;
+  //   for (let i = 0; i < nodeCount - k; i += 1) {
+  //     currentVal = currentVal.next;
+  //   }
 
 //   return currentVal.value;
 }
 
 
-module.exports = {Node: Node, kthToLastNode: kthToLastNode}
+module.exports = { Node, kthToLastNode };

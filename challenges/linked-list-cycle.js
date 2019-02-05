@@ -27,10 +27,10 @@
  *
  */
 
-var Node = function(value) {
+let Node = function (value) {
   this.value = value;
   this.next = null;
-}
+};
 
 function hasCycle(head) {
   let node1 = head;
@@ -40,7 +40,6 @@ function hasCycle(head) {
     if (node2.next.next) {
       node1 = node1.next;
       node2 = node2.next.next;
-
     }
 
     if (node1 === node2) {
@@ -60,4 +59,4 @@ function hasCycle(head) {
 // node5.next = node2;
 // hasCycle(node1); // => true
 
-module.exports = {Node: Node, hasCycle: hasCycle}
+module.exports = { Node, hasCycle };
