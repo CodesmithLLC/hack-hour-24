@@ -28,20 +28,26 @@ function Node(val) {
 function kthToLastNode(k, head) {
   // edge cases: nonpositive k and null head
   if (k <= 0 || !head) return;
-
-  let lead = head;
-  let current = head;
-
-  for (let i = 0; i < k - 1; i += 1) {
+  
+  // define lead and follow
+  let lead = head, follow = head;
+  // move lead forward k - 1 times, or until lead reaches last node
+  // let i be the number of times we still need to move the lead
+  let i = k - 1;
+  while (i > 0 && lead.next) {
     lead = lead.next;
+    i--;
   }
-
+  // if last node was reached before lead could move k - 1 times, return
+  if (i > 0) return;
+  // shuttle lead and follow until lead reaches last node
   while (lead.next) {
     lead = lead.next;
-    current = current.next;
+    follow = follow.next;
   }
-
-  return current.value;
+  // return the follow's value
+  return follow.value;
+}
 
 
   // // my original solution:
