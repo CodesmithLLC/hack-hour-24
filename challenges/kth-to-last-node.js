@@ -23,12 +23,10 @@ function Node(val) {
 }
 
 
-
-
 function kthToLastNode(k, head) {
   // edge cases: nonpositive k and null head
   if (k <= 0 || !head) return;
-
+  
   // define lead and follow
   let lead = head, follow = head;
   // move lead forward k - 1 times, or until lead reaches last node
@@ -47,7 +45,25 @@ function kthToLastNode(k, head) {
   }
   // return the follow's value
   return follow.value;
-}
+// }
+
+// function kthToLastNode(k, head) {
+//   // edge cases: nonpositive k and null head
+//   if (k <= 0 || !head) return;
+  
+//   let lead = head;
+//   let current = head;
+
+//   for (let i = 0; i < k - 1; i += 1) {
+//     lead = lead.next;
+//   }
+
+//   while (lead.next) {
+//     lead = lead.next;
+//     current = current.next;
+//   }
+
+//   return current.value;
 
 
   // // my original solution:
@@ -73,6 +89,7 @@ function kthToLastNode(k, head) {
   //   }
 
 //   return currentVal.value;
+}
 
 
 module.exports = { Node, kthToLastNode };
