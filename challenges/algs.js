@@ -1,24 +1,22 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
-// function flattenDeep(arr) {
+function flattenDeep(arr) {
+  // create result arr
+  let result = [];
+  // iterate through arr
+  arr.forEach((elem) => {
+    // if number, push onto result arr
+    if (!Array.isArray(elem)) {
+      result.push(elem);
+    } else {
+      // if array push result of flattenDeep(nested) onto result arr
+      result = result.concat(flattenDeep(elem));
+    }
+  });
 
-//   // create result arr
-//   let result = [];
-//   // iterate through arr
-//   arr.forEach((elem) => {
-//     // if number, push onto result arr
-//     if (!Array.isArray(elem)) {
-//       result.push(elem)
-//     } else {
-//       // if array push result of flattenDeep(nested) onto result arr
-//       result = result.concat(flattenDeep(elem));
-//     }
-
-//   })
-
-//   // return result arr
-//   return result;
-// }
+  // return result arr
+  return result;
+}
 
 // const testArr = [3, [4, 5], 2, [[6, 7], [2]]];
 // console.log(flattenDeep(testArr));
