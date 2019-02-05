@@ -73,7 +73,6 @@ function kthToLastNode(k, head) {
   //   }
 
 //   return currentVal.value;
-}
 
 
 module.exports = { Node, kthToLastNode };
