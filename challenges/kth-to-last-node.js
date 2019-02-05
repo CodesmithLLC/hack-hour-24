@@ -23,7 +23,7 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
-  if (!head) return;
+  if (head === undefined) return undefined;
   let lead = head;
   let current = head;
 
