@@ -23,10 +23,11 @@ function Node(val) {
 }
 
 function kthToLastNode(k, head) {
+  if (!head) return;
   let lead = head;
   let current = head;
 
-  for (let i = 0; i < k - 1; i++) {
+  for (let i = 0; i < k - 1; i += 1) {
     lead = lead.next;
   }
 
