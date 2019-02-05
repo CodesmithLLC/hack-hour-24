@@ -22,8 +22,13 @@ function Node(val) {
   this.next = null;
 }
 
+
+
+
 function kthToLastNode(k, head) {
-  if (typeof head !== 'object') return undefined;
+  // edge cases: nonpositive k and null head
+  if (k <= 0 || !head) return;
+
   let lead = head;
   let current = head;
 
