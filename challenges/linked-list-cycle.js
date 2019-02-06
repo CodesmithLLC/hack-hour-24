@@ -35,15 +35,14 @@ let Node = function (value) {
 function hasCycle(head) {
   if (!head) return false;
   const store = new Set();
-  let nodesNum = 0;
   let currNode = head;
+  store.add(currNode);
   if (currNode.next) {
-    nodesNum += 1;
-    store.add(currNode);
-    if (nodesNum !== store.size) {
+    currNode = currNode.next;
+    if (store.has(currNode)) {
       return true;
     }
-    currNode = currNode.next;
+    store.add(currNode);
   }
   return false;
 }
