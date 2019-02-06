@@ -32,38 +32,44 @@ let Node = function (value) {
   this.next = null;
 };
 
-// function hasCycle(head) {
-//   let node1 = head;
-//   let node2 = head;
-//   let isLoop = false;
-//   while (true) {
-//     if (node2.next.next) {
-//       node1 = node1.next;
-//       node2 = node2.next.next;
-//     }
-
-//     if (node1 === node2) {
-//       isLoop = true;
-//       break;
-//     }
-//   }
-//   return isLoop;
-// }
-
 function hasCycle(head) {
-  // edge cases
-  if (!head || !head.next) return false;
-  // declare vars
-  let tortoise = head;
-  let hare = head.next;
-  // race our tortoise and hare
-  while (hare.next.next) {
-    if (tortoise === hare) return true;
-    tortoise = tortoise.next;
-    hare = hare.next.next;
+  if (!head) return false;
+  const store = new Set();
+  let nodesNum = 0;
+  let currNode = head;
+  if (currNode.next) {
+    nodesNum += 1;
+    store.add(currNode);
+    if (nodesNum !== store.size) {
+      return true;
+    }
+    currNode = currNode.next;
   }
   return false;
 }
+
+
+
+
+
+
+
+
+
+// function hasCycle(head) {
+//   // edge cases
+//   if (!head || !head.next) return false;
+//   // declare vars
+//   let tortoise = head;
+//   let hare = head.next;
+//   // race our tortoise and hare
+//   while (hare.next.next) {
+//     if (tortoise === hare) return true;
+//     tortoise = tortoise.next;
+//     hare = hare.next.next;
+//   }
+//   return false;
+// }
 
 
 // var node1 = new Node('1');
