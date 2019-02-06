@@ -33,16 +33,13 @@ let Node = function (value) {
 };
 
 function hasCycle(head) {
-  if (!head) return false;
-  const store = new Set();
-  let currNode = head;
-  store.add(currNode);
-  if (currNode.next) {
-    currNode = currNode.next;
-    if (store.has(currNode)) {
-      return true;
-    }
-    store.add(currNode);
+  if (!head || !head.next) return false;
+  let tortoise = head;
+  let hare = head.next;
+  while (hare.next.next) {
+    if (hare === tortoise) return true;
+    hare = hare.next.next;
+    tortoise = tortoise.next;
   }
   return false;
 }
@@ -70,14 +67,13 @@ function hasCycle(head) {
 //   return false;
 // }
 
-
-// var node1 = new Node('1');
-// var node2 = node1.next = new Node('2');
-// var node3 = node2.next = new Node('3');
-// var node4 = node3.next = new Node('4');
-// var node5 = node4.next = new Node('5');
+var node1 = new Node('1');
+var node2 = node1.next = new Node('2');
+var node3 = node2.next = new Node('3');
+var node4 = node3.next = new Node('4');
+var node5 = node4.next = new Node('5');
 // console.log(hasCycle(node1)); // => false
-// node5.next = node2;
-// hasCycle(node1); // => true
+node5.next = node2;
+hasCycle(node1); // => true
 
 module.exports = { Node, hasCycle };
