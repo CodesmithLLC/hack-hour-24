@@ -15,9 +15,7 @@
 
 
 function mergeRanges(array) {
-  const sortedArr = array.sort( (arrA, arrB) => {
-    return arrA[0] - arrB[0];
-  });
+  const sortedArr = array.sort((arrA, arrB) => arrA[0] - arrB[0]);
   const mergedRanges = [sortedArr[0]];
   for (let i = 1; i < sortedArr.length; i += 1) {
     let merged = false;
