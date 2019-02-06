@@ -3,39 +3,35 @@
 //takes a string and returns true if every word is closed by its backwards counterpart. Words must be separated by space or 
 //punctuation.
 
-// matchWord('__END_DNE-----');  -> true
-// matchWord('__ENDDNE__');  -> false       (not separated by a space)
-// matchWord('IF()()fi[]');  -> true        (should be case-insensitive)
-// matchWord('for__if__rof__fi');  -> false     not properly closed. like ( [) ] 
-// matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw');  -> true
-// matchWord('');  -> true
+// console.log(matchWord('__END_DNE-----'));//  -> true
+// console.log(matchWord('__ENDDNE__')) //;  -> false       (not separated by a space)
+// console.log(matchWord('IF()()fi[]'))//;  -> true        (should be case-insensitive)
+// console.log(matchWord('for__if__rof__fi'))//;  -> false     not properly closed. like ( [) ] 
+// console.log(matchWord('%%$@$while  try ! yrt  for if_fi rof #*#  elihw'))//;  -> true
+// console.log(matchWord(''))//;  -> true
 
 
 function matchWord(str) {
-  let str = '%%$@$while  try ! yrt  for if_fi rof #*#  elihw'
-
-
-  str = str.replace(/[^\w\s]|_/g, "")
-          .replace(/\s+/g, " ");
-
-  const strArr = str.split(' ');
+  if (str === '') return true;
+  str = str.replace(/[^\w\s]|_/g, " ").replace(/\s+/g, " ").toLowerCase();
+  let strArr = str.split(' ');
+  strArr = strArr.filter(word => word.length > 0);
   return arrTester(strArr);
-
 }
 
-const arrTester = function(strArray){
-  if (strArray.length === 0) {
-    return true
-  }
-  let endStr = strArray.pop();
-  for (let i = 0; i < strArr.length; i += 1) {
-    if (strArray[i] === endStr.split('').reverse().join()) {
-      strArray.splice(i, 1);
-      return arrTester(strArray);
+function arrTester(strArray) {
+  let newArr = [];
+  newArr.unshift(strArray.shift());
+
+  while (strArray.length > 0) {
+    if (newArr[0] === strArray[0].split('').reverse().join('')) {
+      newArr.shift();
+      strArray.shift();
+    } else {
+      newArr.unshift(strArray.shift());
     }
   }
-  return false;
-
+  return newArr.length === 0;
 }
 
 module.exports = matchWord;
