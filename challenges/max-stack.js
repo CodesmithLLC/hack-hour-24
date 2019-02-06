@@ -40,7 +40,5 @@ Stack.prototype.getMax = function() {
   return this.max[this.max.length - 1];
 }
 
-let newStack = new Stack();
-
 
 module.exports = Stack;
