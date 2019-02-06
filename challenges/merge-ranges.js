@@ -20,24 +20,14 @@ function mergeRanges(array) {
   for (let i = 1; i < sortedArr.length; i += 1) {
     let curr = sortedArr[i];
     let last = mergedRanges[mergedRanges.length - 1];
-    if (curr[0] <= last[1]) {
-      last[1] = curr[1];
-    } else {
+    if (curr[0] > last[1]) {
       mergedRanges.push(curr);
+    } else if (curr[1] > last[1]) {
+      last[1] = curr[1];
     }
   }
-  // while (sortedArr.length > 0) {
-  //   if (sortedArr[0][0] <= mergedRanges[mergedRanges.length - 1][1]) {
-  //     mergedRanges[mergedRanges.length - 1][1] = sortedArr[0][1];
-  //     sortedArr.shift();
-  //   } else {
-  //     mergedRanges.push(sortedArr.shift());
-  //   }
-  // }
   return mergedRanges;
 }
-
-
 // function mergeRanges(array) {
 //   array.sort(function(a, b) {
 //     return a[0] - b[0];
@@ -55,10 +45,9 @@ function mergeRanges(array) {
 //   return result;
 // }
 
-// var times = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
+var times = [[0, 1], [3, 5], [4, 8], [10, 15], [11, 13]];
 
+console.log('answer: ', mergeRanges(times)); // -> [[0, 1], [3, 8], [9, 12]]
 
-
-// console.log('answer: ', mergeRanges(times)); // -> [[0, 1], [3, 8], [9, 12]]
 
 module.exports = mergeRanges;

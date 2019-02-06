@@ -37,20 +37,20 @@
 function mergeArrays(arr1, arr2) {
   const result = [];
   while (arr1.length > 0 || arr2.length > 0) {
-    if (arr1.length === 0 || (arr2[0] < arr1[0])) {
-      result.push(arr2.shift());
-    }
-    if (arr2.length === 0 || (arr1[0] <= arr2[0])) {
-      result.push(arr1.shift());
+    if (arr1.length === 0 || (arr2[arr2.length - 1] > arr1[arr1.length - 1])) {
+      result.unshift(arr2.pop());
+    } else if (arr2.length === 0 || (arr1[arr1.length - 1] >= arr2[arr2.length - 1])) {
+      result.unshift(arr1.pop());
     }
   }
   return result;
 }
 
 
-// var my_array = [3,4,6,10,11,15,21];
-// var another_array = [1,5,8,12,14,19];
+// var my_array = [3,4,6,10,11,21];
+// var another_array = [1,5,8,12,14,19,20];
 // console.log(mergeArrays(my_array, another_array));
+
 
 module.exports = mergeArrays;
 
