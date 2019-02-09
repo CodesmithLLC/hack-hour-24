@@ -27,14 +27,15 @@ Challange:
 */
 
 function missingNum(Array) {
-  Array.sort((a, b) => a - b);
+  let arrayTotal = 0;
+  let totalTotal = 0;
   for (let i = 0; i < Array.length; i += 1) {
-    if (i + 1 !== Array[i]) {
-      return i + 1;
-    }
+    arrayTotal += Array[i];
+    totalTotal += (i + 1);
   }
-};
-
+  totalTotal += (Array.length + 1);
+  return totalTotal - arrayTotal;
+}
 
 
 module.exports = missingNum;
