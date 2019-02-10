@@ -39,29 +39,31 @@ function newIntersections(x, y) {
   const xCoordsFixed = {};
   const yCoordsFixed = {};
 
-  for (const prop in xCoords) {
-    if (xCoords[prop].length > 1) {
-      xCoordsFixed[prop] = [Math.min.apply(null, xCoords[+prop]), Math.max.apply(null, xCoords[+prop])];
+  Object.keys(xCoords).forEach((key) => {
+    if (xCoords[key].length > 1) {
+      xCoordsFixed[key] = [Math.min.apply(null, xCoords[+key]), Math.max.apply(null, xCoords[+key])];
     }
-  }
+  });
 
-  for (const prop in yCoords) {
-    if (yCoords[prop].length > 1) {
-      yCoordsFixed[prop] = [Math.min.apply(null, yCoords[+prop]), Math.max.apply(null, yCoords[+prop])];
+
+  Object.keys(yCoords).forEach((key) => {
+    if (yCoords[key].length > 1) {
+      yCoordsFixed[key] = [Math.min.apply(null, yCoords[+key]), Math.max.apply(null, yCoords[+key])];
     }
-  }
+  });
+
   let pointCount = 0;
-  for (const xProp in xCoordsFixed) {
-    for (const yProp in yCoordsFixed) {
-      if (xProp > yCoordsFixed[yProp][0] && xProp < yCoordsFixed[yProp][1] && yProp > xCoordsFixed[xProp][0] && yProp < xCoordsFixed[xProp][1]) {
+  Object.keys(xCoordsFixed).forEach((xKey) => {
+    Object.keys(yCoordsFixed).forEach((yKey) => {
+      if (xKey > yCoordsFixed[yKey][0] && xKey < yCoordsFixed[yKey][1] && yKey > xCoordsFixed[xKey][0] && yKey < xCoordsFixed[xKey][1]) {
         pointCount += 1;
       }
-    }
-  }
+    });
+  });
 
   return pointCount;
 }
 
-// console.log(newIntersections([0, 1, 5, 2, 2], [3, 1, 3, 0, 5]));
+//  console.log(newIntersections([0, 1, 5, 2, 2], [3, 1, 3, 0, 5]));
 
 module.exports = newIntersections;
