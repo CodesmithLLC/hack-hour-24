@@ -37,4 +37,5 @@ function modemean(array) {
 }
 
 
+
 module.exports = modemean;
