@@ -11,7 +11,7 @@
  */
 
 function repeatNumbers(array) {
-  const max = Math.max(array);
+  const max = array.length - 1;
   const sumMinusDouble = (max / 2) * (1 + max);
   let totalSum = 0;
   for (let i = 0; i < array.length; i += 1) {
