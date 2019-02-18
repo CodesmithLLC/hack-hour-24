@@ -23,3 +23,5 @@ function subsetSum(array, target, sum = 0) {
 // console.log(subsetSum([8, -2, 1, -3], 6));
 
 module.exports = subsetSum;
+
+
