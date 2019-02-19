@@ -12,7 +12,19 @@ function Node(val) {
 }
 
 function zip(l1, l2) {
-};
+  let head = l1;
+  let curr1 = l1;
+  let curr2 = l2;
+  while (curr1 !== null && curr2 !== null) {
+    let l1Next = curr1.next;
+    let l2Next = curr2.next;
+    curr1.next = curr2;
+    curr2.next = l1Next;
+    curr1 = l1Next;
+    curr2 = l2Next;
+  }
+  return head;
+}
 
 module.exports = {Node: Node, zip: zip};
 
